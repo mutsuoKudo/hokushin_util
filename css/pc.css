@@ -176,7 +176,7 @@ span.tel {
   display: block;
   line-height: 1.3;
   letter-spacing: 0.05em;
-  border-left: solid 1px #d6c6af;
+  border-left: solid 1px #f8c26a;
   text-decoration: none;
   margin-top: 8px;
   padding: 6px 38px 2px 38px;
@@ -193,7 +193,8 @@ span.tel {
 }
 
 #header-menu span.sub {
-  color: #b29164;
+  /* color: #b29164; */
+  color: #F39E15;
 }
 
 .clearfix:after {
@@ -271,13 +272,13 @@ span.tel {
 
 #contents h2.page_title {
   margin: 0 0 18px 0;
-  padding: 18px 0 18px 30px !important;
+  padding: 5px 0 5px 30px !important;
   line-height: 1.7;
   font-size: 20px;
   color: #581201;
   border: none;
   text-align: left;
-  background-image: url(../img/page_title.gif);
+  background-image: url(../img/page_title.png);
   background-repeat: no-repeat;
 }
 
@@ -387,6 +388,62 @@ span.tel {
   line-height: 1.7;
   font-size: 16px;
 }
+
+/* ---------PC table (takahashi)----- */
+
+.pclist_button{
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pclist_button_color1{
+  color: #808000;
+}
+
+.pclist_button_color2{
+  color: #daa520
+}
+
+
+
+.pc_table{
+  border: 1px solid green;
+  border-collapse: collapse;
+  text-align:center;
+  width: 1024px
+}
+
+.pc_table th {
+  border: 1px solid green;
+}
+
+.pc_table td {
+  border: 1px solid green;
+  background-color: #F0FFFF;
+  font-size: 1px;
+}
+
+.top_cell_color1{
+  background-color: #90EE90;
+}
+
+.top_cell_color2{
+  background-color: #66CC99;
+}
+
+.top_cell_color3{
+  background-color: #A7B99F;
+}
+
+.middle_cell_color{
+  background-color: #AFEEEE
+}
+
+
+
+
+
 
 
 /*---------- ３コンテンツ・ボックス ----------*/
