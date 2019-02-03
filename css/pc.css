@@ -407,11 +407,11 @@ span.tel {
 
 
 
-.pc_table{
+#contents .pc_table{
   border: 1px solid green;
   border-collapse: collapse;
   text-align:center;
-  width: 1024px
+  width: 1022px
 }
 
 .pc_table th {
