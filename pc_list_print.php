@@ -21,7 +21,7 @@
 
 
         <?php
-        include_once('../../lib/db_main.php');
+        include_once('lib/db_main.php');
 //全案件取得
         $db = new db;
         $query = "SELECT * FROM pc_list";
@@ -47,7 +47,7 @@
         print("<th bgcolor='' width='96'>運用期間</th>");
         print("<th bgcolor=''>備考</th>");
         print("</tr>");
-        while ($row = mysql_fetch_array($res)) {
+        foreach ($pc_list as $row) {
             $i = $i + 1;
             if ($i > 10) {
                 $i = 1;

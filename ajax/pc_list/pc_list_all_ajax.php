@@ -87,9 +87,9 @@
                     print(' <th width="60px">ﾒｰｶｰ</th>');
                     print('<th width="60px">型番</th>');
                     print('<th width="80px">CPU</th>');
-                    print('<th width="30px">Ｍ</th>');
+                    print('<th width="30px">ﾒﾓﾘ</th>');
                     print('<th width="80px">OS</th>');
-                    print('<th width="60px">オフィス</th>');
+                    print('<th width="60px">ｵﾌｨｽ</th>');
                     print('<th width="40px">状態</th>');
                     print('<th width="70px">使用場所</th>');
                     print('<th width="60px">使用者</th>');
@@ -108,9 +108,9 @@
                             print('<th width="60px">ﾒｰｶｰ</th>');
                             print('<th width="60px">型番</th>');
                             print('<th width="80px">CPU</th>');
-                            print('<th width="30px">メモリ</th>');
+                            print('<th width="30px">ﾒﾓﾘ</th>');
                             print('<th width="80px">OS</th>');
-                            print('<th width="60px">オフィス</th>');
+                            print('<th width="60px">ｵﾌｨｽ</th>');
                             print('<th width="40px">状態</th>');
                             print('<th width="70px">使用場所</th>');
                             print('<th width="60px">使用者</th>');
