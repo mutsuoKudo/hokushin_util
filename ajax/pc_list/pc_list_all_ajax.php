@@ -14,18 +14,20 @@
         <script src="js/css3-mediaqueries.js"></script>
         <![endif]-->
         <?php
+//        var_dump($_GET['shiteiroom']);
+//        var_dump($_GET['shiteinumber']);
         require('../../lib/jQueryadd.php');
         ?>
-            <script><!--
-                function chgpic_apear(pic_name) {
-                $('#phot1').css("visibility", "visible");
-                        $('#r_photo').attr("src", pic            _name);
-                  }
-            function pic_hidden() {
-            $('#phot1').css("visibility", "hi                            dden");
+        <script><!--
+            function chgpic_apear(pic_name) {
+                    $('#phot1').css("visibility", "visible");
+                            $('#r_photo').attr("src", pic            _name);
             }
-            /--></script>	
-                <style>
+                function pic_hidden() {
+                $('#phot1').css("visibility", "hi                            dden");
+                }
+                /--></script>	
+            <style>
                         <!-- 
                         form{
                             display:inline;
@@ -67,6 +69,9 @@
                     $query = $query . " LEFT OUTER JOIN jyotai_tbl jt ON pl.jyotai = jt.id";
                     $query = $query . " LEFT OUTER JOIN room_tbl rm ON pl.room_id = rm.id";
                     $query = $query . " LEFT OUTER JOIN shain si ON pl.user_id = si.shain_cd";
+                    if ($_GET['shiteiroom'] != "全部") {
+                        $query = $query . " WHERE si.department = " . $_GET['shiteinumber'];
+                    }
                     $query = $query . " ORDER BY pl.id";
 
 //                    var_dump($query);
@@ -80,8 +85,8 @@
                     print(' <th colspan="4" class="top_cell_color2">ＨＷ/ＳＷ情報</th>');
 
                     print('<th colspan="7" class="top_cell_color3">所在情報等<form action="pc_list_print.php" target="_blank" method="get">
-                    <input type="hidden" name="shiteinumber" value="">
-                    <input type="hidden" name="shiteiroom" value="全部">
+                    <input type="hidden" name="shiteinumber" value="' . $_GET["shiteinumber"] . '">
+                    <input type="hidden" name="shiteiroom" value="' . $_GET["shiteiroom"] . '">
                     <input type="submit" value="印刷" onclick=\'return confirm("印刷用ページが表示されたら、\nブラウザの印刷ボタンで印刷してください。\n印刷が終了したら印刷用ページはブラウザで閉じて下さい。");\'></form></th>');
 
                     print('</tr>');
