@@ -92,17 +92,17 @@
                     print('<th width="100x">NO.</th>');
                     print('<th width="80px">ﾒｰｶｰ</th>');
                     print('<th width="70px">型番</th>');
-                    print('<th width="65px">CPU</th>');
+                    print('<th width="75px">CPU</th>');
                     print('<th width="40px">ﾒﾓﾘ</th>');
                     print('<th width="75px">OS</th>');
                     print('<th width="80px">ｵﾌｨｽ</th>');
                     print('<th width="50px">状態</th>');
                     print('<th width="75px">使用場所</th>');
-                    print('<th width="100px">使用者</th>');
+                    print('<th width="80px">使用者</th>');
                     print('<th width="70px">購入日</th>');
                     print('<th width="55px">価格</th>');
-                    print('<th width="95px">運用期間</th>');
-                    print('<th width="65px">備考</th> ');
+                    print('<th width="85px">運用期間</th>');
+                    print('<th width="85px">備考</th> ');
                     print('</tr>');
                     foreach ($pc_list as $row) {
 //                        var_dump($row);
@@ -113,17 +113,17 @@
                             print('<th width="100px">NO.</th>');
                             print('<th width="80px">ﾒｰｶｰ</th>');
                             print('<th width="70px">型番</th>');
-                            print('<th width="60px">CPU</th>');
+                            print('<th width="75px">CPU</th>');
                             print('<th width="40px">ﾒﾓﾘ</th>');
                             print('<th width="75px">OS</th>');
                             print('<th width="80px">ｵﾌｨｽ</th>');
                             print('<th width="50px">状態</th>');
                             print('<th width="75px">使用場所</th>');
-                            print('<th width="100px">使用者</th>');
+                            print('<th width="80px">使用者</th>');
                             print('<th width="70px">購入日</th>');
                             print('<th width="55px">価格</th>');
-                            print('<th width="90px">運用期間</th>');
-                            print('<th width="65px">備考</th> ');
+                            print('<th width="85px">運用期間</th>');
+                            print('<th width="85px">備考</th> ');
                             print('</tr>');
                         }
                         print('<tr>');
@@ -152,8 +152,8 @@
                         print("<td>" . $row['b_ymd'] . "</td>");
                         print("<td>" . $row['price'] . "</td>");
                         print("<td>" . $row['term'] . "</td>");
-                        if (strlen($row['biko']) > 15) {
-                            $biko_comment = substr($row['biko'], 0, 15) . "･･･";
+                        if (strlen($row['biko']) > 21) {
+                            $biko_comment = substr($row['biko'], 0, 21) . "･･･";
                         } else {
                             $biko_comment = $row['biko'];
                         }
