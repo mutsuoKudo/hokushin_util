@@ -24,7 +24,7 @@
                             function () {
                                 $("#ajax1_1").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_1'></p>");
-                                $("#ajax2_1").load("ajax/pc_list/pc_list_all_ajax.php")
+                                $("#ajax2_1").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=全部&shiteinumber=")
                             },
                             function () {
                                 $("#ajax1_1").css("color", "goldenrod");
@@ -35,7 +35,7 @@
                             function () {
                                 $("#ajax1_2").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_2'></p>");
-                                $("#ajax2_2").load("ajax/pc_list/pc_list_kanribu_ajax.php")
+                                $("#ajax2_2").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=管理部&shiteinumber=02")
                             },
                             function () {
                                 $("#ajax1_2").css("color", "goldenrod");
@@ -46,7 +46,7 @@
                             function () {
                                 $("#ajax1_3").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_3'></p>");
-                                $("#ajax2_3").load("ajax/pc_list/pc_list_eigyobu_ajax.php")
+                                $("#ajax2_3").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=営業部&shiteinumber=03")
                             },
                             function () {
                                 $("#ajax1_3").css("color", "goldenrod");
@@ -57,7 +57,7 @@
                             function () {
                                 $("#ajax1_4").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_4'></p>");
-                                $("#ajax2_4").load("ajax/pc_list/pc_list_kaihatsubu_ajax.php")
+                                $("#ajax2_4").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=システム開発部&shiteinumber=04")
                             },
                             function () {
                                 $("#ajax1_4").css("color", "goldenrod");
@@ -68,7 +68,7 @@
                             function () {
                                 $("#ajax1_5").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_5'></p>");
-                                $("#ajax2_5").load("ajax/pc_list/pc_list_kenshusei_ajax.php")
+                                $("#ajax2_5").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=研修者&shiteinumber=05")
                             },
                             function () {
                                 $("#ajax1_5").css("color", "goldenrod");
@@ -79,7 +79,7 @@
                             function () {
                                 $("#ajax1_6").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_6'></p>");
-                                $("#ajax2_6").load("ajax/pc_list/pc_list_mochidashi_ajax.php")
+                                $("#ajax2_6").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=持ち出し&shiteinumber=06")
                             },
                             function () {
                                 $("#ajax1_6").css("color", "goldenrod");

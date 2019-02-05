@@ -67,7 +67,7 @@
                     $query = $query . " LEFT OUTER JOIN jyotai_tbl jt ON pl.jyotai = jt.id";
                     $query = $query . " LEFT OUTER JOIN room_tbl rm ON pl.room_id = rm.id";
                     $query = $query . " LEFT OUTER JOIN shain si ON pl.user_id = si.shain_cd";
-                    $query = $query . " WHERE si.department = 02";
+                    $query = $query . " WHERE si.department = '02'";
                     $query = $query . " ORDER BY pl.id";
 
 //                    var_dump($query);
