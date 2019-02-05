@@ -80,24 +80,27 @@
                     print('<th colspan="3" class="top_cell_color1">識別情報</th>');
                     print(' <th colspan="4" class="top_cell_color2">ＨＷ/ＳＷ情報</th>');
 
-                    print('<th colspan="7" class="top_cell_color3">所在情報等<form action="pc_list_print.php?shiteiroom=すべて target="_blank" method="get"><input type="hidden" name="shiteiroom" value="すべて"><input type="submit" value="印刷" onclick=\'return confirm("印刷用ページが表示されたら、\nブラウザの印刷ボタンで印刷してください。\n印刷が終了したら印刷用ページはブラウザで閉じて下さい。");\'></form></th>');
+                    print('<th colspan="7" class="top_cell_color3">所在情報等<form action="pc_list_print.php" target="_blank" method="get">
+                    <input type="hidden" name="shiteinumber" value="03">
+                    <input type="hidden" name="shiteiroom" value="営業部">
+                    <input type="submit" value="印刷" onclick=\'return confirm("印刷用ページが表示されたら、\nブラウザの印刷ボタンで印刷してください。\n印刷が終了したら印刷用ページはブラウザで閉じて下さい。");\'></form></th>');
 
                     print('</tr>');
                     print('<tr class="middle_cell_color">');
-                    print('<th width="100px">NO.</th>');
-                    print(' <th width="60px">ﾒｰｶｰ</th>');
-                    print('<th width="60px">型番</th>');
-                    print('<th width="80px">CPU</th>');
-                    print('<th width="30px">ﾒﾓﾘ</th>');
-                    print('<th width="80px">OS</th>');
-                    print('<th width="60px">ｵﾌｨｽ</th>');
-                    print('<th width="40px">状態</th>');
-                    print('<th width="70px">使用場所</th>');
-                    print('<th width="60px">使用者</th>');
+                    print('<th width="100x">NO.</th>');
+                    print('<th width="80px">ﾒｰｶｰ</th>');
+                    print('<th width="70px">型番</th>');
+                    print('<th width="65px">CPU</th>');
+                    print('<th width="40px">ﾒﾓﾘ</th>');
+                    print('<th width="75px">OS</th>');
+                    print('<th width="80px">ｵﾌｨｽ</th>');
+                    print('<th width="50px">状態</th>');
+                    print('<th width="75px">使用場所</th>');
+                    print('<th width="100px">使用者</th>');
                     print('<th width="70px">購入日</th>');
-                    print('<th width="70px">価格</th>');
-                    print('<th width="80px">運用期間</th>');
-                    print('<th width="84px">備考</th> ');
+                    print('<th width="55px">価格</th>');
+                    print('<th width="95px">運用期間</th>');
+                    print('<th width="65px">備考</th> ');
                     print('</tr>');
                     foreach ($pc_list as $row) {
 //                        var_dump($row);
@@ -106,19 +109,19 @@
                             $i = 1;
                             print('<tr class="middle_cell_color">');
                             print('<th width="100px">NO.</th>');
-                            print('<th width="60px">ﾒｰｶｰ</th>');
-                            print('<th width="60px">型番</th>');
-                            print('<th width="80px">CPU</th>');
-                            print('<th width="30px">ﾒﾓﾘ</th>');
-                            print('<th width="80px">OS</th>');
-                            print('<th width="60px">ｵﾌｨｽ</th>');
-                            print('<th width="40px">状態</th>');
-                            print('<th width="70px">使用場所</th>');
-                            print('<th width="60px">使用者</th>');
+                            print('<th width="80px">ﾒｰｶｰ</th>');
+                            print('<th width="70px">型番</th>');
+                            print('<th width="60px">CPU</th>');
+                            print('<th width="40px">ﾒﾓﾘ</th>');
+                            print('<th width="75px">OS</th>');
+                            print('<th width="80px">ｵﾌｨｽ</th>');
+                            print('<th width="50px">状態</th>');
+                            print('<th width="75px">使用場所</th>');
+                            print('<th width="100px">使用者</th>');
                             print('<th width="70px">購入日</th>');
-                            print('<th width="70px">価格</th>');
-                            print('<th width="80px">運用期間</th>');
-                            print('<th width="84px">備考</th> ');
+                            print('<th width="55px">価格</th>');
+                            print('<th width="90px">運用期間</th>');
+                            print('<th width="65px">備考</th> ');
                             print('</tr>');
                         }
 
@@ -136,11 +139,11 @@
                         print("<td>" . $row['os_name'] . "</td>");
                         print("<td>" . $row['of_name'] . "</td>");
                         if ($row['jt_name'] == "待機") {
-                            print("<td bgcolor='silver'>" . $row['jt_name'] . "</td>");
+                            print("<td class='wait_bgcolor'>" . $row['jt_name'] . "</td>");
                         } else if ($row['jt_name'] == "故障") {
-                            print("<td bgcolor='lightpink'>" . $row['jt_name'] . "</td>");
+                            print("<td class='broken_bgcolor'>" . $row['jt_name'] . "</td>");
                         } else {
-                            print("<td bgcolor=''>" . $row['jt_name'] . "</td>");
+                            print("<td>" . $row['jt_name'] . "</td>");
                         }
                         print("<td>" . $row['place'] . "</td>");
 //                        print("<td onmouseover='pic_name=\"" . $row['pic'] . "\";chgpic_apear(pic_name);' onmouseout='pic_hidden()'>" . $row['employee'] . "</td>");
@@ -148,8 +151,8 @@
                         print("<td>" . $row['b_ymd'] . "</td>");
                         print("<td>" . $row['price'] . "</td>");
                         print("<td>" . $row['term'] . "</td>");
-                        if (strlen($row['biko']) > 18) {
-                            $biko_comment = substr($row['biko'], 0, 18) . "･･･";
+                        if (strlen($row['biko']) > 15) {
+                            $biko_comment = substr($row['biko'], 0, 15) . "･･･";
                         } else {
                             $biko_comment = $row['biko'];
                         }

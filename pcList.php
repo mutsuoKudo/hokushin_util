@@ -217,15 +217,22 @@
 
                             <section>
 
-                                <h2>お問い合わせはコチラ</h2>
-
-                                <div class="gray_bg_contact">
-
-                                    <p><img src="img/icon.gif" alt="icon"> <b>電話番号</b>： <span class="red_b">00-0000-0000</span>　<img src="img/icon.gif" alt="icon"> <b>FAX</b>： <span class="red_b">00-0000-0000</span><br>
-                                        ご不明な点がございましたら、まずはお気軽にご相談下さい。<br>
-                                        <b><a href="contact.html">→メールでのお問い合わせ</a></b></p>
-
-                                </div>
+                            <p>&nbsp;</p>
+                            
+                            <h2 class="page_title">最新情報＆更新情報</h2>
+                            
+                            <div id="news">
+                            20xx.4.10 <a href="#">新サービスを開始いたしました。</a><br>
+                            <hr class="line">
+                            20xx.3.26 <a href="#">新サービスについてのプレスリリースをご覧ください。</a><br>
+                            <hr class="line">
+                            20xx.3.10 <a href="#">天賦会館でセミナーを行ないました。</a><br>
+                            <hr class="line">
+                            20xx.3.08 <a href="#">会社概要ページを更新しました。</a><br>
+                            <hr class="line">
+                            
+                            
+                            </div>
 
 
 

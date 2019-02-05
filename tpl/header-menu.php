@@ -9,9 +9,9 @@
   <ul class="clearfix">
     <li class="home"><a href="index.php">ホーム<br /><span class="sub">home</span></a></li>
     <li><a href="pcList.php">PCリスト<br /><span class="sub">pc list</span></a></li>
-    <li><a href="information.html">業務内容<br /><span class="sub">infomation</span></a></li>
-    <li><a href="profile.html">会社概要<br /><span class="sub">profile</span></a></li>
-    <li><a href="faq.html">よくあるご質問<br /><span class="sub">faq</span></a></li>
-    <li><a href="contact.html">お問い合わせ<br /><span class="sub">contact</span></a></li>
+    <li><a href="information.php">週報閲覧<br /><span class="sub">report</span></a></li>
+    <li><a href="profile.php">営業案件管理<br /><span class="sub">opportunity</span></a></li>
+    <li><a href="faq.php">求人情報管理<br /><span class="sub">information</span></a></li>
+    <li><a href="contact.php">SES・派遣先管理<br /><span class="sub">ses</span></a></li>
    </ul>
 </nav>

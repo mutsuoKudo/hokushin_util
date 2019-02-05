@@ -149,7 +149,7 @@ span.tel {
 #header-menu {
   clear: both;
   width: 100%;
-  margin: 6px 0 0 0;
+  margin: 6px 0 0 60px;
   padding: 0;
   height: 56px;
   text-align: left;
@@ -231,7 +231,7 @@ span.tel {
 /*---------- コンテンツ ----------*/
 
 #container {
-  width: 1024px;
+  width: 1200px;
   margin: 0 auto 0 auto;
   overflow: hidden;
   padding: 6px 0 10px 0;
@@ -245,7 +245,7 @@ span.tel {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  width: 1024px;
+  width: 1200px;
   letter-spacing: 0.05em;
   text-align: left;
   line-height: 1.7;
@@ -407,11 +407,11 @@ span.tel {
 
 
 
-#contents .pc_table{
+.pc_table{
   border: 1px solid green;
   border-collapse: collapse;
   text-align:center;
-  width: 1022px
+  width: 1198px
 }
 
 .pc_table th {
@@ -441,6 +441,13 @@ span.tel {
 }
 
 
+.wait_bgcolor{
+  background-color: silver !important;
+}
+
+.broken_bgcolor{
+  background-color: lightpink !important;
+}
 
 
 
@@ -496,7 +503,7 @@ img.picture_r {
 
 /*---------- 表（テーブル） ----------*/
 
-table.t01 {
+/* table.t01 {
   width: 530px;
   padding: 4px;
   border: solid 1px #cccccc;
@@ -555,7 +562,7 @@ td.table_line {
   border: solid 1px #999999;
   padding: 12px 14px 8px 14px;
   width: auto;
-}
+} */
 
 
 /*---------- フッター ----------*/
