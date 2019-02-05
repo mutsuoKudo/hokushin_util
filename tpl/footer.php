@@ -1,6 +1,6 @@
 <?php ?>
 <footer id="footer">
-    <a href="index.php.html">ホーム</a>　|　<a href="goaisatu.html">PCリスト</a>　|　<a href="information.html">業務内容</a>　|　<a href="profile.html">会社概要</a>　|　<a href="faq.html">よくあるご質問</a>　|　<a href="contact.html">お問い合わせ</a>　|　<a href="link.html">リンク</a>　|　<a href="sitemap.html">サイトマップ</a>
+    <a href="index.php.html">ホーム</a>　|　<a href="goaisatu.html">PCリスト</a>　|　<a href="information.html">週報閲覧</a>　|　<a href="profile.html">営業案件管理</a>　|　<a href="faq.html">求人情報管理</a>　|　<a href="contact.html">SES・派遣先管理</a>　|　<a href="link.html">リンク</a>　|　<a href="sitemap.html">サイトマップ</a>
     <br>
     <br>
     <address>
