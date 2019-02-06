@@ -59,7 +59,6 @@
 
                     <section>
 
-                        <h2>当サービスが選ばれている３つの特徴</h2>
 
 
 
@@ -68,21 +67,45 @@
                         <div class="box">
 
                             <div class="box1">
-                                <p><img src="img/point01.jpg" alt="point01"></p>
-                                <p><span class="b_big">選ばれる特徴1</span><br>
-                                    こちらにはbox1の本文や写真を掲載してください。こちらにはbox1の本文や写真を掲載してください。</p>
+                                <p><img src="img/bounenkai.png" alt="bounenkai" ></p>
+                                <p><span class="b_big">2018年 忘年会</span></p>
                             </div>
 
                             <div class="box2">
-                                <p><img src="img/point02.jpg" alt="point02"></p>
-                                <p><span class="b_big">選ばれる特徴2</span><br>
-                                    こちらにはbox2の本文や写真を掲載してください。こちらにはbox2の本文や写真を掲載してください。</p>
+                                <p><img src="img/konshinkai.png" alt="konnsshinkai" ></p>
+                                <p><span class="b_big">2018年 全社会＆懇親会</span></p>
                             </div>
 
                             <div class="box3">
-                                <p><img src="img/point03.jpg" alt="point03"></p>
-                                <p><span class="b_big">選ばれる特徴3</span><br>
-                                    こちらにはbox3の本文や写真を掲載してください。こちらにはbox3の本文や写真を掲載してください。</p>
+                            <?php
+                            include_once('lib/db_main.php');
+                    
+                            $db = new db;       
+                            $query = "SELECT ";
+                            $query = $query . "shain_birthday ";
+                            $query = $query . ",shain_mei ";
+                            $query = $query . ", CURDATE() As kyo ";
+                            $query = $query . " FROM shain ";
+                            $query = $query . " WHERE DATE_FORMAT(shain_birthday, '%m%d') = DATE_FORMAT(CURDATE(), '%m%d') ";
+                            // $query = $query . " WHERE DATE_FORMAT(shain_birthday, '%m%d') = '0611'";
+                                    // var_dump($query); 
+                                 $shain = $db->get_all($query);
+                                    // var_dump($shain); 
+                                if(count($shain) != 0){
+                                    print('<img src="img/birthday2.jpg" alt="birthday" class="position" >');                              
+                                 foreach ($shain as $row) {
+                                     print('<div class= "box3_text">');                             
+                                     print( $row['shain_mei']. 'さん');                              
+                                     print('</br>');                                                        
+                                     print('</div>');
+                                    }
+                                    print('<p><span class= "b_big">今日のお誕生日</span></p>');
+                                }else{
+                                    print('<img src="img/birthday.jpg" alt="not-birthday" class="position" >');
+                                    print('<p><span class= "b_big">  </span></p>');
+                                    }
+                                // }    
+                            ?>
                             </div>
 
                         </div>
@@ -92,7 +115,7 @@
                         <br>
 
                     </section>
-                    <section>
+                    <!-- <section>
 
                         <h2>天賦事務所からのごあいさつ</h2>
 
@@ -127,20 +150,33 @@
 
                         <hr class="line">
 
-                        <p>&nbsp;</p>
+                        <p>&nbsp;</p> -->
 
                         <h2 class="page_title">最新情報＆更新情報</h2>
 
                         <div id="news">
-                            20xx.4.10 <a href="#">新サービスを開始いたしました。</a><br>
-                            <hr class="line">
-                            20xx.3.26 <a href="#">新サービスについてのプレスリリースをご覧ください。</a><br>
-                            <hr class="line">
-                            20xx.3.10 <a href="#">天賦会館でセミナーを行ないました。</a><br>
-                            <hr class="line">
-                            20xx.3.08 <a href="#">会社概要ページを更新しました。</a><br>
-                            <hr class="line">
-                        </div>
+                            <?php
+                            include_once('lib/db_main.php');
+                    
+                            $db = new db;       
+                            $query = "SELECT ";
+                            $query = $query . "ixn.date AS date ";
+                            $query = $query . ",ixn.news AS news ";
+                            $query = $query . " FROM index_news ixn";
+                            $query = $query . " ORDER BY ixn.date desc";
+                            $query = $query . " LIMIT 8";
+
+                            //  var_dump($query); 
+                            $index_news = $db->get_all($query);
+//  var_dump($index_news); 
+                            foreach ($index_news as $row) {
+
+                            print( $row['date'] . ':<a href="#">' . $row['news'] .'</a><br>');
+                            print('<hr class="line">');
+                            }
+                            ?>
+
+                            </div>
 
 
                         <p class="back"><a href="#header"><img class="scroll" src="img/pagetop.png" alt="ページトップに戻る"></a></p>
