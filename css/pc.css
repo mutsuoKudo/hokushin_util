@@ -63,7 +63,7 @@ body {
 #header #header_inner {
   width: 1024px;
   height: 130px;  /*-- 高さ --*/
-  padding: 4px 0 4px 0;  /*-- 余白 --*/
+  /* padding: 4px 0 4px 0;  -- 余白 -- */
   margin: 0 auto 0 auto;
 }
 
@@ -107,6 +107,8 @@ body {
 #h_info{
   margin: 0;
   padding: 8px 0 0 0;  /*-- info画像 位置 --*/
+  width: 350px;
+  height: 115px;
   text-align: right;
   font-size: 16px;
   color: #555555;
@@ -149,9 +151,9 @@ span.tel {
 #header-menu {
   clear: both;
   width: 100%;
-  margin: 6px 0 0 60px;
+  margin: 0 0 0 60px;
   padding: 0;
-  height: 56px;
+  height: 50px;
   text-align: left;
 }
 
@@ -179,7 +181,7 @@ span.tel {
   border-left: solid 1px #f8c26a;
   text-decoration: none;
   margin-top: 8px;
-  padding: 6px 38px 2px 38px;
+  padding: 0 38px 2px 38px;
 }
 
 #header-menu li a:hover {
@@ -188,7 +190,7 @@ span.tel {
 }
 
 #header-menu li.home a {
-  padding: 6px 38px 2px 38px;
+  padding: 0 38px 2px 38px;
   border-left: none;
 }
 
@@ -217,7 +219,7 @@ span.tel {
 
 #header-img {
   width: 100%;
-  margin: 12px 0 12px 0;
+  /* margin: 12px 0 12px 0; */
   text-align: center;
   background-image: url(../img/head_img_bg.png);
 }
@@ -252,8 +254,8 @@ span.tel {
 }
 
 #contents #pannavi {
-  margin: 0 0 6px 0;
-  padding: 0 0 8px 0;
+  /* margin: 0 0 6px 0;
+  padding: 0 0 8px 0; */
   font-size: 15px;
 }
 
@@ -263,7 +265,7 @@ span.tel {
 
 #contents h2 {
   height: auto;
-  margin: 0 0 14px 0;
+  margin: 0 0 5spx 0;
   padding: 5px 0 0 0;
   font-size: 30px;
   color: #990000;
@@ -271,8 +273,8 @@ span.tel {
 }
 
 #contents h2.page_title {
-  margin: 0 0 18px 0;
-  padding: 5px 0 5px 30px !important;
+  margin: 0 0 5px 0;
+  padding: 5px 0 0 30px !important;
   line-height: 1.7;
   font-size: 20px;
   color: #581201;
@@ -392,7 +394,7 @@ span.tel {
 /* ---------PC table (takahashi)----- */
 
 .pclist_button{
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   font-size: 16px;
   font-weight: bold;
 }
