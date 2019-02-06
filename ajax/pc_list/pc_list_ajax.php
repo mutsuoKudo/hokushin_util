@@ -82,7 +82,7 @@
                     print('<table class="pc_table">');
                     print('<tr>');
                     print('<th colspan="3" class="top_cell_color1">識別情報</th>');
-                    print(' <th colspan="4" class="top_cell_color2">ＨＷ/ＳＷ情報</th>');
+                    print('<th colspan="4" class="top_cell_color2">ＨＷ/ＳＷ情報</th>');
 
                     print('<th colspan="7" class="top_cell_color3">所在情報等<form action="pc_list_print.php" target="_blank" method="get">
                     <input type="hidden" name="shiteinumber" value="' . $_GET["shiteinumber"] . '">

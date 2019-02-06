@@ -151,7 +151,7 @@ span.tel {
 #header-menu {
   clear: both;
   width: 100%;
-  margin: 0 0 0 60px;
+  margin: 0 0 0 50px;
   padding: 0;
   height: 50px;
   text-align: left;
@@ -385,7 +385,7 @@ span.tel {
 }
 
 #contents p {
-  margin: 15px 0 15px 0;
+  /* margin: 15px 0 15px 0; */
   padding: 0 2px 0 2px;
   line-height: 1.7;
   font-size: 16px;
@@ -413,7 +413,8 @@ span.tel {
   border: 1px solid green;
   border-collapse: collapse;
   text-align:center;
-  width: 1198px
+  width: 1198px;
+  margin: 5px 0 0 0;
 }
 
 .pc_table th {
@@ -475,11 +476,19 @@ span.tel {
   margin: 0 4px 0 4px;
 }
 
+.box1 p{
+  text-align: center;
+}
+
 .box2 {
   float: left;
   width: 31.4%;
   padding: 4px;
   margin: 0 4px 0 4px;
+}
+
+.box2 p{
+  text-align: center;
 }
 
 .box3 {
@@ -488,6 +497,40 @@ span.tel {
   padding: 4px;
   margin: 0 4px 0 4px;
 }
+
+.box3 p{
+  text-align: center;
+}
+
+.position{
+  position: relative;
+}
+
+.box3_text{
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 230px;
+  right: 250px;
+}
+
+.box3_name1{
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 230px;
+  right: 250px;
+}
+
+.box3_name2{
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 230px;
+  right: 250px;
+}
+
+
 
 
 /*---------- 画像の回り込み ----------*/

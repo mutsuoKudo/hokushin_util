@@ -163,7 +163,7 @@
 
                     <!-- メイン画像 ここから -->
                     <div id="header-img">
-                        <img src="img/head_img_pclist.png" alt="head_img_pclist" class="main_photo">
+                        <img src="img/head_img_slim.png" alt="head_img_slim" class="main_photo">
                     </div>
                     <!-- メイン画像 ここまで -->
 
