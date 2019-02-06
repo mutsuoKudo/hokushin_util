@@ -24,7 +24,7 @@
                             function () {
                                 $("#ajax1_1").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_1'></p>");
-                                $("#ajax2_1").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=全部&shiteinumber=")
+                                $("#ajax2_1").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=全部&shiteinumber=")
                             },
                             function () {
                                 $("#ajax1_1").css("color", "goldenrod");
@@ -35,7 +35,7 @@
                             function () {
                                 $("#ajax1_2").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_2'></p>");
-                                $("#ajax2_2").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=管理部&shiteinumber=02")
+                                $("#ajax2_2").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=管理部&shiteinumber=02")
                             },
                             function () {
                                 $("#ajax1_2").css("color", "goldenrod");
@@ -46,7 +46,7 @@
                             function () {
                                 $("#ajax1_3").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_3'></p>");
-                                $("#ajax2_3").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=営業部&shiteinumber=03")
+                                $("#ajax2_3").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=営業部&shiteinumber=03")
                             },
                             function () {
                                 $("#ajax1_3").css("color", "goldenrod");
@@ -57,7 +57,7 @@
                             function () {
                                 $("#ajax1_4").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_4'></p>");
-                                $("#ajax2_4").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=システム開発部&shiteinumber=04")
+                                $("#ajax2_4").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=システム開発部&shiteinumber=04")
                             },
                             function () {
                                 $("#ajax1_4").css("color", "goldenrod");
@@ -68,7 +68,7 @@
                             function () {
                                 $("#ajax1_5").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_5'></p>");
-                                $("#ajax2_5").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=研修者&shiteinumber=05")
+                                $("#ajax2_5").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=研修者&shiteinumber=05")
                             },
                             function () {
                                 $("#ajax1_5").css("color", "goldenrod");
@@ -79,7 +79,7 @@
                             function () {
                                 $("#ajax1_6").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_6'></p>");
-                                $("#ajax2_6").load("ajax/pc_list/pc_list_all_ajax.php?shiteiroom=持ち出し&shiteinumber=06")
+                                $("#ajax2_6").load("ajax/pc_list/pc_list_ajax.php?shiteiroom=持ち出し&shiteinumber=06")
                             },
                             function () {
                                 $("#ajax1_6").css("color", "goldenrod");
@@ -149,11 +149,8 @@
                     <!-- ヘッダー -->
 
                     <header id="header">
-
-                        <!-- <h1>こちらには、メインキーワードや紹介文を入れてください</h1> -->
-
                         <div id="header_inner">
-                         <!-- <div id="h_logo"><h2><a href="index.html"><img src="img/logo.png" alt="サイト・タイトル"></a></h2></div> -->
+                        <!-- <div id="h_logo"><h2><a href="index.html"><img src="img/logo.png" alt="サイト・タイトル"></a></h2></div> --!>
                             <div id="h_info"><img src="img/tel_img.png" alt="information"></div>
                         </div>
 
@@ -166,7 +163,7 @@
 
                     <!-- メイン画像 ここから -->
                     <div id="header-img">
-                        <img src="img/head_img_slim.png" alt="head_img_slim" class="main_photo">
+                        <img src="img/head_img_pclist.png" alt="head_img_pclist" class="main_photo">
                     </div>
                     <!-- メイン画像 ここまで -->
 
@@ -207,32 +204,46 @@
                                 <p id="ajax2">
                                 </p>
 
+
+
                                 <hr class="line" id="ajax3">
 
-                                <p>&nbsp;</p>
+                                
 
 
                             </SECTION>
 
 
                             <section>
-
-                            <p>&nbsp;</p>
                             
                             <h2 class="page_title">最新情報＆更新情報</h2>
-                            
                             <div id="news">
-                            20xx.4.10 <a href="#">新サービスを開始いたしました。</a><br>
-                            <hr class="line">
-                            20xx.3.26 <a href="#">新サービスについてのプレスリリースをご覧ください。</a><br>
-                            <hr class="line">
-                            20xx.3.10 <a href="#">天賦会館でセミナーを行ないました。</a><br>
-                            <hr class="line">
-                            20xx.3.08 <a href="#">会社概要ページを更新しました。</a><br>
-                            <hr class="line">
-                            
-                            
+                            <?php
+                            include_once('lib/db_main.php');
+                    
+                            $db = new db;       
+                            $query = "SELECT ";
+                            $query = $query . "plk.kousinbi AS koushinbi ";
+                            $query = $query . ",plk.naiyou AS naiyou ";
+                            $query = $query . " FROM pc_list_koshin plk";
+                            $query = $query . " ORDER BY plk.kousinbi desc";
+                            $query = $query . " LIMIT 8";
+
+                            /* var_dump($query); */
+                            $pc_list_koushin = $db->get_all($query);
+/* var_dump($pc_list_koushin); */
+                            foreach ($pc_list_koushin as $row) {
+
+                            print( $row['koushinbi'] . ':<a href="#">' . $row['naiyou'] .'</a><br>');
+                            print('<hr class="line">');
+                            }
+                            ?>
+
                             </div>
+                            
+          
+                            
+
 
 
 
