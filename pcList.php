@@ -86,6 +86,17 @@
                                 $("#ajax2_6").remove();
                             }
                     );
+                    $("#ajax1_7").clickToggle(
+                            function () {
+                                $("#ajax1_7").css("color", "olive");
+                                $("#ajax3").before("<p id='ajax2_7'></p>");
+                                $("#ajax2_7").load("ajax/pc_list/display_list_ajax.php?shiteiroom=ディスプレイ&shiteinumber=07")
+                            },
+                            function () {
+                                $("#ajax1_7").css("color", "goldenrod");
+                                $("#ajax2_7").remove();
+                            }
+                    );
                 });
                 $.fn.clickToggle = function (a, b) {
                     return this.each(function () {
@@ -121,6 +132,9 @@
                     #ajax1_6{
                         color:goldenrod;
                     }
+                    #ajax1_７{
+                        color:goldenrod;
+                    }
                     #ajax2_1{
                     }
                     #ajax2_2{
@@ -132,6 +146,8 @@
                     #ajax2_5{
                     }
                     #ajax2_6{
+                    }
+                    #ajax2_7{
                     }			
                     #ajax3{
                     }			
@@ -199,6 +215,7 @@
                                     <button class="pclist_button pclist_button_color2" id="ajax1_4">システム開発部</button>
                                     <button class="pclist_button pclist_button_color2" id="ajax1_5">研修生</button>
                                     <button class="pclist_button pclist_button_color2" id="ajax1_6">持ち出し</button>
+                                    <button class="pclist_button pclist_button_color2" id="ajax1_7">ディスプレイ</button>
                                 </div>
 
                                 <p id="ajax2">

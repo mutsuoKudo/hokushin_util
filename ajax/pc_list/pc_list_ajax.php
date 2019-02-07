@@ -74,9 +74,9 @@
                     }
                     $query = $query . " ORDER BY pl.id";
 
-//                    var_dump($query);
+                    //var_dump($query);
                     $pc_list = $db->get_all($query);
-//                    var_dump($pc_list[0]['id']);
+                   //var_dump($pc_list[0]['id']);
 
                     $i = 0;
                     print('<table class="pc_table">');
@@ -91,7 +91,7 @@
 
                     print('</tr>');
                     print('<tr class="middle_cell_color">');
-                    print('<th width="100x">NO.</th>');
+                    print('<th width="100px">NO.</th>');
                     print('<th width="80px">ﾒｰｶｰ</th>');
                     print('<th width="70px">型番</th>');
                     print('<th width="75px">CPU</th>');

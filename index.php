@@ -92,7 +92,7 @@
                                  $shain = $db->get_all($query);
                                     // var_dump($shain); 
                                 if(count($shain) != 0){
-                                    print('<img src="img/birthday2.jpg" alt="birthday" class="position" >');                              
+                                    print('<img src="img/birthday.jpg" alt="birthday" class="position" >');                              
                                  foreach ($shain as $row) {
                                      print('<div class= "box3_text">');                             
                                      print( $row['shain_mei']. 'さん');                              
@@ -101,10 +101,19 @@
                                     }
                                     print('<p><span class= "b_big">今日のお誕生日</span></p>');
                                 }else{
-                                    print('<img src="img/birthday.jpg" alt="not-birthday" class="position" >');
-                                    print('<p><span class= "b_big">  </span></p>');
+                                    $time = intval(date('H') + 8);//取得する時間がずれているので+8してあります
+                                    // var_dump($time);
+                                    if (8 <= $time && $time <= 12) { // 8時～12時の時間帯のとき
+                                    print('<img src="img/morning.png" alt="morning" class="position" >');
+                                    } elseif (13 <= $time && $time <= 16) { // 13時～17時の時間帯のとき
+                                        print('<img src="img/afternoon.png" alt="afternoon" class="position" >');
+                                    } elseif (17 <= $time && $time <= 20) { // 17時～20時の時間帯のとき
+                                        print('<img src="img/evening.png" alt="evening" class="position" >');
+                                    } else{// それ以外の時間帯のとき 
+                                        print('<img src="img/sleep.png" alt="sleep" class="position" >');
                                     }
-                                // }    
+                                }
+
                             ?>
                             </div>
 
