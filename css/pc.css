@@ -424,8 +424,8 @@ span.tel {
 .pc_table td {
   border: 1px solid green;
   background-color: #F0FFFF;
-  font-size: 1px;
-}
+  font-size: 0.6em;
+ }
 
 .top_cell_color1{
   background-color: #90EE90;
