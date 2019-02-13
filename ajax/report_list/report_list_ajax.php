@@ -26,7 +26,18 @@
             function pic_hidden() {
                 $('#phot1').css("visibility", "hidden");
                 }
-                /--></script>	
+                /-->
+       >
+                        function win_open_add() {
+                            window.open("report_list_ajax.php","",""); 
+                        }
+
+                        function win_open_delete() {
+                            window.open("information.php","",""); 
+                        }
+
+                
+                </script>	
             <style>
                         <!-- 
                         form{
@@ -45,11 +56,11 @@
                     $query = "SELECT ";
                     $query = $query . "si.shain_mei AS name ";
                     $query = $query . ",si.shain_cd AS shain_cd "; 
-                    $query = $query . ",si.shaion_mei_romaji AS r_name ";
+                    /* $query = $query . ",si.shaion_mei_romaji AS r_name "; */
                     $query = $query . " FROM shain si";
-                    /*何月のレポートを持ってくるか判定するところ 
-                    if ($_GET['shiteiroom'] != "1月") {
-                        $query = $query . " WHERE si.department = " . $_GET['shiteimonth'];
+                    /*何月のレポートを持ってくるか判定するところ
+                    if ($_GET['shiteimonth'] != "") {
+                        $query = $query . " WHERE  = "(レポート名の月の部分を入れる？？) . $_GET['shiteimonth'];
                     } */
                     $query = $query . " ORDER BY si.shain_cd";
 
@@ -61,20 +72,23 @@
                     print('<div class="scrool">');
                     print('<table class="pc_table">');
                     print('<tr>');
-                    print('<th colspan="1" class="top_cell_color1">名前</th>');
-                    print('<th colspan="31" class="top_cell_color2">$_GET["shiteimonth"]</th>');
+                    print('<th colspan="33" class="top_cell_color2">$_GET["shiteimonth"]</th>');
                     
                     print('</tr>');
 
                     print('<tr class="middle_cell_color">');
-                    print('<th width="200px"></th>');
+                    print('<th class="top_cell_color1" width="250px">名前</th>');
+                    print('<th class="top_cell_color1" width="105px">操作</th>');
              
-                    $y = 2019;
+                    $y = 2019; /*表示する西暦（year_buttonのvalue?）が入力されるようにする*/
                     $m = 3;
+                    /* $m = $_GET['shiteimonth'];    表示する月が入力されるようにする */
                     $d = 1;
                     while (checkdate($m, $d, $y)) {
-                    print('<th width="100px">'. $d .  '</th>');
+                    print('<th width="80px">' . $d . '</th>');
                     $d++;
+
+                    
                     }
                     print('</tr>');
                     
@@ -84,10 +98,12 @@
                         if ($i > 10) {
                             $i = 1;
                             print('<tr class="middle_cell_color">');
-                            print('<th width="200px"></th>');
+                            print('<th class="top_cell_color1" width="250px">名前</th>');
+                            print('<th class="top_cell_color1" width="105px">操作</th>');
 
-                            $y = 2019;
+                            $y = 2019;  /*表示する西暦が入力されるようにする*/
                             $m = 3;
+                            /* $m = $_GET['shiteimonth'];    表示する月が入力されるようにする */
                             $d = 1;
                             while (checkdate($m, $d, $y)) {
                                 print('<th width="100px">' . $d .  '</th>');
@@ -100,40 +116,32 @@
                         print('<tr>');
                         print('<td onclick="alert(\'shain_cd.=' . $row['shain_cd'] . '\')">' . $row['name'] . '</td>');
                         
+                        print('<td><form><input type="button" value="追加" onClick="win_open_add()"></form>
+                        　　　　　<form><input type="button" value="削除" onClick="win_open_delete()"></form></td>');
+
+                  
+
+                        /* print('<td><button width="100px">追加</button><button width="100px">削除</button></td>'); */
+                        
                         
                         for ($r_num =1; $r_num<=31; $r_num++) { 
-                        //foreach ($shain as $row) {
+                        /*foreach ($shain as $row) { */
 
-                        print("<td>○</td>");
-                        //print("<td ><a href='" . $row['report'] . "' target=\'_blank\'>○</a></td>");
-                        //↑　$row[]のなかにURLの入ったカラムを入れる(reportは仮名)
+                        print("<td><a href=''>○</a></td>");
+
+                        /*print("<td ><a href='" . $row['report'] . "' target=\'_blank\'>○</a></td>");
+                        ↑　$row[]のなかにURLの入ったカラムを入れる？？(reportは仮名)
+                        　　※データが入っているときと入っていない時の条件分岐*/
 
                         }
+
                     }
 
 
+                    print("</table>");
+                    print('</div>');
 
-
-
-
-//print('<td onclick="alert(\'serial no.=' . $row['serial_no'] . '\')">' . $row['id'] . '</td>');
-                        print("</tr>\n");
-                    
-//	mysql_free_result($res);
-//
-print("</table>");
-
-print('</div>');
-//	$sql2 = "SELECT count(id) FROM pc_tbl";
-//	$res2 = mysql_query( $sql2 );
-//	$row2 = mysql_fetch_array( $res2 ); 	
-////	print($row2[0]);
-//	$youso = $row2[0];
                     ?>
+        </body>
+    </html>
 
-<!--	<div style="position: relative; left:390px; top:-<?php print($youso * 26 + 174) ?>px; visibility:hidden;" id="phot1">
-        <img src="" id="r_photo">
-        </div>-->
-
-                </body>
-            </html>

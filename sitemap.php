@@ -71,7 +71,7 @@ require('tpl/header-menu.php');
 <h2 class="page_title">サイトマップ - メインメニュー</h2>
 
 <p>
-<img src="img/icon.gif" alt="icon"> <a href="index.php.html">ホーム</a><br>
+<img src="img/icon.gif" alt="icon"> <a href="index.php">ホーム</a><br>
 <img src="img/icon.gif" alt="icon"> <a href="pcList.php">PCリスト</a><br>
 <img src="img/icon.gif" alt="icon"> <a href="information.php">週報閲覧</a><br>
 <img src="img/icon.gif" alt="icon"> <a href="profile.php">営業案件管理</a><br>
