@@ -424,8 +424,8 @@ span.tel {
 .pc_table td {
   border: 1px solid green;
   background-color: #F0FFFF;
-  font-size: 1px;
-}
+  font-size: 0.6em;
+ }
 
 .top_cell_color1{
   background-color: #90EE90;
@@ -440,7 +440,7 @@ span.tel {
 }
 
 .middle_cell_color{
-  background-color: #AFEEEE
+  background-color: #AFEEEE;
 }
 
 
@@ -453,6 +453,32 @@ span.tel {
 }
 
 
+/* ---------selfmade_PC_tbl.php(takahashi)----- */
+.selfmade_PC_table{
+  border: 1px solid gray;
+  border-collapse: collapse;
+  text-align:center;
+  width: 800px;
+  margin: 5px 0 0 0;
+}
+
+.selfmade_PC_table th {
+  border: 1px solid gray;
+}
+
+.selfmade_PC_table td {
+  border: 1px solid gray;
+  background-color: white;
+  font-size: 0.6em;
+ }
+
+.self_top_cell_color1{
+  background-color: #E0E0E0;
+}
+
+.self_middle_cell_color{
+  background-color: #EEEEEE;
+}
 
 
 
