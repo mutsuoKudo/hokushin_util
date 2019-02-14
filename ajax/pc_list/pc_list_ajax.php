@@ -132,22 +132,13 @@
                         print('<tr>');
                         print('<td onclick="alert(\'serial no.=' . $row['serial_no'] . '\')">' . $row['id'] . '</td>');
 
-                        /*高橋がつくった条件分岐　↓型番が自作の場合、スペック詳細はselfmadE_PC_tblにリンク*/
                         print("<td >" . $row['maker_name'] . "</td>");
-                        if ($row['model_url'] != null){
-                            print("<td ><a href='" . $row['model_url'] . "' target=\'_blank\'>" . $row['model_name'] . "</a></td>");
-                        }elseif($row['model_name'] == "自作"){
-                            print("<td ><a href='ajax/pc_list/selfmade_PC_tbl.php' target=\'_blank\'>" . $row['model_name'] . "</a></td>");
-                        } else {
-                            print("<td >" . $row['model_name'] . "</td>");
-                        }
-                        /*
-                        工藤さんがつくった条件分岐
+                        
                          if ($row['model_name'] == "" || $row['model_url'] == "") {
                             print("<td >" . $row['model_name'] . "</td>");
                         } else {
                             print("<td ><a href='" . $row['model_url'] . "' target=\'_blank\'>" . $row['model_name'] . "</a></td>");
-                        } */
+                        }
                         print("<td>" . $row['pr_name'] . "</td>");
                         print("<td>" . $row['memory'] . "GB</td>");
                         print("<td>" . $row['os_name'] . "</td>");
