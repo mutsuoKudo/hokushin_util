@@ -21,84 +21,23 @@
             <script><!--
             jQuery(document).ready(function ($) {
                     // ここでは、$はjQueryとして使えます。	
-                    $("#ajax1_1").clickToggle(
+                    $("#ajax1_1").click(
                             function () {
                                 $("#ajax1_1").css("color", "olive");
                                 $("#ajax3").before("<p id='ajax2_1'></p>");
-                                $("#ajax2_1").load("ajax/report_list/report_list_ajax.php?shiteiroom=1月&shiteimonth=1")
-                            },
-                            function () {
-                                $("#ajax1_1").css("color", "goldenrod");
-                                $("#ajax2_1").remove();
+
+                                var loadhtml = "ajax/report_list/report_list_ajax.php?shiteiyear=" + $("#shiteiyear").val() + "&shiteimonth=" + $("#shiteimonth").val();
+                                $("#ajax2_1").load(loadhtml);
+                                // $("#ajax2_1").load("ajax/report_list/report_list_ajax.php?shiteiyear=2019&shiteimonth=02")
                             }
-                    );
-                    $("#ajax1_2").clickToggle(
-                            function () {
-                                $("#ajax1_2").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_2'></p>");
-                                $("#ajax2_2").load("ajax/report_list/report_list_ajax.php?shiteiroom=2月&shiteimonth=2")
-                            },
-                            function () {
-                                $("#ajax1_2").css("color", "goldenrod");
-                                $("#ajax2_2").remove();
-                            }
-                    );
-                    $("#ajax1_3").clickToggle(
-                            function () {
-                                $("#ajax1_3").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_3'></p>");
-                                $("#ajax2_3").load("ajax/report_list/report_list_ajax.php?shiteiroom=3月&shiteimonth=3")
-                            },
-                            function () {
-                                $("#ajax1_3").css("color", "goldenrod");
-                                $("#ajax2_3").remove();
-                            }
-                    );
-                    $("#ajax1_4").clickToggle(
-                            function () {
-                                $("#ajax1_4").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_4'></p>");
-                                $("#ajax2_4").load("ajax/report_list/report_list_ajax.php?shiteiroom=4月&shiteimonth=4")
-                            },
-                            function () {
-                                $("#ajax1_4").css("color", "goldenrod");
-                                $("#ajax2_4").remove();
-                            }
-                    );
-                    $("#ajax1_5").clickToggle(
-                            function () {
-                                $("#ajax1_5").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_5'></p>");
-                                $("#ajax2_5").load("ajax/report_list/report_list_ajax.php?shiteiroom=5月&shiteimonth=5")
-                            },
-                            function () {
-                                $("#ajax1_5").css("color", "goldenrod");
-                                $("#ajax2_5").remove();
-                            }
-                    );
-                    $("#ajax1_6").clickToggle(
-                            function () {
-                                $("#ajax1_6").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_6'></p>");
-                                $("#ajax2_6").load("ajax/report_list/report_list_ajax.php?shiteiroom=6月&shiteimonth=6")
-                            },
-                            function () {
-                                $("#ajax1_6").css("color", "goldenrod");
-                                $("#ajax2_6").remove();
-                            }
-                    );
-                    $("#ajax1_7").clickToggle(
-                            function () {
-                                $("#ajax1_7").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_7'></p>");
-                                $("#ajax2_7").load("ajax/report_list/report_list_ajax.php?shiteiroom=7月&shiteimonth=7")
-                            },
-                            function () {
-                                $("#ajax1_7").css("color", "goldenrod");
-                                $("#ajax2_7").remove();
-                            }
-                    );
+                            // ,
+                            // function () {
+                            //     $("#ajax1_1").css("color", "goldenrod");
+                            //     $("#ajax2_1").remove();
+                            // }
+                    );    
                 });
+
                 $.fn.clickToggle = function (a, b) {
                     return this.each(function () {
                         var clicked = false;
@@ -111,45 +50,15 @@
                         });
                     });
                 };
-                //--></script>
+            </script>
 
     <style>
                     <!-- 
                     #ajax1_1{
                         color:goldenrod;
                     }
-                    #ajax1_2{
-                        color:goldenrod;
-                    }
-                    #ajax1_3{
-                        color:goldenrod;
-                    }
-                    #ajax1_4{
-                        color:goldenrod;
-                    }
-                    #ajax1_5{
-                        color:goldenrod;
-                    }
-                    #ajax1_6{
-                        color:goldenrod;
-                    }
-                    #ajax1_７{
-                        color:goldenrod;
-                    }
                     #ajax2_1{
-                    }
-                    #ajax2_2{
-                    }
-                    #ajax2_3{
-                    }
-                    #ajax2_4{
-                    }
-                    #ajax2_5{
-                    }
-                    #ajax2_6{
-                    }
-                    #ajax2_7{
-                    }			
+                    }	
                     #ajax3{
                     }			
                     -->	         
@@ -191,8 +100,9 @@
                 <!-- 週報リスト (takahashi) -->
                 <h2 class="page_title">週報リスト</h2>
 
-                
-                　<select name="year_button" size="1">
+
+                <!-- 年数プルダウン -->
+                　<select name="year_button" size="1" id="shiteiyear">
                       <option value="2015">2015年</option>
                     　<option value="2016">2016年</option>
                       <option value="2017">2017年</option>
@@ -200,32 +110,25 @@
                       <option value="2019">2019年</option>
                       <option value="2020">2020年</option>
                     </select>
-                    
-                　　<select name="month_button" size="1">
-                      <option value="1">1月</option>
-                    　<option value="2">2月</option>
-                      <option value="3">3月</option>
-                      <option value="4">4月</option>
-                      <option value="5">5月</option>
-                      <option value="6">6月</option>
-                      <option value="7">7月</option>
-                      <option value="8">8月</option>
-                      <option value="9">9月</option>
-                    　<option value="10">10月</option>
-                      <option value="11">11月</option>
-                      <option value="12">12月</option>
+
+
+                    <!-- 月数プルダウン -->
+                    <select name="month_button" size="1" id="shiteimonth">
+                    <?php
+                    for($m=1; $m<=12; $m++ ){
+                        printf('<option value=%d>%d月</option>',$m,$m);
+                    }
+                    ?>
                     </select>
                     
                     <button class="pclist_button pclist_button_color1" id="ajax1_1">表示</button>
-                    <!-- ↑valueの数字によってidのajaxの数字を変えたい！  --!>             
-                    
 
+                    <!--↑valueの数字によってidのajaxの数字を変えたい！  --!> 
 
-                      <p id="ajax2"></p>
+                    <p id="ajax2"></p>          
                       
-                      
-                      <hr class="line" id="ajax3">
-              </SECTION>
+                    <hr class="line" id="ajax3">
+              </section>
               <section>
             
                 <hr class="line">
