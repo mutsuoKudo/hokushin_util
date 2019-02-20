@@ -81,7 +81,7 @@
         print('<th width="75px">使用場所</th>');
         print('<th width="100px">使用者</th>');
         print('<th width="70px">購入日</th>');
-        print('<th width="55px">価格</th>');
+        print('<th width="px">価格</th>');
         print('<th width="95px">運用期間</th>');
         print('<th width="65px">備考</th> ');
         print('</tr>');
@@ -102,7 +102,7 @@
                 print('<th width="75px">使用場所</th>');
                 print('<th width="100px">使用者</th>');
                 print('<th width="70px">購入日</th>');
-                print('<th width="55px">価格</th>');
+                print('<th width="px">価格</th>');
                 print('<th width="90px">運用期間</th>');
                 print('<th width="65px">備考</th> ');
                 print('</tr>');
