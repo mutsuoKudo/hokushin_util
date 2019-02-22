@@ -15,10 +15,10 @@
         <![endif]-->
 
         <?php
-        var_dump('shiteiyear:');
-       var_dump($_GET['shiteiyear']);
-       var_dump('shiteimonth:');
-       var_dump($_GET['shiteimonth']);
+        //var_dump('shiteiyear:');
+       //var_dump($_GET['shiteiyear']);
+       //var_dump('shiteimonth:');
+      // var_dump($_GET['shiteimonth']);
         require('../../lib/jQueryadd.php');
         ?>
         <script><!--
@@ -54,45 +54,29 @@
 
 <?php
 
-// タイムゾーンを設定
-//  date_default_timezone_set('Asia/Tokyo');
-// 前月・次月リンクが押された場合は、GETパラメーターから年月を取得
-//if (isset($_GET['ym'])) {
-//    $ym = $_GET['ym'];
-//} else {
-    // 今月の年月を表示
-//    $ym = date('Y-m');
-//}
-// タイムスタンプを作成し、フォーマットをチェックする
-//※timestamp使用すると現在年月が表示されなかったので削除しました（高橋）
-// $timestamp = strtotime($ym . '-01');
-// if ($timestamp === false) {
-//     $ym = date('Y-m');
-//     $timestamp = strtotime($ym . '-01');
-// }
-// 今日の日付 フォーマット　例）2018-07-3
-//$today = date('Y-m-j');
-$today = date('Y-m');
 
-// カレンダーのタイトルを作成　例）2017年7月
-$html_title = date('Y-n');
+
+// 今日の日付 フォーマット　例）2018-07
+//$today = date('Y-m');
+
+$today = $_GET['shiteiyear'] . '-' . $_GET['shiteimonth'];
 
 // 前月・次月の年月を取得
 // 方法１：mktimeを使う mktime(hour,minute,second,month,day,year)
-// $prev = date('Y/m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
-$prev1 = date('Y-m', mktime(0, 0, 0, date('m')-1, 1, date('Y')));
-$prev2 = date('Y-m', mktime(0, 0, 0, date('m')-2, 1, date('Y')));
-$prev3 = date('Y-m', mktime(0, 0, 0, date('m')-3, 1, date('Y')));
-$prev4 = date('Y-m', mktime(0, 0, 0, date('m')-4, 1, date('Y')));
-$prev5 = date('Y-m', mktime(0, 0, 0, date('m')-5, 1, date('Y')));
-$prev6 = date('Y-m', mktime(0, 0, 0, date('m')-6, 1, date('Y')));
+// $prev = date('Y-n', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+$prev1 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-1, 1, date($_GET['shiteiyear'])));
+$prev2 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-2, 1, date($_GET['shiteiyear'])));
+$prev3 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-3, 1, date($_GET['shiteiyear'])));
+$prev4 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-4, 1, date($_GET['shiteiyear'])));
+$prev5 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-5, 1, date($_GET['shiteiyear'])));
+$prev6 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])-6, 1, date($_GET['shiteiyear'])));
 
-// $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
-$next1 = date('Y-m', mktime(0, 0, 0, date('m')+1, 1, date('Y')));
-$next2 = date('Y-m', mktime(0, 0, 0, date('m')+2, 1, date('Y')));
-$next3 = date('Y-m', mktime(0, 0, 0, date('m')+3, 1, date('Y')));
-$next4 = date('Y-m', mktime(0, 0, 0, date('m')+4, 1, date('Y')));
-$next5 = date('Y-m', mktime(0, 0, 0, date('m')+5, 1, date('Y')));
+// $next = date('Y-n', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+$next1 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])+1, 1, date($_GET['shiteiyear'])));
+$next2 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])+2, 1, date($_GET['shiteiyear'])));
+$next3 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])+3, 1, date($_GET['shiteiyear'])));
+$next4 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])+4, 1, date($_GET['shiteiyear'])));
+$next5 = date('Y-n', mktime(0, 0, 0, date($_GET['shiteimonth'])+5, 1, date($_GET['shiteiyear'])));
 
 
 include_once('../../lib/db_main.php');
@@ -119,18 +103,18 @@ print('<tr class="middle_cell_color">');
 print('<th class="top_cell_color1" width="90px">名前</th>');
 
 
-print('<th width="85px">' . $prev6 . '</th>');
-print('<th width="85px">' . $prev5 . '</th>');
-print('<th width="85px">' . $prev4 . '</th>');
-print('<th width="85px">' . $prev3 . '</th>');
-print('<th width="85px">' . $prev2 . '</th>');
-print('<th width="85px">' . $prev1 . '</th>');
-print('<th width="85px" style ="background-color:greenyellow;" >' . $html_title . '</th>');
-print('<th width="85px">' . $next1 . '</th>');
-print('<th width="85px">' . $next2 . '</th>');
-print('<th width="85px">' . $next3 . '</th>');
-print('<th width="85px">' . $next4 . '</th>');
-print('<th width="85px">' . $next5 . '</th>');
+print('<th width="60px">' . $prev6 . '</th>');
+print('<th width="60px">' . $prev5 . '</th>');
+print('<th width="60px">' . $prev4 . '</th>');
+print('<th width="60px">' . $prev3 . '</th>');
+print('<th width="60px">' . $prev2 . '</th>');
+print('<th width="60px">' . $prev1 . '</th>');
+print('<th width="70px" class ="today" >' . $today . '</th>');
+print('<th width="60px">' . $next1 . '</th>');
+print('<th width="60px">' . $next2 . '</th>');
+print('<th width="60px">' . $next3 . '</th>');
+print('<th width="60px">' . $next4 . '</th>');
+print('<th width="60px">' . $next5 . '</th>');
 print('</tr>'); 
 
 
@@ -143,18 +127,18 @@ foreach ($shain as $row) {
 print('<tr class="middle_cell_color">');
 print('<th class="top_cell_color1" width="90px">名前</th>');
 
-print('<th width="85px">' . $prev6 . '</th>');
-print('<th width="85px">' . $prev5 . '</th>');
-print('<th width="85px">' . $prev4 . '</th>');
-print('<th width="85px">' . $prev3 . '</th>');
-print('<th width="85px">' . $prev2 . '</th>');
-print('<th width="85px">' . $prev1 . '</th>');
-print('<th width="85px" style ="background-color:greenyellow;" >' . $html_title . '</th>');
-print('<th width="85px">' . $next1 . '</th>');
-print('<th width="85px">' . $next2 . '</th>');
-print('<th width="85px">' . $next3 . '</th>');
-print('<th width="85px">' . $next4 . '</th>');
-print('<th width="85px">' . $next5 . '</th>');
+print('<th width="60px">' . $prev6 . '</th>');
+print('<th width="60px">' . $prev5 . '</th>');
+print('<th width="60px">' . $prev4 . '</th>');
+print('<th width="60px">' . $prev3 . '</th>');
+print('<th width="60px">' . $prev2 . '</th>');
+print('<th width="60px">' . $prev1 . '</th>');
+print('<th width="70px" class ="today" >' . $today . '</th>');
+print('<th width="60px">' . $next1 . '</th>');
+print('<th width="60px">' . $next2 . '</th>');
+print('<th width="60px">' . $next3 . '</th>');
+print('<th width="60px">' . $next4 . '</th>');
+print('<th width="60px">' . $next5 . '</th>');
 }
     print('</tr>');
 
@@ -164,15 +148,12 @@ print('<th width="85px">' . $next5 . '</th>');
 
     /* 週報リンク（1～12月）ファイルがhokushin_utilにあるとき */
     
-        /* ファイル名は【社員コード_日付.png】　ex 高橋かなん2019年1月提出のファイル　2018100031-2019-01.pdf　*/
+        /* ファイル名は【社員コード_日付.png】　ex 高橋かなん2019年1月提出のファイル　2018100031-2019-1.pdf　*/
      $report_name = $row['shain_cd'] .'-'.  $prev6 . '.pdf'; 
-    /* var_dump($report_name); */
-    // $report_name = $row['shain_cd'] . '_2019' . $r . '.pdf'; 
     print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
 
     $report_name = $row['shain_cd'] .'-'.  $prev5 . '.pdf';  
     print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
-
 
     $report_name = $row['shain_cd'] .'-'.  $prev4 . '.pdf';
     print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
@@ -186,7 +167,7 @@ print('<th width="85px">' . $next5 . '</th>');
     $report_name = $row['shain_cd'] .'-'.  $prev1 . '.pdf';
     print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
 
-    $report_name = $row['shain_cd'] .'-'.  $html_title . '.pdf';
+    $report_name = $row['shain_cd'] .'-'.  $today . '.pdf';
     print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
 
     $report_name = $row['shain_cd'] .'-'.  $next1 . '.pdf';
@@ -208,9 +189,9 @@ print('<th width="85px">' . $next5 . '</th>');
 
 
 print("</table>");
-
-
 ?>
+
+
 </body>
 </html>
 

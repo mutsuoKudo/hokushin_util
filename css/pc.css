@@ -488,13 +488,14 @@ span.tel {
   border: 1px solid green;
   border-collapse: collapse;
   text-align:center;
-  width: 1110px;
-  margin: 5px 0 0 35px;
+  width: 820px;
+  margin: 15px 0 0 140px;
   table-layout: fixed;
 }
 
 .report_table th {
   border: 1px solid green;
+  font-size: 11px;
 }
 
 .report_table td {
@@ -503,6 +504,9 @@ span.tel {
   font-size: 0.6em;
  }
 
+ .today{
+   background-color: greenyellow;
+ }
 /*---------- ３コンテンツ・ボックス ----------*/
 
 .box {
