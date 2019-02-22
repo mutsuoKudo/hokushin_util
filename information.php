@@ -20,17 +20,26 @@
 
             <script><!--
             jQuery(document).ready(function ($) {
-                    // ここでは、$はjQueryとして使えます。	
+                    // ここでは、$はjQueryとして使えます。
+
+                    $(function(){
+                      var now = new Date();
+                      var y = now.getFullYear();
+                      var n = now.getMonth() +1;
+                    var loadhtml = "ajax/report_list/report_list_ajax.php?shiteiyear=" + y + "&shiteimonth=" + n ;
+                    alert(loadhtml);
+                                $("#ajax2_1").load(loadhtml);	
+                    });
                     $("#ajax1_1").click(
                             function () {
                                 $("#ajax1_1").css("color", "olive");
-                                $("#ajax3").before("<p id='ajax2_1'></p>");
-
+                                // $("#ajax3").before("<p id='ajax2_1'></p>");
+                      
                                 var loadhtml = "ajax/report_list/report_list_ajax.php?shiteiyear=" + $("#shiteiyear").val() + "&shiteimonth=" + $("#shiteimonth").val();
                                 $("#ajax2_1").load(loadhtml);
                                 // $("#ajax2_1").load("ajax/report_list/report_list_ajax.php?shiteiyear=2019&shiteimonth=02")
+                                
                             }
-                            // ,
                             // function () {
                             //     $("#ajax1_1").css("color", "goldenrod");
                             //     $("#ajax2_1").remove();
@@ -72,8 +81,11 @@
           
           <!-- ヘッダー -->
           <header id="header">
-            <div id="header_inner"></div>
-          </header>
+                        <div id="header_inner">
+                            <div id="h_info"><img src="img/tel_img.png" alt="information"></div>
+                        </div>
+
+                    </header>
           
           <?php
           require('tpl/header-menu.php');
@@ -123,23 +135,27 @@
                     
                     <button class="pclist_button pclist_button_color1" id="ajax1_1">表示</button>
 
-                    <!--↑valueの数字によってidのajaxの数字を変えたい！  --!> 
+                    <p id="ajax2">
+                    <p id='ajax2_1'>
 
-                    <p id="ajax2"></p>          
-                      
-                    <hr class="line" id="ajax3">
+
+
+                    </p>
+                    </p>             
+                    <p class="line" id="ajax3"></p>  
               </section>
+              
               <section>
-            
-                <hr class="line">
-            
+              
+                <hr class="line">     
                 <p class="back"><a href="#header"><img class="scroll" src="img/pagetop.png" alt="ページトップに戻る"></a></p>
 
                 <br>
 
-              </section>
+              </SECTION>
             </section>
             <!-- メインコンテンツ終わり -->
+            
           </article>
           <!-- コンテンツ終わり -->
 
