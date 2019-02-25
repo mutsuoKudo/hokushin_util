@@ -27,7 +27,6 @@
                       var y = now.getFullYear();
                       var n = now.getMonth() +1;
                     var loadhtml = "ajax/report_list/report_list_ajax.php?shiteiyear=" + y + "&shiteimonth=" + n ;
-                    alert(loadhtml);
                                 $("#ajax2_1").load(loadhtml);	
                     });
                     $("#ajax1_1").click(
@@ -119,7 +118,7 @@
                     　<option value="2016">2016年</option>
                       <option value="2017">2017年</option>
                       <option value="2018">2018年</option>
-                      <option value="2019">2019年</option>
+                      <option value="2019" selected>2019年</option>
                       <option value="2020">2020年</option>
                     </select>
 
@@ -128,6 +127,10 @@
                     <select name="month_button" size="1" id="shiteimonth">
                     <?php
                     for($m=1; $m<=12; $m++ ){
+                      $today_month = date('n');
+                      if($m==$today_month){
+                        printf('<option value=%d selected>%d月</option>',$m,$m);
+                      }else
                         printf('<option value=%d>%d月</option>',$m,$m);
                     }
                     ?>

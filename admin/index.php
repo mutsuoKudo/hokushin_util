@@ -160,6 +160,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- プロセッサテーブル -->
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>ＣＰＵ名の追加/変更/削除r</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">プロセッサテーブルメンテナンス</text></svg>
@@ -167,8 +169,12 @@
                                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="processor_tbl.php" target="_blank" method="get">          
+                                            <button type="submit" class="btn btn-sm btn-outline-secondary">表示</button></form>
+
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi -->
                                         </div>
                                         <small class="text-muted">9 mins</small>
                                     </div>
