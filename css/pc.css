@@ -507,7 +507,16 @@ span.tel {
  .today{
    background-color: greenyellow;
  }
-/*---------- ３コンテンツ・ボックス ----------*/
+
+
+
+ /* ---------404.php(takahashi)----- */
+
+.error_pad{
+  text-align: center;
+  padding: 10px 0 20px 0;
+}
+ /*---------- ３コンテンツ・ボックス ----------*/
 
 .box {
   width: 100%;
