@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+<title>ProcessorTable</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -52,7 +52,8 @@
 		border-radius: 2px;
 		border: none;
 		outline: none !important;
-		margin-left: 10px;
+		margin-right: 70px;
+		width: 97px;
 	}
 	.table-title .btn i {
 		float: left;
@@ -65,8 +66,10 @@
 	}
     table.table tr th, table.table tr td {
         border-color: #e9e9e9;
-		padding: 12px 15px;
+		padding: 12px;
 		vertical-align: middle;
+		table-layout: fixed;
+
     }
 	table.table tr th:first-child {
 		width: 60px;
@@ -100,10 +103,10 @@
 	table.table td a:hover {
 		color: #2196F3;
 	}
-	table.table td a.edit {
+	.edit {
         color: #FFC107;
     }
-    table.table td a.delete {
+    .delete {
         color: #F44336;
     }
     table.table td i {
@@ -235,31 +238,7 @@
 		font-weight: normal;
 	}	
 </style>
-<script type="text/javascript">
-$(document).ready(function(){
-	// Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
-});
-</script>
+
 </head>
 
 
@@ -272,169 +251,78 @@ $(document).ready(function(){
                 <div class="row">
                     <div class="col-sm-6">
 						<h2><b> Processor</b> Table</h2>
-                    </div>
-                    
+					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>追加</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>削除</span></a>						
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
+							<i class="material-icons">&#xE147;</i> <span>追加</span></a>
 					</div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-                        </th>
-                        <th>ID</th>
-                        <th>略称</th>
-                        <th>正式名称</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                              
-                    <tr ng-controller="DetailCtrl" ng-repeat="student in students">
-                        <td>
+					　　<th >&nbsp;</th>
+                        <th width="80px">ID</th>
+                        <th width="150px">略称</th>
+                        <th width="200px">正式名称</th>
+                        <th width="150px">操作</th>
+					</tr>
+				</thead>
+						
+				<tbody>						
+					<tr ng-controller="DetailCtrl" ng-repeat="student in students">
+						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
-                            </span>
+                        	</span>
                         </td> 
 
-                           <td >{{student.id}}</td>
-                           <td ><input ng-model="student.ryaku"></td>
-                           <td ><input ng-model="student.seishiki"></td>           
-                <td>
-                <button ng-click="update()">更新</button>
-                <button ng-click="delete()">削除</button></td>
-                <!-- <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></a>
-                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></a>-->
-                </td>
-                </tr>
+                        <td >{{student.id}}</td>
+                        <td ><input ng-model="student.ryaku" size="15"></td>
+						<td ><input ng-model="student.seishiki" size="30"></td>           
+						
+						<td>
+							<button ng-click="update()" class="edit">
+								<i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
+							<button ng-click="delete()" class="delete">
+								<i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button></td>
+						</td>
+					</tr>
+						
+				</tbody>
+			</table>
+						
+		</div>
+	</div>
 
-                <tr>
-                <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-                            </span>
-                        </td> 
-
-                           <td >&nbsp;</td>
-                           <td ><input ng-model="student.ryaku"></td>
-                           <td ><input ng-model="student.seishiki"></td>
-                           <td><button ng-click="add()">追加</button></td>
-    </tr>
-
-                            
-            
-            </tbody>
-            </table>
-
-
-			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-	// <!-- Add Modal HTML -->
-	// <div id="addEmployeeModal" class="modal fade">
-	// 	<div class="modal-dialog">
-	// 		<div class="modal-content">
-	// 			<form>
-	// 				<div class="modal-header">						
-	// 					<h4 class="modal-title">追加</h4>
-	// 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	// 				</div>
-	// 				<div class="modal-body">					
-	// 					<div class="form-group">
-	// 						<label>ID</label>
-	// 						<input type="text" class="form-control" required>
-	// 					</div>
-	// 					<div class="form-group">
-	// 						<label>略称</label>
-	// 						<input type="email" class="form-control" required>
-	// 					</div>
-	// 					<div class="form-group">
-	// 						<label>正式名称</label>
-	// 						<textarea class="form-control" required></textarea>
-	// 					</div>
-	// 				</div>
-	// 				<div class="modal-footer">
-	// 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-	// 					<input type="submit" class="btn btn-success" value="Add">
-	// 				</div>
-	// 			</form>
-	// 		</div>
-	// 	</div>
-	// </div>
-	// <!-- Edit Modal HTML -->
-	// <div id="editEmployeeModal" class="modal fade">
-	// 	<div class="modal-dialog">
-	// 		<div class="modal-content">
-	// 			<form>
-	// 				<div class="modal-header">						
-	// 					<h4 class="modal-title">編集</h4>
-	// 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	// 				</div>
-	// 				<div class="modal-body">					
-	// 					<div class="form-group">
-	// 						<label>ID</label>
-	// 						<input type="text" class="form-control" required>
-	// 					</div>
-	// 					<div class="form-group">
-	// 						<label>略称</label>
-	// 						<input type="text" class="form-control" required>
-	// 					</div>
-	// 					<div class="form-group">
-	// 						<label>正式名称</label>
-	// 						<textarea class="form-control" required></textarea>
-	// 					</div>
-	// 				</div>
-	// 				<div class="modal-footer">
-    //                 <button ng-click="update()" class="btn btn-default" value="Save">更新</button>
-    //                 <button ng-click="delete()" class="btn btn-info" data-dismiss="modal" value="Cancel">キャンセル</button>
-	// 					<!-- <button type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-	// 					<button type="submit" class="btn btn-info" value="Save"> -->
-	// 				</div>
-	// 			</form>
-	// 		</div>
-	// 	</div>
-	// </div>
-	// <!-- Delete Modal HTML -->
-	// <div id="deleteEmployeeModal" class="modal fade">
-	// 	<div class="modal-dialog">
-	// 		<div class="modal-content">
-	// 			<form>
-	// 				<div class="modal-header">						
-	// 					<h4 class="modal-title">削除</h4>
-	// 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	// 				</div>
-	// 				<div class="modal-body">					
-	// 					<p>これらのレコードを削除してもよろしいですか？</p>
-	// 					<p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
-	// 				</div>
-	// 				<div class="modal-footer">
-	// 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-	// 					<input type="submit" class="btn btn-danger" value="Delete">
-	// 				</div>
-	// 			</form>
-	// 		</div>
-	// 	</div>
-	// </div>
+	<!-- Add Modal HTML -->
+	<div id="addEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">プロセッサーデータ</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input ng-model="new_student.ryaku" size="15">
+						</div>
+						<div class="form-group">
+							<label>正式名称</label>
+							<input ng-model="new_student.seishiki" size="30">
+						</div>				
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<button ng-click="add()">追加</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+						
 </body>
 </html>                                		                            
