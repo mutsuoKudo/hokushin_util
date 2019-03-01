@@ -52,8 +52,8 @@
 		border-radius: 2px;
 		border: none;
 		outline: none !important;
-		margin-right: 70px;
-		width: 97px;
+		margin-right: 10px;
+		width: 102px;
 	}
 	.table-title .btn i {
 		float: left;
@@ -238,13 +238,38 @@
 		font-weight: normal;
 	}	
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	// Activate tooltip
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// Select/Deselect checkboxes
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#selectAll").click(function(){
+		if(this.checked){
+			checkbox.each(function(){
+				this.checked = true;                        
+			});
+		} else{
+			checkbox.each(function(){
+				this.checked = false;                        
+			});
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#selectAll").prop("checked", false);
+		}
+	});
+});
+
+</script>
 
 </head>
 
 
 <body ng-controller="MainCtrl">
      
-
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -252,16 +277,25 @@
                     <div class="col-sm-6">
 						<h2><b> Processor</b> Table</h2>
 					</div>
+					<!--追加・削除ボタン-->
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
 							<i class="material-icons">&#xE147;</i> <span>追加</span></a>
+						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
+							<i class="material-icons">&#xE15C;</i> <span>選択削除</span></a>
 					</div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-					　　<th >&nbsp;</th>
+						<!--チェックボックスALL-->
+					　　<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
                         <th width="80px">ID</th>
                         <th width="150px">略称</th>
                         <th width="200px">正式名称</th>
@@ -271,30 +305,42 @@
 						
 				<tbody>						
 					<tr ng-controller="DetailCtrl" ng-repeat="student in students">
+						<!--チェックボックス個別-->
 						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-                        	</span>
+						<span class="custom-checkbox">
+
+								<input type="checkbox" id="checkbox{{student.id}}" name="options[]" value="1">
+								<label for="checkbox{{student.id}}"></label>
+							</span>
                         </td> 
 
                         <td >{{student.id}}</td>
-                        <td ><input ng-model="student.ryaku" size="15"></td>
-						<td ><input ng-model="student.seishiki" size="30"></td>           
-						
+                        <td ><input ng-model="student.ryaku" size="15" required></td>
+						<td ><input ng-model="student.seishiki" size="30" required></td>
 						<td>
 							<button ng-click="update()" class="edit">
 								<i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
-							<button ng-click="delete()" class="delete">
-								<i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button></td>
+							<button ng-click="delete()" class="delete" id="#deleteEmployeeModal">
+								<i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
 						</td>
 					</tr>
-						
-				</tbody>
+				</tbody>		
 			</table>
-						
+
+
+			<div class="clearfix">
+				<ul class="pagination">
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page -1 ); ?>">前のページへ</a></li>
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page +1 ); ?>">次のページへ</a></li>
+				</ul>
+				
+			</div>		
 		</div>
 	</div>
+
+
+
+	
 
 	<!-- Add Modal HTML -->
 	<div id="addEmployeeModal" class="modal fade">
@@ -302,27 +348,50 @@
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">プロセッサーデータ</h4>
+						<h4 class="modal-title">データの追加</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-							<input ng-model="new_student.ryaku" size="15">
+							<input ng-model="new_student.ryaku" size="15" required>
 						</div>
 						<div class="form-group">
 							<label>正式名称</label>
-							<input ng-model="new_student.seishiki" size="30">
+							<input ng-model="new_student.seishiki" size="30" required>
 						</div>				
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<button ng-click="add()">追加</button>
+						<button onclick="location.href='processor_tbl.php'" class="btn btn-default">キャンセル</button>
+						<button ng-click="add()" class="btn btn-danger">追加</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-						
+	
+
+	<!-- Delete Modal HTML -->
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">データの削除</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<p>レコードを削除してもよろしいですか？</p>
+						<p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
+					</div>
+					<div class="modal-footer">
+						<button onclick="location.href='processor_tbl.php'" class="btn btn-default">キャンセル</button>
+						<button ng-click="delete()" class="btn btn-danger">削除</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+		
 </body>
 </html>                                		                            

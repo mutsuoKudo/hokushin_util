@@ -1,4 +1,4 @@
-// 追加・更新・削除
+// DBデータ（students.php）の呼び出し・追加・更新・削除
 
 
 var app = angular.module('app', ['ngResource']);
@@ -18,6 +18,8 @@ app.controller('DetailCtrl', function($scope, $window) {
   $scope.update = function() {
     $scope.student.$save(function() {
       alert("更新しました。");
+      $window.location.reload();
+      
     });
   };
   $scope.delete = function() {
@@ -26,3 +28,4 @@ app.controller('DetailCtrl', function($scope, $window) {
     $window.location.reload();
   };
 });
+
