@@ -149,41 +149,101 @@ print('<th width="60px">' . $next5 . '</th>');
     /* 週報リンク（1～12月）ファイルがhokushin_utilにあるとき */
     
         /* ファイル名は【社員コード_日付.png】　ex 高橋かなん2019年1月提出のファイル　2018100031-2019-1.pdf　*/
-     $report_name = $row['shain_cd'] .'-'.  $prev6 . '.pdf'; 
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+     $report_name = $row['shain_cd'] .'-'.  $prev6 . '.pdf';
+     $shain_cd = $row['shain_cd'];
+     if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    } 
 
     $report_name = $row['shain_cd'] .'-'.  $prev5 . '.pdf';  
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $prev4 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $prev3 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $prev2 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $prev1 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $today . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $next1 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $next2 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $next3 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $next4 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='/hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
 
     $report_name = $row['shain_cd'] .'-'.  $next5 . '.pdf';
-    print("<td><a href='report/$report_name' target='_blank'>○</a></td>");
+    $shain_cd = $row['shain_cd'];
+    if(file_exists('report/' . $row['shain_cd'] . '/' . $report_name)){
+    print("<td><a href='hokushin_util/ajax/report_list/report/$shain_cd/$report_name' target='_blank'>○</a></td>");
+    }else{
+        print("<td><target='_blank'>-</a></td>");
+    }
        
 }
 
@@ -191,23 +251,6 @@ print('<th width="60px">' . $next5 . '</th>');
 print("</table>");
 ?>
 
-<?php
-// ファイル名を変数に格納
-$filename = '2018020011-2019-1.pdf';
- 
-// ファイルが存在するかチェックする
-if (file_exists($filename)) {
- 
-  // ファイルが存在したら、ファイル名を付けて存在していると表示
-  echo 'ファイルは存在します。';
- 
-} else {
- 
-  // ファイルが存在していなかったら、見つからないと表示
-  echo 'ファイルが見つかりません！';
-}
-
-?>
 
 </body>
 </html>

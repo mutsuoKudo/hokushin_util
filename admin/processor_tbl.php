@@ -1,3 +1,38 @@
+<?php
+	try {
+		$dbh = new PDO('mysql:dbname=hokushin_util', 'root');
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		$page = 1;
+		// var_dump($_GET['page']);
+		if(isset($_GET['page'])){
+		$page = $_GET['page'];
+	}
+	
+		$sql = 'SELECT COUNT(*) from processor_tbl';
+		$stmt = $dbh->query($sql);
+		$st = $stmt->fetchColumn();
+		
+		$page = max($page, 1);
+		$maxPage = ceil($st / 5 );
+		$page = min($page, $maxPage);
+		$start = ($page - 1) * 5;
+		
+		if (isset($_POST["selectDelete"])) {
+			var_dump($_POST["options"]);
+			$sql = 'DELETE FROM processor_tbl where';
+			$sql .= ' id IN("'.implode('","',$_POST["options"]).'")';
+			var_dump($sql);
+			// $stmt = $dbh->query($sql);
+		  }else{
+		  }
+
+	} catch (PDOException $e) {
+		echo("ERROR!".$e -> getMessage());  
+	}
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja" ng-app="app">
 <head>
@@ -11,8 +46,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
 <script src="controller.js"></script>
 <style type="text/css">
     body {
@@ -238,38 +273,10 @@
 		font-weight: normal;
 	}	
 </style>
-<script type="text/javascript">
-$(document).ready(function(){
-	// Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
-});
-
-</script>
-
 </head>
 
 
 <body ng-controller="MainCtrl">
-     
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -281,8 +288,14 @@ $(document).ready(function(){
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
 							<i class="material-icons">&#xE147;</i> <span>追加</span></a>
+						<!-- <a href="#addEmployeeModal" class="btn btn-success material-icons" data-toggle="modal">
+						<span>&#xE147;追加</span></a> -->
+							
 						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
 							<i class="material-icons">&#xE15C;</i> <span>選択削除</span></a>
+							<!-- <form id="form1" action="processor_tbl.php" method="POST" >
+							<input type="submit" value="&#xE15C;選択削除" name="selectDelete" class="btn btn-danger material-icons">
+							</form> -->
 					</div>
                 </div>
             </div>
@@ -291,10 +304,10 @@ $(document).ready(function(){
                     <tr>
 						<!--チェックボックスALL-->
 					　　<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
+							<form class="custom-checkbox" action="processor_tbl.php" method="POST">
+								<input type="checkbox" id="selectAll" name="options[{{student.id}}]" value="{{student.id}}" form="form1">
 								<label for="selectAll"></label>
-							</span>
+							</form>
 						</th>
                         <th width="80px">ID</th>
                         <th width="150px">略称</th>
@@ -304,14 +317,13 @@ $(document).ready(function(){
 				</thead>
 						
 				<tbody>						
-					<tr ng-controller="DetailCtrl" ng-repeat="student in students">
+					<tr ng-controller="DetailCtrl" ng-repeat="student in students | limitTo: 5: <?php echo($start); ?>">
 						<!--チェックボックス個別-->
 						<td>
-						<span class="custom-checkbox">
-
-								<input type="checkbox" id="checkbox{{student.id}}" name="options[]" value="1">
+							<form class="custom-checkbox" action="processor_tbl.php" method="POST">
+								<input type="checkbox" class="selectCheckbox" name="options[{{student.id}}]" value="{{student.id}}" form="form1">
 								<label for="checkbox{{student.id}}"></label>
-							</span>
+							</form>
                         </td> 
 
                         <td >{{student.id}}</td>
@@ -320,29 +332,48 @@ $(document).ready(function(){
 						<td>
 							<button ng-click="update()" class="edit">
 								<i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
-							<button ng-click="delete()" class="delete" id="#deleteEmployeeModal">
+							<button ng-click="delete()" class="delete">
 								<i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
 						</td>
 					</tr>
 				</tbody>		
 			</table>
 
-
+			<!-- ページャー -->
 			<div class="clearfix">
 				<ul class="pagination">
-					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page -1 ); ?>">前のページへ</a></li>
-					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page +1 ); ?>">次のページへ</a></li>
+					<?php
+					if($page > 1 ) {
+					?>
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page - 1 ); ?>">前のページへ</a></li>
+					<?php
+					}else{
+					?>
+					<!-- 前のページ -->
+					<?php
+					}
+					?>
+
+					<?php
+					if ($page < $maxPage ){
+					?>　　
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page + 1 ); ?>">次のページへ</a></li>
+					<?php
+					}else{
+					?>
+					<!-- 次のページ -->
+					<?php
+					}
+					?>
+					<li class="page-item"><?php print($page. '/' . $maxPage);?></li>
 				</ul>
 				
 			</div>		
 		</div>
 	</div>
-
-
-
 	
 
-	<!-- Add Modal HTML -->
+	<!-- Add Modal HTML ※追加ボタンを押すとでてくる画面 -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -351,7 +382,11 @@ $(document).ready(function(){
 						<h4 class="modal-title">データの追加</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">										
+						<div class="form-group">
+							<label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input ng-model="new_student.newid" size="15" required>
+						</div>
 						<div class="form-group">
 							<label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 							<input ng-model="new_student.ryaku" size="15" required>
@@ -363,7 +398,7 @@ $(document).ready(function(){
 					</div>
 					<div class="modal-footer">
 						<button onclick="location.href='processor_tbl.php'" class="btn btn-default">キャンセル</button>
-						<button ng-click="add()" class="btn btn-danger">追加</button>
+						<button ng-click="add()" class="btn btn-success">追加</button>
 					</div>
 				</form>
 			</div>
@@ -385,13 +420,40 @@ $(document).ready(function(){
 						<p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
 					</div>
 					<div class="modal-footer">
-						<button onclick="location.href='processor_tbl.php'" class="btn btn-default">キャンセル</button>
-						<button ng-click="delete()" class="btn btn-danger">削除</button>
+						<input type="submit" onclick="location.href='processor_tbl.php'" class="btn btn-default" value="キャンセル">
+						<form id="form1" action="processor_tbl.php" method="POST">
+							<input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
+							</form>
+						<!-- <button onclick="location.href='processor_tbl.php'" class="btn btn-danger">削除</button> -->
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>	
+<script type="text/javascript">
+$(document).ready(function(){
+	// 個別の更新・削除のツールチップ
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// チェックボックス（すべて選択）の判断
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#selectAll").click(function(){
 		
+		if(this.checked){
+			// alert("チェックきいてる");
+			$(".selectCheckbox").prop("checked", true);
+
+		} else{
+			// alert("チェックなし");
+			$(".selectCheckbox").prop("checked", false);
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#selectAll").prop("checked", false);
+		}
+	});
+});
+</script>		
 </body>
 </html>                                		                            
