@@ -23,8 +23,6 @@ try {
     break;
     
     case 'DELETE':
-    // $st = $pdo->prepare("DELETE FROM processor_tbl WHERE id in ");
-    // $st.= "('".implode("','",array_values($_POST['id']))."')";
     $st = $pdo->prepare("DELETE FROM processor_tbl WHERE id=?");
     $st->execute([$_GET['id']]);
     break;
