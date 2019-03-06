@@ -1,3 +1,29 @@
+<?php
+	$page = 1;
+	// var_dump($_GET['page']);
+	if(isset($_GET['page'])){
+		$page = $_GET['page'];
+	}
+	
+	try {
+		$dbh = new PDO('mysql:dbname=hokushin_util', 'root');
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		$sql = 'SELECT COUNT(*) from processor_tbl';
+		$stmt = $dbh->query($sql);
+		$st = $stmt->fetchColumn();
+		
+ 		$page = max($page, 1);
+	 	$maxPage = ceil($st / 5 );
+	 	$page = min($page, $maxPage);
+	 	$start = ($page - 1) * 5;
+	 
+	} catch (PDOException $e) {
+		echo("ERROR!".$e -> getMessage());  
+	}
+	
+
+?>
 <!DOCTYPE html>
 <html lang="ja" ng-app="app">
 <head>
@@ -11,8 +37,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
 <script src="controller.js"></script>
 <style type="text/css">
     body {
@@ -262,14 +288,18 @@ $(document).ready(function(){
 		}
 	});
 });
-
 </script>
 
 </head>
 
 
 <body ng-controller="MainCtrl">
-     
+	 <!-- <?php
+ 	$page = max($page, 1);
+	 $maxPage = ceil($st / 5 );
+	 $page = min($page, $maxPage);
+	 $start = ($page - 1) * 5;
+	 ?> -->
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -291,10 +321,10 @@ $(document).ready(function(){
                     <tr>
 						<!--チェックボックスALL-->
 					　　<th>
-							<span class="custom-checkbox">
+							<form class="custom-checkbox">
 								<input type="checkbox" id="selectAll">
 								<label for="selectAll"></label>
-							</span>
+							</form>
 						</th>
                         <th width="80px">ID</th>
                         <th width="150px">略称</th>
@@ -304,14 +334,16 @@ $(document).ready(function(){
 				</thead>
 						
 				<tbody>						
-					<tr ng-controller="DetailCtrl" ng-repeat="student in students">
+					<tr ng-controller="DetailCtrl" ng-repeat="student in students | limitTo: 5: <?php echo($start); ?>">
 						<!--チェックボックス個別-->
 						<td>
-						<span class="custom-checkbox">
-
-								<input type="checkbox" id="checkbox{{student.id}}" name="options[]" value="1">
+							<form action="students.php" method="POST">
+								<input type="checkbox" name="options[]" value="{{student.id}}">
+							</form>
+						<!-- <form class="custom-checkbox">
+								<input type="checkbox" id="{{student.id}}" name="options[]" value="{{student.id}}">
 								<label for="checkbox{{student.id}}"></label>
-							</span>
+							</form> -->
                         </td> 
 
                         <td >{{student.id}}</td>
@@ -320,26 +352,47 @@ $(document).ready(function(){
 						<td>
 							<button ng-click="update()" class="edit">
 								<i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
-							<button ng-click="delete()" class="delete" id="#deleteEmployeeModal">
+							<button ng-click="delete()" class="delete">
 								<i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
 						</td>
 					</tr>
 				</tbody>		
 			</table>
 
-
 			<div class="clearfix">
 				<ul class="pagination">
-					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page -1 ); ?>">前のページへ</a></li>
-					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page +1 ); ?>">次のページへ</a></li>
+				<?php
+				if($page > 1 ) {
+				?>
+				<li class="page-item"><a href="processor_tbl.php?page=<?php print($page - 1 ); ?>">前のページへ</a></li>
+				<?php
+				}else{
+				?>
+				<!-- 前のページ -->
+				<?php
+				}
+				?>
+
+				<?php
+				if ($page < $maxPage ){
+				?>　　
+				<li class="page-item"><a href="processor_tbl.php?page=<?php print($page + 1 ); ?>">次のページへ</a></li>
+				<?php
+				}else{
+				?>
+				<!-- 次のページ -->
+				<?php
+				}
+				?>
+				<li class="page-item"><?php print($page. '/' . $maxPage);?></li>
+					<!-- <li class="page-item"><a href="processor_tbl.php?page=<?php print($page - 1 ); ?>">前のページへ</a></li>
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page); ?>"><?php print($page); ?></a></li>
+					<li class="page-item"><a href="processor_tbl.php?page=<?php print($page + 1 ); ?>">次のページへ</a></li> -->
 				</ul>
 				
 			</div>		
 		</div>
 	</div>
-
-
-
 	
 
 	<!-- Add Modal HTML -->
@@ -351,7 +404,11 @@ $(document).ready(function(){
 						<h4 class="modal-title">データの追加</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">										
+						<div class="form-group">
+							<label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input ng-model="new_student.newid" size="15" required>
+						</div>
 						<div class="form-group">
 							<label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 							<input ng-model="new_student.ryaku" size="15" required>
