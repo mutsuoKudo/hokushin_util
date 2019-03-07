@@ -309,18 +309,18 @@ try {
                     </thead>
 
                     <tbody>						
-                        <tr ng-controller="DetailCtrl" ng-repeat="student in students| limitTo: 5: <?php echo($start); ?>">
+                        <tr ng-controller="DetailCtrl" ng-repeat="processor in processors| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
                                 <form class="custom-checkbox" action="processor_tbl.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{student.id}}]" value="{{student.id}}" form="form1">
-                                    <label for="checkbox{{student.id}}"></label>
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{processor.id}}]" value="{{processor.id}}" form="form1">
+                                    <label for="checkbox{{processor.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td >{{student.id}}</td>
-                            <td ><input ng-model="student.ryaku" size="15" required></td>
-                            <td ><input ng-model="student.seishiki" size="30" required></td>
+                            <td >{{processor.id}}</td>
+                            <td ><input ng-model="processor.ryaku" size="15" required></td>
+                            <td ><input ng-model="processor.seishiki" size="30" required></td>
                             <td>
                                 <button ng-click="update()" class="edit">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -376,15 +376,15 @@ try {
                         <div class="modal-body">										
                             <div class="form-group">
                                 <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_student.newid" size="15" required>
+                                <input ng-model="new_processor.newid" size="15" required>
                             </div>
                             <div class="form-group">
                                 <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_student.ryaku" size="15" required>
+                                <input ng-model="new_processor.ryaku" size="15" required>
                             </div>
                             <div class="form-group">
                                 <label>正式名称</label>
-                                <input ng-model="new_student.seishiki" size="30" required>
+                                <input ng-model="new_processor.seishiki" size="30" required>
                             </div>				
                         </div>
                         <div class="modal-footer">

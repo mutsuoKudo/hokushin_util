@@ -5,11 +5,11 @@ var app = angular.module('app', ['ngResource']);
 
 app.controller('MainCtrl', function($scope, $resource, $window) {
   // var Student = $resource('students.php', {page: '@page'});
-  var Student = $resource('processor_list.php', {id: '@id'});
-  $scope.students = Student.query();
+  var Processor = $resource('processor_list.php', {id: '@id'});
+  $scope.processors = Processor.query();
   
   $scope.add = function() {
-    Student.save($scope.new_student, function() {
+    Processor.save($scope.new_processor, function() {
       alert("追加しました。");
       $window.location.reload();
     });
@@ -18,14 +18,14 @@ app.controller('MainCtrl', function($scope, $resource, $window) {
 
 app.controller('DetailCtrl', function($scope, $window) {
   $scope.update = function() {
-    $scope.student.$save(function() {
+    $scope.processor.$save(function() {
       alert("更新しました。");
       $window.location.reload();    
     });
   };
   
   $scope.delete = function() {
-    $scope.student.$delete();
+    $scope.processor.$delete();
     alert("削除しました。");
     $window.location.reload();
   };
