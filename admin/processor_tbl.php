@@ -301,7 +301,7 @@ try {
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="150px" onclick="alert('こんばんは')">略称</th>
+                            <th width="150px">略称</th>
                             <th width="200px">正式名称</th>
                             <th width="150px">操作</th>
                         </tr>
