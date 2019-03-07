@@ -356,9 +356,8 @@ try {
                             <?php
                         }
                         ?>
-                        <li class="page-item"><?php print($page . '/' . $maxPage); ?></li>
+                        <li class="page-item"><a href=""><?php print($page . '/' . $maxPage); ?></a></li>
                     </ul>
-
                 </div>		
             </div>
         </div>
@@ -483,7 +482,7 @@ try {
                     });
                     $('#deleteEmployeeModal').modal('hide');
                     location.reload();
-                    alert('チェックしたレコードを射削除しました。');
+                    alert('チェックしたレコードを削除しました。');
             });
             });
         </script>		
