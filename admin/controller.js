@@ -5,7 +5,7 @@ var app = angular.module('app', ['ngResource']);
 
 app.controller('MainCtrl', function($scope, $resource, $window) {
   // var Student = $resource('students.php', {page: '@page'});
-  var Student = $resource('students.php', {id: '@id'});
+  var Student = $resource('processor_list.php', {id: '@id'});
   $scope.students = Student.query();
   
   $scope.add = function() {
