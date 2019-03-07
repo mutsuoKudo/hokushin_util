@@ -1,6 +1,7 @@
 <?php
+include_once('../lib/db_config.php');
 try {
-    $dbh = new PDO('mysql:dbname=hokushin_util', 'root');
+    $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $sql = 'DELETE FROM processor_tbl where id in ';

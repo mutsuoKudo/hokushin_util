@@ -28,7 +28,7 @@
             .bg-yellow{
                 background-color:darkgray;
             }
-            
+
 
             @media (min-width: 768px) {
                 .bd-placeholder-img-lg {
@@ -79,7 +79,7 @@
                     <h1 class="jumbotron-heading text-muted">ホクシンシステム便利ツール<br>マスタメンテナンス</h1>
                     <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
                     <p>
-                        <a href="http://192.168.71.208/hokushin_util/index.php" class="btn page-link d-inline-block text-muted">Hokushin Util</a>
+                        <a href="../index.php" class="btn page-link d-inline-block text-muted">Hokushin Util</a>
                         <a href="#" class="btn page-link d-inline-block text-muted">Break Time</a>
                     </p>
                 </div>
@@ -92,13 +92,13 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>部門名の追加/修正/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">部門名テーブル</tspan>
                                 <tspan x="50%" y="60%">メンテナンス</tspan>
                                 </text></svg>
-                                
+
                                 <div class="card-body ">
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
@@ -114,7 +114,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>状態名の追加/修正/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">状態テーブル</tspan>
@@ -135,7 +135,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>メーカー名の追加/修正/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">メーカーテーブル</tspan>
@@ -157,7 +157,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>モデル名/詳細スペック参照先の追加/修正/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">モデルテーブル</tspan>
@@ -178,7 +178,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>使用場所名称の追加/変更/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">使用場所テーブル</tspan>
@@ -201,7 +201,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ＣＰＵ名の追加/変更/削除r</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">プロセッサテーブル</tspan>
@@ -212,10 +212,10 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="processor_tbl.php" target="_blank" method="get">          
-                                            <button type="submit" class="btn btn-sm btn-outline-secondary">表示</button></form>
-
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">表示</button>
+                                            <form action="processor_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
                                             <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
@@ -227,7 +227,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ＯＳ名の追加/変更/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">ＯＳテーブル</tspan>
@@ -248,7 +248,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Microsoft Officeの種類の追加/変更/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">オフィステーブル</tspan>
@@ -269,7 +269,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>社員情報の追加/変更/削除</title><rect width="100%" height="100%" fill="darkgray"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
                                 <tspan x="50%" y="40%">社員テーブル</tspan>

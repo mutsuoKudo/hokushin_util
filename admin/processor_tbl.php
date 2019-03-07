@@ -1,6 +1,7 @@
 <?php
+include_once('../lib/db_config.php');
 try {
-    $dbh = new PDO('mysql:dbname=hokushin_util', 'root');
+    $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $page = 1;
@@ -296,7 +297,7 @@ try {
                             <!--チェックボックスALL-->
 					　　<th>
                                 <form class="custom-checkbox" action="processor_tbl.php" method="POST">
-                                    <input type="checkbox" id="selectAll" name="options[{{student.id}}]" value="{{student.id}}" form="form1">
+                                    <input type="checkbox" id="selectAll" name="selectAll" value="0" form="form1">
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
@@ -446,7 +447,7 @@ try {
             $('#kanan').click(function () {
             var id = "(";
             var count = 0;
-            $(':checkbox:checked').each(function() {
+            $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
             //チェックされたチェックボックスの値を取得
             var val = $(this).val();
             //in句に使えるよう整形
