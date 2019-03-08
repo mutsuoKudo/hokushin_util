@@ -360,6 +360,7 @@ try {
                     </ul>
                 </div>		
             </div>
+            <a href="index.php"　style="float:right;">ホームへ戻る</a>
         </div>
 
 
