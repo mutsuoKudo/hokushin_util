@@ -12,7 +12,7 @@ try {
         $page = $_GET['page'];
     }
 
-    $sql = 'SELECT COUNT(*) from processor_tbl';
+    $sql = 'SELECT COUNT(*) from room_tbl';
     $stmt = $dbh->query($sql);
 
     $st = $stmt->fetchColumn();
@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ProcessorTable</title>
+        <title>RoomTable</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +40,7 @@ try {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
-        <script src="controller.js"></script>
+        <script src="room_controller.js"></script>
         <style type="text/css">
             body {
                 color: #566787;
@@ -288,7 +288,7 @@ try {
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> Processor</b> Table</h2>
+                            <h2><b> Room</b> Table</h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -313,31 +313,31 @@ try {
                         <tr>
                             <!--チェックボックスALL-->
 					　　<th>
-                                <form class="custom-checkbox" action="processor_tbl.php" method="POST">
+                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
                                     <input type="checkbox" id="selectAll" name="selectAll" value="0" form="form1">
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="150px">略称</th>
-                            <th width="200px">正式名称</th>
+                            <th width="150px">部屋名</th>
+                            <th width="200px">略称</th>
                             <th width="150px">操作</th>
                         </tr>
                     </thead>
 
                     <tbody>						
-                        <tr ng-controller="DetailCtrl" ng-repeat="processor in processors| limitTo: 5: <?php echo($start); ?>">
+                        <tr ng-controller="DetailCtrl" ng-repeat="room in rooms| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
-                                <form class="custom-checkbox" action="processor_tbl.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{processor.id}}]" value="{{processor.id}}" form="form1">
-                                    <label for="checkbox{{processor.id}}"></label>
+                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{room.id}}]" value="{{room.id}}" form="form1">
+                                    <label for="checkbox{room.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td >{{processor.id}}</td>
-                            <td ><input ng-model="processor.ryaku" size="15" required></td>
-                            <td ><input ng-model="processor.seishiki" size="30" required></td>
+                            <td >{{room.id}}</td>
+                            <td ><input ng-model="room.name" size="30" required></td>
+                            <td ><input ng-model="room.short_name" size="15" required></td>
                             <td>
                                 <button ng-click="update()" class="edit">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -354,7 +354,7 @@ try {
                         <?php
                         if ($page > 1) {
                             ?>
-                            <li class="page-item"><a href="processor_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -366,7 +366,7 @@ try {
                         <?php
                         if ($page < $maxPage) {
                             ?>　　
-                            <li class="page-item"><a href="processor_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -393,19 +393,19 @@ try {
                         <div class="modal-body">										
                             <div class="form-group">
                                 <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_processor.newid" size="15" required>
+                                <input ng-model="new_room.newid" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_processor.ryaku" size="15" required>
+                                <label>部屋名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input ng-model="new_room.name" size="30" required>
                             </div>
                             <div class="form-group">
-                                <label>正式名称</label>
-                                <input ng-model="new_processor.seishiki" size="30" required>
+                                <label>略称</label>
+                                <input ng-model="new_room.short_name" size="15" required>
                             </div>				
                         </div>
                         <div class="modal-footer">
-                            <button onclick="location.href = 'processor_tbl.php'" class="btn btn-default">キャンセル</button>
+                            <button onclick="location.href = 'room_tbl.php'" class="btn btn-default">キャンセル</button>
                             <button ng-click="add()" class="btn btn-success">追加</button>
                         </div>
                     </form>
@@ -428,11 +428,11 @@ try {
                             <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" onclick="location.href = 'processor_tbl.php'" class="btn btn-default" value="キャンセル">
-                            <!--                            <form id="form1" action="processor_tbl.php" method="POST">
+                            <input type="submit" onclick="location.href = 'room_tbl.php'" class="btn btn-default" value="キャンセル">
+                            <!--                            <form id="form1" action="room_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
                                                         </form>-->
-<!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
+<!--                            <button onclick="location.href = 'room_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
                             <button id='kanan' class="btn btn-danger">削除</button> 
                         </div>
                     </form>
@@ -479,7 +479,7 @@ try {
 //            alert(id);
             $.ajax({
             type : 'post',
-                    url : 'processor_tbl_delete.php',
+                    url : 'room_tbl_delete.php',
                     data : {
                     'id' : id
                     },
