@@ -170,7 +170,7 @@ try {
                             </div>
                             <div class="form-group">
                                 <label>状態&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_jyotai.ryaku" size="15" required>
+                                <input ng-model="new_jyotai.name" size="15" required>
                             </div>				
                         </div>
                         <div class="modal-footer">
@@ -245,7 +245,7 @@ try {
             count = count + 1;
             })
                     id = id + ')';
-//            alert(id);
+        //    alert(id);
             $.ajax({
             type : 'post',
                     url : 'jyotai_tbl_delete.php',

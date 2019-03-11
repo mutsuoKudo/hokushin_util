@@ -16,7 +16,7 @@
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
-//  var_dump($st);
+var_dump($st);
  $page = max($page, 1);
  $maxPage = ceil($st / 8);
  var_dump($maxPage);
@@ -38,7 +38,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>DepartmentTable View</title>
+<title>BumonTable View</title>
 
 <script>
 /**
@@ -109,14 +109,14 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "bm.id AS id ";
-    $query = $query . ",bm.bumon_mei AS bumon_mei ";
-    $query = $query . " FROM bumon_mei bm";
-    $query = $query . " ORDER BY bm.id";
+    $query = $query . "bmn.id AS id ";
+    $query = $query . ",bmn.bumon_mei AS bumon_mei";
+    $query = $query . " FROM bumon_mei bmn";
+    $query = $query . " ORDER BY bmn.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
     $bumon_mei = $db->get_all($query);
-    //var_dump($processor_tbl[0]['id']);
+    //var_dump($_tbl[0]['id']);
     
 ?>  
 <div class="container bottom53">
@@ -125,7 +125,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Department</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">Bumon</span>Table</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -188,13 +188,13 @@ $('[data-toggle="tooltip"]').tooltip();
     </div>
 </div>
 <footer class="text-white bg-yellow footer">
-        <div class="container">
-            <p class="float-right" class="text-white">
-                <a href="#" class="text-white">Back to top</a>
-                <br>
-                <a href="../index.php" class="text-white">Back to home</a>
-            </p>
-        </div>
-    </footer>
+    <div class="container">
+        <p class="float-right" class="text-white">
+            <a href="#" class="text-white">Back to top</a>
+            <br>
+            <a href="../index.php" class="text-white">Back to home</a>
+        </p>
+    </div>
+</footer>
 </body>
 </html>
