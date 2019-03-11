@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ProcessorTable</title>
+        <title>BumonTable</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,6 +43,7 @@ try {
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
         <script src="bumon_controller.js"></script>
+
     </head>
 
 
@@ -83,23 +84,23 @@ try {
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="200px">部門名</th>
+                            <th width="150px">部門名</th>
                             <th width="150px">操作</th>
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr ng-controller="DetailCtrl" ng-repeat="bumon_mei in bumon_meis| limitTo: 5: <?php echo($start); ?>">					
+                    <tbody>						
+                        <tr ng-controller="DetailCtrl" ng-repeat="bumon in bumons| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
                                 <form class="custom-checkbox" action="bumon_mei.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{bumon_mei.id}}]" value="{{bumone_mei.id}}" form="form1">
-                                    <label for="checkbox{{bumon_mei.id}}"></label>
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{bumon.id}}]" value="{{bumon.id}}" form="form1">
+                                    <label for="checkbox{{bumon.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td >{{bumon_mei.id}}</td>
-                            <td ><input ng-model="bumon_mei.bumon_mei" size="30" required></td>
+                            <td >{{bumon.id}}</td>
+                            <td ><input ng-model="bumon.bumon_mei" size="15" required></td>
                             <td>
                                 <button ng-click="update()" class="edit">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -141,6 +142,7 @@ try {
                 </div>		
             </div>
         </div>
+
         <footer class="text-white bg-yellow footer">
         <div class="container">
             <p class="float-right" class="text-white">
@@ -150,7 +152,6 @@ try {
             </p>
         </div>
     </footer>
-
 
         <!-- Add Modal HTML ※追加ボタンを押すとでてくる画面 -->
         <div id="addEmployeeModal" class="modal fade">
@@ -164,12 +165,12 @@ try {
                         <div class="modal-body">										
                             <div class="form-group">
                                 <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_bumon_mei.newid" size="15" required>
+                                <input ng-model="new_bumon.newid" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>部門名&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_bumon_mei.bumon_mei" size="15" required>
-                            </div>				
+                                <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input ng-model="new_bumon.bumon_name" size="15" required>
+                            </div>			
                         </div>
                         <div class="modal-footer">
                             <button onclick="location.href = 'bumon_mei.php'" class="btn btn-default">キャンセル</button>
@@ -179,8 +180,6 @@ try {
                 </div>
             </div>
         </div>
-
-
 
 
         <!-- Delete Modal HTML -->
@@ -272,6 +271,8 @@ try {
                     alert('チェックしたレコードを削除しました。');
             });
             });
-        </script>      		
+        </script>
+
+        		
     </body>
 </html>                                		                            

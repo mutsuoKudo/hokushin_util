@@ -168,12 +168,8 @@ try {
                                 <input ng-model="new_maker.newid" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label>メーカー&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 <input ng-model="new_maker.ryaku" size="15" required>
-                            </div>
-                            <div class="form-group">
-                                <label>正式名称</label>
-                                <input ng-model="new_maker.seishiki" size="30" required>
                             </div>				
                         </div>
                         <div class="modal-footer">

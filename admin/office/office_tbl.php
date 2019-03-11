@@ -171,11 +171,11 @@ try {
                             </div>
                             <div class="form-group">
                                 <label>バージョン&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_office.ryaku" size="15" required>
+                                <input ng-model="new_office.name" size="15" required>
                             </div>
                             <div class="form-group">
                                 <label>プロダクトキー</label>
-                                <input ng-model="new_office.seishiki" size="30" required>
+                                <input ng-model="new_office.product_key" size="30" required>
                             </div>				
                         </div>
                         <div class="modal-footer">
