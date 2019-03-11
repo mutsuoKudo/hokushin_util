@@ -3,7 +3,7 @@
 <?php
 include_once('../lib/db_config.php');
 try {
-    $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
+    $dbh = new PDO(DB_HOST, DB_USER, DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $page = 1;
@@ -275,9 +275,9 @@ try {
                 float:right;
             }
             .footer{
-            padding-top:3rem;
-            padding-bottom:6rem;
-        }
+                padding-top:3rem;
+                padding-bottom:6rem;
+            }
         </style>
     </head>
 
@@ -298,9 +298,9 @@ try {
                             <span>&#xE147;追加</span></a> -->
 
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
-                            <!--<div class="btn btn-danger" id="kudo">-->
+                                <!--<div class="btn btn-danger" id="kudo">-->
                                 <i class="material-icons">&#xE15C;</i> <span>選択削除</span>
-                            <!--</div>-->
+                                <!--</div>-->
                             </a>
                             <!-- <form id="form1" action="processor_tbl.php" method="POST" >
                             <input type="submit" value="&#xE15C;選択削除" name="selectDelete" class="btn btn-danger material-icons">
@@ -433,7 +433,7 @@ try {
                             <!--                            <form id="form1" action="processor_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
                                                         </form>-->
-<!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
+                            <!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
                             <button id='kanan' class="btn btn-danger">削除</button> 
                         </div>
                     </form>
@@ -461,10 +461,12 @@ try {
             $("#selectAll").prop("checked", false);
             }
             });
-
+//モーダル画面上の削除確認ボタン押下事の動き
             $('#kanan').click(function () {
+                //変数idに、最初に左かっこを設定
             var id = "(";
             var count = 0;
+            //明細行（ヘダー行のチェックボックスは対象外）のチェックボックスを全部見て、チェックされていたら、前にカンマをつけてチェックボックスに設定された値をidに文字列連結する、ただし、最初だけは前のカンマをつけない
             $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
             //チェックされたチェックボックスの値を取得
             var val = $(this).val();
@@ -476,8 +478,9 @@ try {
             }
             count = count + 1;
             })
+            //最後に変数idに右かっこを文字列連結する
                     id = id + ')';
-//            alert(id);
+//            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
             $.ajax({
             type : 'post',
                     url : 'processor_tbl_delete.php',
@@ -485,13 +488,13 @@ try {
                     'id' : id
                     },
             })
-                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき
+                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
                     .done(function (response) {
 //                    alert('成功');
                     })
                     // ・サーバからステータスコード400以上が返ってきたとき
                     // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
-                    // ・通信に失敗したとき
+                    // ・通信に失敗したとき→失敗理由をalert表示
                     .fail(function () {
                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
                     // (PHPのfunc_get_args関数の返り値のようなもの)
@@ -499,14 +502,17 @@ try {
 //                    $('#detail').val(errorHandler(arguments));
                     alert(errorHandler(arguments));
                     });
-                    $('#deleteEmployeeModal').modal('hide');
-                    location.reload();
-                    alert('チェックしたレコードを削除しました。');
+                    //モーダルを閉じて
+            $('#deleteEmployeeModal').modal('hide');
+            //一覧を再表示
+            location.reload();
+            //削除完了メッセージ表示
+            alert('チェックしたレコードを削除しました。');
             });
             });
         </script>
 
-<footer class="text-white bg-yellow footer">
+        <footer class="text-white bg-yellow footer">
             <div class="container">
                 <p class="float-right" class="text-white">
                     <a href="#" class="text-white">Back to top</a>
@@ -514,6 +520,6 @@ try {
                     <a href="index.php" class="text-white">Back to home</a>
                 </p>
             </div>
-        		
+
     </body>
 </html>                                		                            
