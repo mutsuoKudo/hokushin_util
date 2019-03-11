@@ -43,7 +43,6 @@ try {
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
         <script src="controller.js"></script>
-
     </head>
 
 
@@ -234,10 +233,12 @@ try {
             $("#selectAll").prop("checked", false);
             }
             });
-
+//モーダル画面上の削除確認ボタン押下事の動き
             $('#kanan').click(function () {
+                //変数idに、最初に左かっこを設定
             var id = "(";
             var count = 0;
+            //明細行（ヘダー行のチェックボックスは対象外）のチェックボックスを全部見て、チェックされていたら、前にカンマをつけてチェックボックスに設定された値をidに文字列連結する、ただし、最初だけは前のカンマをつけない
             $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
             //チェックされたチェックボックスの値を取得
             var val = $(this).val();
@@ -249,8 +250,9 @@ try {
             }
             count = count + 1;
             })
+            //最後に変数idに右かっこを文字列連結する
                     id = id + ')';
-//            alert(id);
+//            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
             $.ajax({
             type : 'post',
                     url : 'processor_tbl_delete.php',
@@ -258,13 +260,13 @@ try {
                     'id' : id
                     },
             })
-                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき
+                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
                     .done(function (response) {
 //                    alert('成功');
                     })
                     // ・サーバからステータスコード400以上が返ってきたとき
                     // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
-                    // ・通信に失敗したとき
+                    // ・通信に失敗したとき→失敗理由をalert表示
                     .fail(function () {
                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
                     // (PHPのfunc_get_args関数の返り値のようなもの)
@@ -272,13 +274,15 @@ try {
 //                    $('#detail').val(errorHandler(arguments));
                     alert(errorHandler(arguments));
                     });
-                    $('#deleteEmployeeModal').modal('hide');
-                    location.reload();
-                    alert('チェックしたレコードを削除しました。');
+                    //モーダルを閉じて
+            $('#deleteEmployeeModal').modal('hide');
+            //一覧を再表示
+            location.reload();
+            //削除完了メッセージ表示
+            alert('チェックしたレコードを削除しました。');
             });
             });
         </script>
 
-        		
     </body>
 </html>                                		                            
