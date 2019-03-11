@@ -1,7 +1,7 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
 <!-- <?php
- include_once('../lib/db_main.php');
+ include_once('../../lib/db_main.php');
 
      $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,105 +33,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="../admin_tbl_view.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
     <title>RoomTable View</title>
-
-    <style>
-        body {
-            color: #566787;
-            background: #f5f5f5;
-            font-family: 'Varela Round', sans-serif;
-            font-size: 13px;
-        }
-        .row{
-		    margin-top:40px;
-		    padding: 0 10px;
-		}
-		.clickable{
-		    cursor: pointer;   
-		}
-
-		.panel-heading div {
-			margin-top: -18px;
-			font-size: 15px;
-		}
-		.panel-heading div span{
-			margin-left:5px;
-		}
-		.panel-body{
-			display: none;
-		}
-
-        /* takahashi++ */
-        .bg-green{
-            background-color:olivedrab !important;
-           
-        }
-        .border-color-white{
-            border-color:white !important; 
-        }
-
-        .font-varela{
-            font-family: "Varela Round" !important;
-            font-weight: 700 !important;
-        }
-        .font24{
-            margin-top:0;
-            margin-bottom:0;
-            font-size: 24px !important;
-            color:inherit;    
-        }
-        .pagination {
-            float: right;
-            margin: 0 0 5px;
-        }
-        .pagination li a {
-            border: none;
-            font-size: 13px;
-            min-width: 30px;
-            min-height: 30px;
-            color: #999;
-            margin: 0 2px;
-            line-height: 30px;
-            border-radius: 2px !important;
-            text-align: center;
-            padding: 0 6px;
-        }
-        .pagination li a:hover {
-            color: #666;
-        }	
-        .pagination li.active a, .pagination li.active a.page-link {
-            background: #03A9F4;
-        }
-        .pagination li.active a:hover {        
-            background: #0397d6;
-        }
-        .pagination li.disabled i {
-            color: #ccc;
-        }
-        .pagination li i {
-            font-size: 16px;
-            padding-top: 6px
-        }
-        .bg-yellow{
-                background-color:#F39E15;
-        }
-        .color-crimson{
-            color:crimson;
-        }
-        .text-white{
-                color:white !important;
-        }
-        .float-right{
-                float:right;
-        }
-        .footer{
-            padding-top:3rem;
-            padding-bottom:5rem;
-        }
-    </style>
 
     <script>
     /**
@@ -197,7 +103,7 @@ $(function(){
 <body>
 
 <?php
-        include_once('../lib/db_main.php');
+        include_once('../../lib/db_main.php');
 
         //全案件取得
         $db = new db;
@@ -213,7 +119,7 @@ $(function(){
         //var_dump($processor_tbl[0]['id']);
         
   ?>  
-    <div class="container">
+    <div class="container bottom53">
         <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
     	<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -282,17 +188,16 @@ $(function(){
 				</div>
 			</div>
 		</div>
-	</div>
+    </div>
+
     <footer class="text-white bg-yellow footer">
-            <div class="container">
-                <p class="float-right">
-                    <a href="#" class="text-white">Back to top</a>
-                    <br>
-                    <a href="index.php" class="text-white">Back to home</a>
-                </p>
-                <!-- <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-                <p>New to Bootstrap? <a href="https://getbootstrap.com/" class="color-crimson">Visit the homepage</a>
-                 or read our <a href="/docs/4.3/getting-started/introduction/" class="color-crimson">getting started guide</a>.</p> -->
-            </div>
+        <div class="container">
+            <p class="float-right" class="text-white">
+                <a href="#" class="text-white">Back to top</a>
+                <br>
+                <a href="../index.php" class="text-white">Back to home</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -4,9 +4,8 @@ try {
     $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'DELETE FROM processor_tbl where id in ';
+    $sql = 'DELETE FROM office_tbl where id in ';
     $param = $_POST['id'];
-//    inの中身を文字列連結
     $sql = $sql . $param;
     $st = $dbh->prepare($sql);
     $st->execute();

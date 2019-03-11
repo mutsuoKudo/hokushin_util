@@ -12,7 +12,7 @@ try {
         $page = $_GET['page'];
     }
 
-    $sql = 'SELECT COUNT(*) from processor_tbl';
+    $sql = 'SELECT COUNT(*) from room_tbl';
     $stmt = $dbh->query($sql);
 
     $st = $stmt->fetchColumn();
@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ProcessorTable</title>
+        <title>RoomTable</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,7 +42,8 @@ try {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
-        <script src="controller.js"></script>
+        <script src="room_controller.js"></script>
+
     </head>
 
 
@@ -52,7 +53,7 @@ try {
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> Processor</b> Table</h2>
+                            <h2><b> Room</b> Table</h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -77,31 +78,31 @@ try {
                         <tr>
                             <!--チェックボックスALL-->
 					　　<th>
-                                <form class="custom-checkbox" action="processor_tbl.php" method="POST">
+                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
                                     <input type="checkbox" id="selectAll" name="selectAll" value="0" form="form1">
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="150px">略称</th>
-                            <th width="200px">正式名称</th>
+                            <th width="150px">部屋名</th>
+                            <th width="200px">略称</th>
                             <th width="150px">操作</th>
                         </tr>
                     </thead>
 
                     <tbody>						
-                        <tr ng-controller="DetailCtrl" ng-repeat="processor in processors| limitTo: 5: <?php echo($start); ?>">
+                        <tr ng-controller="DetailCtrl" ng-repeat="room in rooms| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
-                                <form class="custom-checkbox" action="processor_tbl.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{processor.id}}]" value="{{processor.id}}" form="form1">
-                                    <label for="checkbox{{processor.id}}"></label>
+                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{room.id}}]" value="{{room.id}}" form="form1">
+                                    <label for="checkbox{room.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td >{{processor.id}}</td>
-                            <td ><input ng-model="processor.ryaku" size="15" required></td>
-                            <td ><input ng-model="processor.seishiki" size="30" required></td>
+                            <td >{{room.id}}</td>
+                            <td ><input ng-model="room.name" size="30" required></td>
+                            <td ><input ng-model="room.short_name" size="15" required></td>
                             <td>
                                 <button ng-click="update()" class="edit">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -118,7 +119,7 @@ try {
                         <?php
                         if ($page > 1) {
                             ?>
-                            <li class="page-item"><a href="processor_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -130,7 +131,7 @@ try {
                         <?php
                         if ($page < $maxPage) {
                             ?>　　
-                            <li class="page-item"><a href="processor_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -145,14 +146,16 @@ try {
         </div>
 
         <footer class="text-white bg-yellow footer">
-        <div class="container">
-            <p class="float-right" class="text-white">
-                <a href="#" class="text-white">Back to top</a>
-                <br>
-                <a href="../index.php" class="text-white">Back to home</a>
-            </p>
-        </div>
-    </footer>
+            <div class="container">
+                <p class="float-right" class="text-white">
+                    <a href="#" class="text-white">Back to top</a>
+                    <br>
+                    <a href="../index.php" class="text-white">Back to home</a>
+                </p>
+            </div>
+        </footer>
+
+
 
         <!-- Add Modal HTML ※追加ボタンを押すとでてくる画面 -->
         <div id="addEmployeeModal" class="modal fade">
@@ -166,19 +169,19 @@ try {
                         <div class="modal-body">										
                             <div class="form-group">
                                 <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_processor.newid" size="15" required>
+                                <input ng-model="new_room.newid" size="15" required>
+                            </div>
+                            <div class="form-group">
+                                <label>部屋名&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input ng-model="new_room.name" size="30" required>
                             </div>
                             <div class="form-group">
                                 <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_processor.ryaku" size="15" required>
-                            </div>
-                            <div class="form-group">
-                                <label>正式名称</label>
-                                <input ng-model="new_processor.seishiki" size="30" required>
+                                <input ng-model="new_room.short_name" size="15" required>
                             </div>				
                         </div>
                         <div class="modal-footer">
-                            <button onclick="location.href = 'processor_tbl.php'" class="btn btn-default">キャンセル</button>
+                            <button onclick="location.href = 'room_tbl.php'" class="btn btn-default">キャンセル</button>
                             <button ng-click="add()" class="btn btn-success">追加</button>
                         </div>
                     </form>
@@ -201,11 +204,11 @@ try {
                             <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" onclick="location.href = 'processor_tbl.php'" class="btn btn-default" value="キャンセル">
-                            <!--                            <form id="form1" action="processor_tbl.php" method="POST">
+                            <input type="submit" onclick="location.href = 'room_tbl.php'" class="btn btn-default" value="キャンセル">
+                            <!--                            <form id="form1" action="room_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
                                                         </form>-->
-<!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
+<!--                            <button onclick="location.href = 'room_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
                             <button id='kanan' class="btn btn-danger">削除</button> 
                         </div>
                     </form>
@@ -233,12 +236,10 @@ try {
             $("#selectAll").prop("checked", false);
             }
             });
-//モーダル画面上の削除確認ボタン押下事の動き
+
             $('#kanan').click(function () {
-                //変数idに、最初に左かっこを設定
             var id = "(";
             var count = 0;
-            //明細行（ヘダー行のチェックボックスは対象外）のチェックボックスを全部見て、チェックされていたら、前にカンマをつけてチェックボックスに設定された値をidに文字列連結する、ただし、最初だけは前のカンマをつけない
             $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
             //チェックされたチェックボックスの値を取得
             var val = $(this).val();
@@ -250,23 +251,22 @@ try {
             }
             count = count + 1;
             })
-            //最後に変数idに右かっこを文字列連結する
                     id = id + ')';
-//            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
+//            alert(id);
             $.ajax({
             type : 'post',
-                    url : 'processor_tbl_delete.php',
+                    url : 'room_tbl_delete.php',
                     data : {
                     'id' : id
                     },
             })
-                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
+                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき
                     .done(function (response) {
 //                    alert('成功');
                     })
                     // ・サーバからステータスコード400以上が返ってきたとき
                     // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
-                    // ・通信に失敗したとき→失敗理由をalert表示
+                    // ・通信に失敗したとき
                     .fail(function () {
                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
                     // (PHPのfunc_get_args関数の返り値のようなもの)
@@ -274,15 +274,12 @@ try {
 //                    $('#detail').val(errorHandler(arguments));
                     alert(errorHandler(arguments));
                     });
-                    //モーダルを閉じて
-            $('#deleteEmployeeModal').modal('hide');
-            //一覧を再表示
-            location.reload();
-            //削除完了メッセージ表示
-            alert('チェックしたレコードを削除しました。');
+                    $('#deleteEmployeeModal').modal('hide');
+                    location.reload();
+                    alert('チェックしたレコードを削除しました。');
             });
             });
         </script>
-
+	
     </body>
 </html>                                		                            

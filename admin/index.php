@@ -109,12 +109,18 @@
                                 <tspan x="50%" y="60%">メンテナンス</tspan>
                                 </text></svg>
 
-                                <div class="card-body ">
+                                <div class="card-body">
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="bumon/bumon_mei_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="bumon/bumon_mei.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
@@ -134,8 +140,14 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="jyotai/jyotai_tbl_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="jyotai/jyotai_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
@@ -155,8 +167,14 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="maker/maker_tbl_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="maker/maker_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
@@ -177,8 +195,14 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="model/model_tbl_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="model/model_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
@@ -199,10 +223,10 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="room_tbl_view.php" method="get">  
+                                            <form action="room/room_tbl_view.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
                                             </form>
-                                            <form action="room_tbl.php" method="get">  
+                                            <form action="room/room_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
@@ -228,10 +252,10 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="processor_tbl_view.php" method="get">  
+                                            <form action="processor/processor_tbl_view.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
                                             </form>
-                                            <form action="processor_tbl.php" method="get">  
+                                            <form action="processor/processor_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
@@ -255,8 +279,14 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="os/os_tbl_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="os/os_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
@@ -276,8 +306,14 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="office/office_tbl_view.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </form>
+                                            <form action="office/office_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
                                         <!-- <small class="text-muted">9 mins</small> -->
                                     </div>

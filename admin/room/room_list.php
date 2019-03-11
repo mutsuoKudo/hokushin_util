@@ -1,6 +1,6 @@
 
 <?php
-include_once('../lib/db_config.php');
+include_once('../../lib/db_config.php');
 try {
   $pdo = new PDO(DB_HOST, DB_USER,DB_PASS);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

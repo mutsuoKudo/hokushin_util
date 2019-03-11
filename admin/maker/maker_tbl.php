@@ -1,7 +1,7 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
 <?php
-include_once('../lib/db_config.php');
+include_once('../../lib/db_config.php');
 try {
     $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,7 +12,7 @@ try {
         $page = $_GET['page'];
     }
 
-    $sql = 'SELECT COUNT(*) from room_tbl';
+    $sql = 'SELECT COUNT(*) from maker_tbl';
     $stmt = $dbh->query($sql);
 
     $st = $stmt->fetchColumn();
@@ -31,254 +31,19 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>RoomTable</title>
+        <title>MakerTable</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="../admin_tbl.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
-        <script src="room_controller.js"></script>
-        <style type="text/css">
-            body {
-                color: #566787;
-                background: #f5f5f5;
-                font-family: 'Varela Round', sans-serif;
-                font-size: 13px;
-            }
-            .table-wrapper {
-                background: #fff;
-                padding: 20px 25px;
-                margin: 30px 0;
-                border-radius: 3px;
-                box-shadow: 0 1px 1px rgba(0,0,0,.05);
-            }
-            .table-title {        
-                padding-bottom: 15px;
-                background: #435d7d;
-                color: #fff;
-                padding: 16px 30px;
-                margin: -20px -25px 10px;
-                border-radius: 3px 3px 0 0;
-            }
-            .table-title h2 {
-                margin: 5px 0 0;
-                font-size: 24px;
-            }
-            .table-title .btn-group {
-                float: right;
-            }
-            .table-title .btn {
-                color: #fff;
-                float: right;
-                font-size: 13px;
-                border: none;
-                min-width: 50px;
-                border-radius: 2px;
-                border: none;
-                outline: none !important;
-                margin-right: 10px;
-                width: 102px;
-            }
-            .table-title .btn i {
-                float: left;
-                font-size: 21px;
-                margin-right: 5px;
-            }
-            .table-title .btn span {
-                float: left;
-                margin-top: 2px;
-            }
-            table.table tr th, table.table tr td {
-                border-color: #e9e9e9;
-                padding: 12px;
-                vertical-align: middle;
-                table-layout: fixed;
+        <script src="maker_controller.js"></script>
 
-            }
-            table.table tr th:first-child {
-                width: 60px;
-            }
-            table.table tr th:last-child {
-                width: 100px;
-            }
-            table.table-striped tbody tr:nth-of-type(odd) {
-                background-color: #fcfcfc;
-            }
-            table.table-striped.table-hover tbody tr:hover {
-                background: #f5f5f5;
-            }
-            table.table th i {
-                font-size: 13px;
-                margin: 0 5px;
-                cursor: pointer;
-            }	
-            table.table td:last-child i {
-                opacity: 0.9;
-                font-size: 22px;
-                margin: 0 5px;
-            }
-            table.table td a {
-                font-weight: bold;
-                color: #566787;
-                display: inline-block;
-                text-decoration: none;
-                outline: none !important;
-            }
-            table.table td a:hover {
-                color: #2196F3;
-            }
-            .edit {
-                color: #FFC107;
-            }
-            .delete {
-                color: #F44336;
-            }
-            table.table td i {
-                font-size: 19px;
-            }
-            table.table .avatar {
-                border-radius: 50%;
-                vertical-align: middle;
-                margin-right: 10px;
-            }
-            .pagination {
-                float: right;
-                margin: 0 0 5px;
-            }
-            .pagination li a {
-                border: none;
-                font-size: 13px;
-                min-width: 30px;
-                min-height: 30px;
-                color: #999;
-                margin: 0 2px;
-                line-height: 30px;
-                border-radius: 2px !important;
-                text-align: center;
-                padding: 0 6px;
-            }
-            .pagination li a:hover {
-                color: #666;
-            }	
-            .pagination li.active a, .pagination li.active a.page-link {
-                background: #03A9F4;
-            }
-            .pagination li.active a:hover {        
-                background: #0397d6;
-            }
-            .pagination li.disabled i {
-                color: #ccc;
-            }
-            .pagination li i {
-                font-size: 16px;
-                padding-top: 6px
-            }
-            .hint-text {
-                float: left;
-                margin-top: 10px;
-                font-size: 13px;
-            }    
-            /* Custom checkbox */
-            .custom-checkbox {
-                position: relative;
-            }
-            .custom-checkbox input[type="checkbox"] {    
-                opacity: 0;
-                position: absolute;
-                margin: 5px 0 0 3px;
-                z-index: 9;
-            }
-            .custom-checkbox label:before{
-                width: 18px;
-                height: 18px;
-            }
-            .custom-checkbox label:before {
-                content: '';
-                margin-right: 10px;
-                display: inline-block;
-                vertical-align: text-top;
-                background: white;
-                border: 1px solid #bbb;
-                border-radius: 2px;
-                box-sizing: border-box;
-                z-index: 2;
-            }
-            .custom-checkbox input[type="checkbox"]:checked + label:after {
-                content: '';
-                position: absolute;
-                left: 6px;
-                top: 3px;
-                width: 6px;
-                height: 11px;
-                border: solid #000;
-                border-width: 0 3px 3px 0;
-                transform: inherit;
-                z-index: 3;
-                transform: rotateZ(45deg);
-            }
-            .custom-checkbox input[type="checkbox"]:checked + label:before {
-                border-color: #03A9F4;
-                background: #03A9F4;
-            }
-            .custom-checkbox input[type="checkbox"]:checked + label:after {
-                border-color: #fff;
-            }
-            .custom-checkbox input[type="checkbox"]:disabled + label:before {
-                color: #b8b8b8;
-                cursor: auto;
-                box-shadow: none;
-                background: #ddd;
-            }
-            /* Modal styles */
-            .modal .modal-dialog {
-                max-width: 400px;
-            }
-            .modal .modal-header, .modal .modal-body, .modal .modal-footer {
-                padding: 20px 30px;
-            }
-            .modal .modal-content {
-                border-radius: 3px;
-            }
-            .modal .modal-footer {
-                background: #ecf0f1;
-                border-radius: 0 0 3px 3px;
-            }
-            .modal .modal-title {
-                display: inline-block;
-            }
-            .modal .form-control {
-                border-radius: 2px;
-                box-shadow: none;
-                border-color: #dddddd;
-            }
-            .modal textarea.form-control {
-                resize: vertical;
-            }
-            .modal .btn {
-                border-radius: 2px;
-                min-width: 100px;
-            }	
-            .modal form label {
-                font-weight: normal;
-            }
-            /* takahashi */
-            .text-white{
-                color:white !important;
-            }
-            .bg-yellow{
-                background-color:#F39E15;
-            }
-            .float-right{
-                float:right;
-            }
-            .footer{
-            padding-top:3rem;
-            padding-bottom:6rem;
-        }
-        </style>
     </head>
 
 
@@ -288,7 +53,7 @@ try {
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> Room</b> Table</h2>
+                            <h2><b> Maker</b> Table</h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -313,31 +78,29 @@ try {
                         <tr>
                             <!--チェックボックスALL-->
 					　　<th>
-                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
+                                <form class="custom-checkbox" action="maker_tbl.php" method="POST">
                                     <input type="checkbox" id="selectAll" name="selectAll" value="0" form="form1">
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="150px">部屋名</th>
-                            <th width="200px">略称</th>
+                            <th width="150px">メーカー</th>
                             <th width="150px">操作</th>
                         </tr>
                     </thead>
 
                     <tbody>						
-                        <tr ng-controller="DetailCtrl" ng-repeat="room in rooms| limitTo: 5: <?php echo($start); ?>">
+                        <tr ng-controller="DetailCtrl" ng-repeat="maker in makers| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
-                                <form class="custom-checkbox" action="room_tbl.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{room.id}}]" value="{{room.id}}" form="form1">
-                                    <label for="checkbox{room.id}}"></label>
+                                <form class="custom-checkbox" action="maker_tbl.php" method="POST">
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{maker.id}}]" value="{{maker.id}}" form="form1">
+                                    <label for="checkbox{{maker.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td >{{room.id}}</td>
-                            <td ><input ng-model="room.name" size="30" required></td>
-                            <td ><input ng-model="room.short_name" size="15" required></td>
+                            <td >{{maker.id}}</td>
+                            <td ><input ng-model="maker.name" size="20" required></td>
                             <td>
                                 <button ng-click="update()" class="edit">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -354,7 +117,7 @@ try {
                         <?php
                         if ($page > 1) {
                             ?>
-                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                            <li class="page-item"><a href="maker_tbl.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -366,7 +129,7 @@ try {
                         <?php
                         if ($page < $maxPage) {
                             ?>　　
-                            <li class="page-item"><a href="room_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                            <li class="page-item"><a href="maker_tbl.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -380,6 +143,15 @@ try {
             </div>
         </div>
 
+        <footer class="text-white bg-yellow footer">
+        <div class="container">
+            <p class="float-right" class="text-white">
+                <a href="#" class="text-white">Back to top</a>
+                <br>
+                <a href="../index.php" class="text-white">Back to home</a>
+            </p>
+        </div>
+    </footer>
 
         <!-- Add Modal HTML ※追加ボタンを押すとでてくる画面 -->
         <div id="addEmployeeModal" class="modal fade">
@@ -393,19 +165,19 @@ try {
                         <div class="modal-body">										
                             <div class="form-group">
                                 <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_room.newid" size="15" required>
+                                <input ng-model="new_maker.newid" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>部屋名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_room.name" size="30" required>
+                                <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input ng-model="new_maker.ryaku" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>略称</label>
-                                <input ng-model="new_room.short_name" size="15" required>
+                                <label>正式名称</label>
+                                <input ng-model="new_maker.seishiki" size="30" required>
                             </div>				
                         </div>
                         <div class="modal-footer">
-                            <button onclick="location.href = 'room_tbl.php'" class="btn btn-default">キャンセル</button>
+                            <button onclick="location.href = 'maker_tbl.php'" class="btn btn-default">キャンセル</button>
                             <button ng-click="add()" class="btn btn-success">追加</button>
                         </div>
                     </form>
@@ -428,11 +200,11 @@ try {
                             <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" onclick="location.href = 'room_tbl.php'" class="btn btn-default" value="キャンセル">
-                            <!--                            <form id="form1" action="room_tbl.php" method="POST">
+                            <input type="submit" onclick="location.href = 'maker_tbl.php'" class="btn btn-default" value="キャンセル">
+                            <!--                            <form id="form1" action="processor_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
                                                         </form>-->
-<!--                            <button onclick="location.href = 'room_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
+<!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
                             <button id='kanan' class="btn btn-danger">削除</button> 
                         </div>
                     </form>
@@ -479,7 +251,7 @@ try {
 //            alert(id);
             $.ajax({
             type : 'post',
-                    url : 'room_tbl_delete.php',
+                    url : 'maker_tbl_delete.php',
                     data : {
                     'id' : id
                     },
@@ -505,14 +277,6 @@ try {
             });
         </script>
 
-<footer class="text-white bg-yellow footer">
-            <div class="container">
-                <p class="float-right" class="text-white">
-                    <a href="#" class="text-white">Back to top</a>
-                    <br>
-                    <a href="index.php" class="text-white">Back to home</a>
-                </p>
-            </div>
         		
     </body>
 </html>                                		                            
