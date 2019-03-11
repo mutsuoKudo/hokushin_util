@@ -1,10 +1,10 @@
 <?php
-include_once('../lib/db_config.php');
+include_once('../../lib/db_config.php');
 try {
     $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'DELETE FROM processor_tbl where id in ';
+    $sql = 'DELETE FROM bumon_mei where id in ';
     $param = $_POST['id'];
     $sql = $sql . $param;
     $st = $dbh->prepare($sql);
