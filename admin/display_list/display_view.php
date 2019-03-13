@@ -12,7 +12,7 @@
      $page = $_GET['page'];
  }
 
- $sql = 'SELECT COUNT(*) from processor_tbl';
+ $sql = 'SELECT COUNT(*) from display_list';
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>ProcessorTable View</title>
+<title>DisplayTable View</title>
 
 <script>
 /**
@@ -88,7 +88,7 @@ $(function(){
 // attach table filter plugin to inputs
 $('[data-action="filter"]').filterTable();
 
-$('.container').on('click', '.panel-heading span.filter', function(e){
+$('.custom-container').on('click', '.panel-heading span.filter', function(e){
     var $this = $(this), 
         $panel = $this.parents('.panel');
     
@@ -109,22 +109,54 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "prt.id AS id ";
-    $query = $query . ",prt.ryaku AS ryaku ";
-    $query = $query . ",prt.seishiki AS seishiki ";
-    $query = $query . " FROM processor_tbl prt";
-    $query = $query . " ORDER BY prt.id";
+    $query = $query . "dl.id AS id ";
+    $query = $query . ",dl.maker_id AS maker_id ";
+    $query = $query . ",dl.model_id AS model_id ";
+    $query = $query . ",dl.inch AS inch ";
+    $query = $query . ",dl.kaizoudo_id AS kaizoudo_id ";
+    $query = $query . ",dl.vga AS vga ";
+    $query = $query . ",dl.dvi AS dvi ";
+    $query = $query . ",dl.hdmi AS hdmi ";
+    $query = $query . ",dl.displayport AS displayport ";
+    $query = $query . ",dl.other AS other ";
+    $query = $query . ",dl.speaker AS speaker ";
+    $query = $query . ",dl.usb AS usb ";
+    $query = $query . ",dl.jyotai AS jyotai ";
+    $query = $query . ",dl.room_id AS room_id ";
+    $query = $query . ",dl.user_id AS user_id ";
+    $query = $query . ",dl.konyubi AS konyubi ";
+    $query = $query . ",dl.kakaku AS kakaku ";
+    $query = $query . ",dl.unyo_kikan AS unyo_kikan ";
+    $query = $query . ",dl.biko AS biko ";
+    $query = $query . ",dl.serial_no AS serial_no ";
+
+    $query = $query . ",mkt.name AS maker_name ";
+    $query = $query . ",mdt.name AS model_name ";
+    $query = $query . ",kzt.kaizoudo AS kaizoudo_name ";
+    $query = $query . ",jtt.name AS jyotai_name ";
+    $query = $query . ",rmt.name AS room_name ";
+    $query = $query . ",sh.shain_mei AS shain_name ";
+
+    
+    $query = $query . " FROM display_list dl";
+    $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON dl.maker_id = mkt.id";
+    $query = $query . " LEFT OUTER JOIN model_tbl mdt ON dl.model_id = mdt.id";
+    $query = $query . " LEFT OUTER JOIN kaizoudo_tbl kzt ON dl.kaizoudo_id = kzt.id";
+    $query = $query . " LEFT OUTER JOIN jyotai_tbl jtt ON dl.jyotai = jtt.id";
+    $query = $query . " LEFT OUTER JOIN room_tbl rmt ON dl.room_id = rmt.id";
+    $query = $query . " LEFT OUTER JOIN shain sh ON dl.user_id = sh.shain_cd";
+    $query = $query . " ORDER BY dl.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
-    $processor_tbl = $db->get_all($query);
+    $display_list = $db->get_all($query);
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
-<div class="container bottom13">
+<div class="custom-container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
-    <div class="row height500 ">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel border-color-white">
+    <div class="row height700">
+        <div class="col-md-12">
+            <div class="panel border-color-white width1500">
                 <div class="panel-heading bg-green text-white">
                     <h3 class="font-24"><span class="font-varela">Processor</span>Table</h3>
                     <div class="pull-right">
@@ -137,21 +169,55 @@ $('[data-toggle="tooltip"]').tooltip();
                     <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Search Filter" />
                 </div>
                 <table class="table table-hover" id="dev-table">
-                    <thead>
+                    <thead >
                         <tr>
-                            <th class="col-md-2 text-center">id</th>
-                            <th class="col-md-2">略称</th>
-                            <th class="col-md-4">正式名称</th>
+                            <th class="text-center">id</th>
+                            <th class="text-center">ﾒｰｶｰ</th>
+                            <th class="text-center">ﾓﾃﾞﾙ</th>
+                            <th class="text-center">ｲﾝﾁ</th>
+                            <th class="text-center">解像度</th>
+                            <th class="text-center">vga</th>
+                            <th class="text-center">dvi</th>
+                            <th class="text-center">hdmi</th>
+                            <th class="text-center">Dp</th>
+                            <th class="text-center">その他</th>
+                            <th class="text-center">ｽﾋﾟｰｶｰ</th>
+                            <th class="text-center">USB</th>
+                            <th class="text-center">状態</th>
+                            <th class="text-center">使用場所</th>
+                            <th class="text-center">ﾕｰｻﾞｰ</th>
+                            <th class="text-center">購入日</th>
+                            <th class="text-center">価格</th>
+                            <th class="text-center">運用期間</th>
+                            <th class="text-center">備考</th>
+                            <th class="text-center">ｼﾘｱﾙNO.</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($processor_tbl as $row ) {
+                    foreach ($display_list as $row ) {
                         // var_dump($row);
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td>" . $row['ryaku'] . "</td>");
-                        print("<td>" . $row['seishiki'] . "</td>");
+                        print("<td class='text-center'>" . $row['maker_id'] . "." . $row['maker_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['model_id'] . "." . $row['model_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['inch'] . "</td>");
+                        print("<td class='text-center'>" . $row['kaizoudo_id'] . "." . $row['kaizoudo_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['vga'] . "</td>");
+                        print("<td class='text-center'>" . $row['dvi'] . "</td>");
+                        print("<td class='text-center'>" . $row['hdmi'] . "</td>");
+                        print("<td class='text-center'>" . $row['displayport'] . "</td>");
+                        print("<td>" . $row['other'] . "</td>");
+                        print("<td class='text-center'>" . $row['speaker'] . "</td>");
+                        print("<td class='text-center'>" . $row['usb'] . "</td>");
+                        print("<td>" . $row['jyotai'] . "." . $row['jyotai_name'] . "</td>");
+                        print("<td>" . $row['room_id'] . "." . $row['room_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['user_id'] . "<br>" . $row['shain_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['konyubi'] . "</td>");
+                        print("<td class='text-center'>￥" . $row['kakaku'] . "</td>");
+                        print("<td>" . $row['unyo_kikan'] . "</td>");
+                        print("<td>" . $row['biko'] . "</td>");
+                        print("<td>" . $row['serial_no'] . "</td>");
                         print("</tr>");
                     }
                     ?>
@@ -163,7 +229,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page > 1) {
                         ?>
-                        <li class="page-item"><a href="office_tbl_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                        <li class="page-item"><a href="processor_tbl_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                         <?php
                     } else {
                         ?>
@@ -175,7 +241,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page < $maxPage) {
                         ?>　　
-                        <li class="page-item"><a href="office_tbl_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                        <li class="page-item"><a href="processor_tbl_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                         <?php
                     } else {
                         ?>
