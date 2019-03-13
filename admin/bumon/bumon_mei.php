@@ -48,7 +48,7 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container">
+        <div class="container height650">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -169,7 +169,7 @@ try {
                             </div>
                             <div class="form-group">
                                 <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input ng-model="new_bumon.bumon_name" size="15" required>
+                                <input ng-model="new_bumon.bumon_mei" size="15" required>
                             </div>			
                         </div>
                         <div class="modal-footer">

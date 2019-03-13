@@ -48,7 +48,7 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container">
+        <div class="container height650">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">

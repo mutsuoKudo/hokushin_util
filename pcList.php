@@ -240,7 +240,7 @@
                     
                             $db = new db;       
                             $query = "SELECT ";
-                            $query = $query . "plk.kousinbi AS koushinbi ";
+                            $query = $query . "plk.kousinbi AS kousinbi ";
                             $query = $query . ",plk.naiyou AS naiyou ";
                             $query = $query . " FROM pc_list_koshin plk";
                             $query = $query . " ORDER BY plk.kousinbi desc";
@@ -251,7 +251,7 @@
 /* var_dump($pc_list_koushin); */
                             foreach ($pc_list_koushin as $row) {
 
-                            print( $row['koushinbi'] . ':<a href="#">' . $row['naiyou'] .'</a><br>');
+                            print( $row['kousinbi'] . ':<a href="#">' . $row['naiyou'] .'</a><br>');
                             print('<hr class="line">');
                             }
                             ?>

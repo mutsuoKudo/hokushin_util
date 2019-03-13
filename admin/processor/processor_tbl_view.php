@@ -34,7 +34,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     
-    <link rel="stylesheet" href="../admin_tbl_view.css">
+    <link rel="stylesheet" href="../admin_tbl.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -120,9 +120,9 @@ $(function(){
         //var_dump($processor_tbl[0]['id']);
         
   ?>  
-    <div class="container bottom53">
+    <div class="container bottom13">
         <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
-    	<div class="row">
+    	<div class="row height500">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel border-color-white">
 					<div class="panel-heading bg-green text-white">

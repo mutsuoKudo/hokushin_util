@@ -31,14 +31,21 @@
             }
 
             .jumbotron-3rem{
-                padding-top:3rem;
+                padding-top:2rem;
                 padding-bottom:3rem;
             }
             .top-image{
                 background-image: url("topImage.jpg")
             }
-            .color-crimson{
-            color:crimson;
+            .font-size18{
+                font-size:18px;
+            }
+            .pad-right20{
+                padding-right:20px;
+            }
+            .btn-size{
+                width:80px;
+                height:35px;
             }
             @media (min-width: 768px) {
                 .bd-placeholder-img-lg {
@@ -105,7 +112,7 @@
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>部門名の追加/修正/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef " dy=".3em">
-                                <tspan x="50%" y="40%">部門名テーブル</tspan>
+                                <tspan x="50%" y="40%">部門テーブル</tspan>
                                 <tspan x="50%" y="60%">メンテナンス</tspan>
                                 </text></svg>
 
@@ -114,15 +121,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="bumon/bumon_mei_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="bumon/bumon_mei_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="bumon/bumon_mei.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -141,15 +147,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="jyotai/jyotai_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="jyotai/jyotai_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="jyotai/jyotai_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -168,15 +173,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="maker/maker_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="maker/maker_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="maker/maker_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -196,15 +200,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="model/model_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="model/model_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="model/model_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -223,15 +226,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="room/room_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="room/room_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="room/room_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -252,15 +254,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="processor/processor_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="processor/processor_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="processor/processor_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -280,15 +281,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="os/os_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="os/os_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="os/os_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -307,15 +307,14 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="office/office_tbl_view.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <form action="office/office_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="office/office_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
@@ -333,14 +332,228 @@
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <!-- +takahashi+ -->
+                                            <form action="shain/shain_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="shain/shain_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
                                         </div>
-                                        <!-- <small class="text-muted">9 mins</small> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ディスプレイの種類の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ディスプレイテーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="display_list/display_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="display_list/display.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ディスプレイモデル名の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ディスプレイモデル</tspan>
+                                <tspan x="50%" y="60%">テーブルメンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="display_model/display_model_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="display_model/display_model_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ディスプレイ解像度の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">解像度テーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="display_kaizoudo/kaizoudo_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="display_kaizoudo/kaizoudo_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>PCリストの追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ＰＣリストテーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="display_model/display_model_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="display_model/display_model_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ＰＣモデル名の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ＰＣモデルテーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="model/model_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="model/model_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ＰＣリスト情報の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ＰＣリスト情報モデル</tspan>
+                                <tspan x="50%" y="60%">テーブルメンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="pc_list_koshin/pc_list_koshin_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="pc_list_koshin/pc_list_koshin.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>社員の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">社員テーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="display_kaizoudo/kaizoudo_tbl_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="display_kaizoudo/kaizoudo_tbl.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                                <title>ニュースの追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <tspan x="50%" y="40%">ニューステーブル</tspan>
+                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                </text></svg>
+                                <div class="card-body">
+                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group mx-auto">
+                                            <!-- +takahashi+ -->
+                                            <form action="news/index_news_view.php" method="get" class="pad-right20">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
+                                            </form>
+                                            <form action="news/index_news.php" method="get">  
+                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
+                                            </form>
+                                            <!-- +takahashi -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -349,7 +562,7 @@
 
         <footer class="text-white bg-yellow">
             <div class="container">
-                <p class="float-right">
+                <p class="float-right font-weight-bold font-size18">
                     <a href="#" class="text-white">Back to top</a>
             </div>
         </footer>

@@ -12,7 +12,7 @@
      $page = $_GET['page'];
  }
 
- $sql = 'SELECT COUNT(*) from os_tbl';
+ $sql = 'SELECT COUNT(*) from index_news';
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
@@ -38,8 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>OsTable View</title>
-
+<title>IndexNews View</title>
 
 <script>
 /**
@@ -110,13 +109,14 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "ost.id AS id ";
-    $query = $query . ",ost.name AS name ";
-    $query = $query . " FROM os_tbl ost";
-    $query = $query . " ORDER BY ost.id";
+    $query = $query . "ins.id AS id ";
+    $query = $query . ",ins.date AS date ";
+    $query = $query . ",ins.news AS news ";
+    $query = $query . " FROM index_news ins";
+    $query = $query . " ORDER BY ins.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
-    $os_tbl = $db->get_all($query);
+    $index_news = $db->get_all($query);
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
@@ -126,7 +126,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Os</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">IndexNews</span>Table</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -140,16 +140,18 @@ $('[data-toggle="tooltip"]').tooltip();
                     <thead>
                         <tr>
                             <th class="col-md-2 text-center">id</th>
-                            <th class="col-md-2">名前</th>
+                            <th class="col-md-2 text-center">日付</th>
+                            <th class="col-md-2">ニュース</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($os_tbl as $row ) {
+                    foreach ($index_news as $row ) {
                         // var_dump($row);
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td>" . $row['name'] . "</td>");
+                        print("<td class='text-center'>" . $row['date'] . "</td>");
+                        print("<td>" . $row['news'] . "</td>");
                         print("</tr>");
                     }
                     ?>
@@ -161,7 +163,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page > 1) {
                         ?>
-                        <li class="page-item"><a href="os_tbl_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                        <li class="page-item"><a href="index_news_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                         <?php
                     } else {
                         ?>
@@ -173,7 +175,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page < $maxPage) {
                         ?>　　
-                        <li class="page-item"><a href="os_tbl_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                        <li class="page-item"><a href="index_news_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                         <?php
                     } else {
                         ?>
@@ -189,13 +191,13 @@ $('[data-toggle="tooltip"]').tooltip();
     </div>
 </div>
 <footer class="text-white bg-yellow footer">
-        <div class="container">
-            <p class="float-right" class="text-white">
-                <a href="#" class="text-white">Back to top</a>
-                <br>
-                <a href="../index.php" class="text-white">Back to home</a>
-            </p>
-        </div>
-    </footer>
+    <div class="container">
+        <p class="float-right" class="text-white">
+            <a href="#" class="text-white">Back to top</a>
+            <br>
+            <a href="../index.php" class="text-white">Back to home</a>
+        </p>
+    </div>
+</footer>
 </body>
 </html>
