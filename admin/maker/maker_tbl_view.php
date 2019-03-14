@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>MakerTable View</title>
+<title>メーカーテーブル</title>
 
 <script>
 /**
@@ -114,10 +114,8 @@ $('[data-toggle="tooltip"]').tooltip();
     $query = $query . " FROM maker_tbl mkt";
     $query = $query . " ORDER BY mkt.id";
     $query = $query . " LIMIT " . $start . ",8" ;
-    // var_dump($query);
     $maker_tbl = $db->get_all($query);
-    //var_dump($processor_tbl[0]['id']);
-    
+
 ?>  
 <div class="container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
@@ -125,7 +123,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Maker</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">メーカー</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>

@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>BumonTable View</title>
+<title>部門テーブル</title>
 
 <script>
 /**
@@ -109,15 +109,13 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "bmn.id AS id ";
-    $query = $query . ",bmn.bumon_mei AS bumon_mei";
-    $query = $query . " FROM bumon_mei bmn";
-    $query = $query . " ORDER BY bmn.id";
+    $query = $query . "bm.id AS id ";
+    $query = $query . ",bm.bumon_mei AS name ";
+    $query = $query . " FROM bumon_mei bm";
+    $query = $query . " ORDER BY bm.id";
     $query = $query . " LIMIT " . $start . ",8" ;
-    // var_dump($query);
     $bumon_mei = $db->get_all($query);
-    //var_dump($_tbl[0]['id']);
-    
+
 ?>  
 <div class="container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
@@ -125,7 +123,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Bumon</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">部門</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -148,7 +146,7 @@ $('[data-toggle="tooltip"]').tooltip();
                         // var_dump($row);
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td>" . $row['bumon_mei'] . "</td>");
+                        print("<td>" . $row['name'] . "</td>");
                         print("</tr>");
                     }
                     ?>

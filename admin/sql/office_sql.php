@@ -8,12 +8,12 @@ try {
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "rmt.id AS id ";
-    $query = $query . ",rmt.name AS name ";
-    $query = $query . ",rmt.short_name AS short_name ";
-    $query = $query . " FROM room_tbl rmt";
-    $query = $query . " ORDER BY rmt.id";
-    $room_tbl = $db->get_all($query);
+    $query = $query . "oft.id AS id ";
+    $query = $query . ",oft.name AS name ";
+    $query = $query . ",oft.product_key AS product_key ";
+    $query = $query . " FROM office_tbl oft";
+    $query = $query . " ORDER BY oft.id";
+    $office_tbl = $db->get_all($query);
 
 } catch (PDOException $e) {
     echo("ERROR!" . $e->getMessage());

@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>PCModelTable View</title>
+<title>PCモデルテーブル</title>
 
 <script>
 /**
@@ -106,14 +106,13 @@ $('[data-toggle="tooltip"]').tooltip();
 <?php
     include_once('../../lib/db_main.php');
 
-    //全案件取得
+    //PCモデルテーブルとPCメーカーテーブルの取得
     $db = new db;
     $query = "SELECT ";
     $query = $query . "mt.id AS id ";
     $query = $query . ",mt.name AS name ";
     $query = $query . ",mt.maker_id AS maker_id ";
     $query = $query . ",mt.model_url AS model_url ";
-    $query = $query . ",mkt.name AS maker_name ";
     $query = $query . " FROM model_tbl mt";
     $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON mt.maker_id = mkt.id";
     $query = $query . " ORDER BY mt.id";
@@ -129,7 +128,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">PCModel</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">PCモデル</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -155,7 +154,7 @@ $('[data-toggle="tooltip"]').tooltip();
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
                         print("<td>" . $row['name'] . "</td>");
-                        print("<td class='text-center'>" . $row['maker_id'] . "." . $row['maker_name'] . "</td>");            
+                        print("<td class='text-center'>" . $row['maker_id'] . "</td>");            
                         print("<td>" . $row['model_url'] . "</td>");
         
                         print("</tr>");

@@ -12,7 +12,7 @@
      $page = $_GET['page'];
  }
 
- $sql = 'SELECT COUNT(*) from pc_list_koshin';
+ $sql = 'SELECT COUNT(*) from shain';
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>PCリスト更新情報テーブル</title>
+<title>社員テーブル</title>
 
 <script>
 /**
@@ -88,7 +88,7 @@ $(function(){
 // attach table filter plugin to inputs
 $('[data-action="filter"]').filterTable();
 
-$('.container').on('click', '.panel-heading span.filter', function(e){
+$('.custom-container').on('click', '.panel-heading span.filter', function(e){
     var $this = $(this), 
         $panel = $this.parents('.panel');
     
@@ -109,24 +109,33 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "plk.id AS id ";
-    $query = $query . ",plk.kousinbi AS kousinbi ";
-    $query = $query . ",plk.naiyou AS naiyou ";
-    $query = $query . " FROM pc_list_koshin plk";
-    $query = $query . " ORDER BY plk.id";
+    $query = $query . "sh.shain_cd AS id ";
+    $query = $query . ",sh.shain_mei AS name ";
+    $query = $query . ",sh.shain_mei_kana AS kana ";
+    $query = $query . ",sh.shaion_mei_romaji AS romaji ";
+    $query = $query . ",sh.shain_mail AS mail ";
+    $query = $query . ",sh.gender AS gender ";
+    $query = $query . ",sh.shain_birthday AS birthday ";
+    $query = $query . ",sh.nyushabi AS nyushabi ";
+    $query = $query . ",sh.tensekibi AS tensekibi ";
+    $query = $query . ",sh.taishokubi AS taishokubi ";
+    $query = $query . ",sh.department AS department ";
+    $query = $query . ",sh.pic AS pic ";
+    $query = $query . ",sh.remarks AS remarks ";
+    $query = $query . " FROM shain sh";
+    $query = $query . " ORDER BY sh.shain_cd";
     $query = $query . " LIMIT " . $start . ",8" ;
-    // var_dump($query);
-    $pc_list_koshin = $db->get_all($query);
+    $shain = $db->get_all($query);
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
-<div class="container bottom13">
+<div class="custom-container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
-    <div class="row height500">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel border-color-white">
+    <div class="row height700">
+        <div class="col-md-12">
+            <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">PCリスト更新情報</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">社員</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -137,21 +146,41 @@ $('[data-toggle="tooltip"]').tooltip();
                     <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Search Filter" />
                 </div>
                 <table class="table table-hover" id="dev-table">
-                    <thead>
+                    <thead >
                         <tr>
-                            <th class="col-md-2 text-center">id</th>
-                            <th class="col-md-2 text-center">日付</th>
-                            <th class="col-md-2">ニュース</th>
+                            <th class="text-center" style="width:100px">id</th>
+                            <th class="text-center" style="width:80px">名前</th>
+                            <th class="text-center" style="width:150px">ｶﾅ</th>
+                            <th class="text-center" style="width:45px">ﾛｰﾏ字</th>
+                            <th class="text-center" style="width:100px">ﾒｰﾙ</th>
+                            <th class="text-center" style="width:45px">性別</th>
+                            <th class="text-center" style="width:45px">生年月日</th>
+                            <th class="text-center" style="width:45px">入社日</th>
+                            <th class="text-center" style="width:45px">転籍日</th>
+                            <th class="text-center" style="width:45px">退職日</th>
+                            <th class="text-center" style="width:80px">部門</th>
+                            <th class="text-center" style="width:75px">写真</th>
+                            <th class="text-center" style="width:100px">備考</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($pc_list_koshin as $row ) {
+                    foreach ($shain as $row ) {
                         // var_dump($row);
                         print("<tr>");
-                        print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td class='text-center'>" . $row['kousinbi'] . "</td>");
-                        print("<td>" . $row['naiyou'] . "</td>");
+                        print("<td class='text-center' style='word-break:break-all'>" . $row['id'] . "</td>");
+                        print("<td class='text-center'>" . $row['name'] . "</td>");
+                        print("<td class='text-center'>" . $row['kana'] . "</td>");
+                        print("<td class='text-center'>" . $row['romaji'] . "</td>");
+                        print("<td class='text-center' style='word-break:break-all'>" . $row['mail'] . "</td>");
+                        print("<td class='text-center'>" . $row['gender'] . "</td>");
+                        print("<td class='text-center'>" . $row['birthday'] . "</td>");
+                        print("<td class='text-center'>" . $row['nyushabi'] . "</td>");
+                        print("<td class='text-center'>" . $row['tensekibi'] . "</td>");
+                        print("<td class='text-center'>" . $row['taishokubi'] . "</td>");
+                        print("<td class='text-center'>" . $row['department'] . "</td>");
+                        print("<td class='text-center'>" . $row['pic'] . "</td>");
+                        print("<td class='text-center'>" . $row['remarks'] . "</td>");
                         print("</tr>");
                     }
                     ?>
@@ -163,7 +192,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page > 1) {
                         ?>
-                        <li class="page-item"><a href="pc_list_koshin_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                        <li class="page-item"><a href="shain_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                         <?php
                     } else {
                         ?>
@@ -175,7 +204,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page < $maxPage) {
                         ?>　　
-                        <li class="page-item"><a href="pc_list_koshin_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                        <li class="page-item"><a href="shain_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                         <?php
                     } else {
                         ?>

@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>JyotaiTable View</title>
+<title>状態テーブル</title>
 <script>
 /**
 *   I don't recommend using this plugin on large tables, I just wrote it to make the demo useable. It will work fine for smaller tables 
@@ -109,15 +109,12 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "jt.id AS id ";
-    $query = $query . ",jt.name AS name ";
-    $query = $query . " FROM jyotai_tbl jt";
-    $query = $query . " ORDER BY jt.id";
+    $query = $query . "jtt.id AS id ";
+    $query = $query . ",jtt.name AS name ";
+    $query = $query . " FROM jyotai_tbl jtt";
+    $query = $query . " ORDER BY jtt.id";
     $query = $query . " LIMIT " . $start . ",8" ;
-    // var_dump($query);
     $jyotai_tbl = $db->get_all($query);
-    //var_dump($processor_tbl[0]['id']);
-    
 ?>  
 <div class="container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
@@ -125,7 +122,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Jyotai</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">状態</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
