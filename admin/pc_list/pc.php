@@ -12,7 +12,7 @@ try {
         $page = $_GET['page'];
     }
 
-    $sql = 'SELECT COUNT(*) from display_list';
+    $sql = 'SELECT COUNT(*) from pc_list';
     $stmt = $dbh->query($sql);
 
     $st = $stmt->fetchColumn();
@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ディスプレイリストテーブル</title>
+        <title>PCリストテーブル</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,17 +42,18 @@ try {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-resource.min.js"></script>
-        <script src="display_controller.js"></script>
+        <script src="pc_controller.js"></script>
+
     </head>
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height750 width1500">
+        <div class="container height750 width1200">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> ディスプレイリスト</b> テーブル</h2>
+                            <h2><b> PCリスト</b> テーブル</h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -77,65 +78,55 @@ try {
                         <tr>
                             <!--チェックボックスALL-->
 					　　<th>
-                                <form class="custom-checkbox" action="display.php" method="POST">
+                                <form class="custom-checkbox" action="pc.php" method="POST">
                                     <input type="checkbox" id="selectAll" name="selectAll" value="0" form="form1">
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
-                            <th class="text-center" style="width:80px">id</th>
-                            <th class="text-center" style="width:35px">ﾒｰｶｰ</th>
-                            <th class="text-center" style="width:35px">ﾓﾃﾞﾙ</th>
-                            <th class="text-center" style="width:35px">ｲﾝﾁ</th>
-                            <th class="text-center" style="width:35px">解像度</th>
-                            <th class="text-center" style="width:35px">vga</th>
-                            <th class="text-center" style="width:35px">dvi</th>
-                            <th class="text-center" style="width:35px">hd<br>mi</th>
-                            <th class="text-center" style="width:27px">Dp</th>
-                            <th class="text-center" style="width:50px">その他</th>
-                            <th class="text-center" style="width:35px">ｽﾋﾟｰｶｰ</th>
-                            <th class="text-center" style="width:35px">USB</th>
-                            <th class="text-center" style="width:35px">状態</th>
-                            <th class="text-center" style="width:35px">使用場所</th>
+                            <th class="text-center" style="width:110px">id</th>
+                            <th class="text-center" style="width:45px">ﾒｰｶｰ</th>
+                            <th class="text-center" style="width:45px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:45px">OS</th>
+                            <th class="text-center" style="width:45px">ﾌﾟﾛｾｯｻ</th>
+                            <th class="text-center" style="width:45px">ﾒﾓﾘ</th>
+                            <th class="text-center" style="width:45px">ｵﾌｨｽ</th>
+                            <th class="text-center" style="width:45px">状態</th>
+                            <th class="text-center" style="width:45px">使用場所</th>
                             <th class="text-center" style="width:100px">ﾕｰｻﾞｰ</th>
-                            <th class="text-center" style="width:100px">購入日</th>
-                            <th class="text-center" style="width:75px">価格</th>
-                            <th class="text-center" style="width:100px">運用期間</th>
-                            <th class="text-center" style="width:100px !important">備考</th>
-                            <th class="text-center" style="width:100px !important">ｼﾘｱﾙNO.</th>
-                            <th class="text-center" width="150px">操作</th>
+                            <th class="text-center" style="width:80px">購入日</th>
+                            <th class="text-center" style="width:70px">価格</th>
+                            <th class="text-center" style="width:90px">運用期間</th>
+                            <th class="text-center" style="width:200px">備考</th>
+                            <th class="text-center" style="width:130px">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:180px">操作</th>
                         </tr>
                     </thead>
 
                     <tbody>						
-                        <tr ng-controller="DetailCtrl" ng-repeat="display in displays| limitTo: 5: <?php echo($start); ?>">
+                        <tr ng-controller="DetailCtrl" ng-repeat="pc in pcs| limitTo: 5: <?php echo($start); ?>">
                             <!--チェックボックス個別-->
                             <td>
-                                <form class="custom-checkbox" action="display.php" method="POST">
-                                    <input type="checkbox" class="selectCheckbox" name="options[{{display.id}}]" value="{{display.id}}" form="form1">
-                                    <label for="checkbox{{display.id}}"></label>
+                                <form class="custom-checkbox" action="pc.php" method="POST">
+                                    <input type="checkbox" class="selectCheckbox" name="options[{{pc.id}}]" value="{{pc.id}}" form="form1">
+                                    <label for="checkbox{{pc.id}}"></label>
                                 </form>
                             </td> 
 
-                            <td class="text-center" style="word-break:break-all">{{display.id}}</td>
-                            <td class="text-center">{{display.maker_id}}</td>
-                            <td class="text-center">{{display.model_id}}</td>
-                            <td class="text-center">{{display.inch}}</td>
-                            <td class="text-center">{{display.kaizoudo_id}}</td>
-                            <td class="text-center">{{display.vga}}</td>
-                            <td class="text-center">{{display.dvi}}</td>
-                            <td class="text-center">{{display.hdmi}}</td>
-                            <td class="text-center">{{display.displayport}}</td>
-                            <td class="text-center">{{display.other}}</td>
-                            <td class="text-center">{{display.speaker}}</td>
-                            <td class="text-center">{{display.usb}}</td>
-                            <td class="text-center">{{display.jyotai}}</td>
-                            <td class="text-center">{{display.room_id}}</td>
-                            <td class="text-center" style="word-break:break-all">{{display.user_id}}</td>
-                            <td class="text-center">{{display.konyubi}}</td>
-                            <td class="text-center">{{display.kakaku}}</td>
-                            <td class="text-center" style="word-break:break-all">{{display.unyo_kikan}}</td>
-                            <td class="text-center" style="word-break:break-all">{{display.biko}}</td>
-                            <td class="text-center" style="word-break:break-all">{{display.serial_no}}</td>
+                            <td class="text-center" style="word-break:break-all">{{pc.id}}</td>
+                            <td class="text-center">{{pc.maker_id}}</td>
+                            <td class="text-center">{{pc.model_id}}</td>
+                            <td class="text-center">{{pc.os_id}}</td>
+                            <td class="text-center">{{pc.processor_id}}</td>
+                            <td class="text-center">{{pc.memori}}</td>
+                            <td class="text-center">{{pc.office_id}}</td>
+                            <td class="text-center">{{pc.jyotai}}</td>
+                            <td class="text-center">{{pc.room_id}}</td>
+                            <td class="text-center" style="word-break:break-all">{{pc.user_id}}</td>
+                            <td class="text-center">{{pc.konyubi}}</td>
+                            <td class="text-center">{{pc.kakaku}}</td>
+                            <td class="text-center" style="word-break:break-all">{{pc.unyo_kikan}}</td>
+                            <td style="word-break:break-all">{{pc.biko}}</td>
+                            <td style="word-break:break-all">{{pc.serial_no}}</td>
                             <td class="text-center">
                                 <!-- <button ng-click="update()" class="edit"> -->
                                 <button a href="#editEmployeeModal" data-toggle="modal" class="edit">
@@ -153,7 +144,7 @@ try {
                         <?php
                         if ($page > 1) {
                             ?>
-                            <li class="page-item"><a href="display.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                            <li class="page-item"><a href="pc.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -165,7 +156,7 @@ try {
                         <?php
                         if ($page < $maxPage) {
                             ?>　　
-                            <li class="page-item"><a href="display.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                            <li class="page-item"><a href="pc.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                             <?php
                         } else {
                             ?>
@@ -204,14 +195,14 @@ try {
                         <div class="row">
                         <div class="form-group col-md-6 mb-2">
                                 <label>ID</label>
-                                <input ng-model="display.id" class="form-control input-lg" required>
+                                <input ng-model="pc.id" class="form-control input-lg" required >
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>メーカー</label> 
-                                <select ng-model="display.maker_id" class="form-control input-lg">
+                                <select ng-model="pc.maker_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/maker_sql.php');
                                     foreach ($maker_tbl as $row ) {
@@ -223,10 +214,10 @@ try {
 
                             <div class="form-group col-md-6 mb-2">
                                 <label>モデル</label> 
-                                <select ng-model="display.model_id" class="form-control input-lg">
+                                <select ng-model="pc.model_id" class="form-control input-lg">
                                     <?php
-                                    include_once('../sql/display_model_sql.php');
-                                    foreach ($display_model_tbl as $row ) {
+                                    include_once('../sql/model_sql.php');
+                                    foreach ($model_tbl as $row ) {
                                     print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
                                     }
                                     ?>
@@ -236,15 +227,24 @@ try {
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
-                                <label>インチ</label>
-                                <input ng-model="display.inch" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-6 mb-2">
-                                <label>解像度</label> 
-                                <select ng-model="new_display.kaizoudo_id" class="form-control input-lg">
+                                <label>OS</label>
+                                <select ng-model="pc.os_id" class="form-control input-lg">
                                     <?php
-                                    include_once('../sql/kaizoudo_sql.php');
-                                    foreach ($kaizoudo_tbl as $row ) {
+                                    include_once('../sql/os_sql.php');
+                                    foreach ($os_tbl as $row ) {
+                                    print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
+                                    }
+                                    ?>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group col-md-6 mb-2">
+                                <label>プロセッサ</label> 
+                                <select ng-model="pc.processor_id" class="form-control input-lg">
+                                    <?php
+                                    include_once('../sql/processor_sql.php');
+                                    foreach ($processor_tbl as $row ) {
                                         print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
                                     }
                                     ?>
@@ -254,42 +254,23 @@ try {
                         
                         <div class="row row-top">
                             <div class="form-group col-md-3 mb-2">
-                            <label>vga</label>
-                                <input ng-model="display.vga" class="form-control input-lg" required>
+                            <label>メモリ</label>
+                                <input ng-model="pc.memori" class="form-control input-lg" required>
                             </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>dvi</label>
-                                <input ng-model="display.dvi" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>hdmi</label>
-                                <input ng-model="display.hdmi" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>displayport</label>
-                                <input ng-model="display.displayport" class="form-control input-lg" required>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-top">
-                            <div class="form-group col-md-12 mb-2">
-                                <label>その他</label>
-                                <textarea ng-model="display.other" cols="50" rows="2" class="form-control input-lg"required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row row-top">
-                            <div class="form-group col-md-4 mb-2">
-                                <label>スピーカー</label>
-                                <input ng-model="display.speaker" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-4 mb-2">
-                                <label>usb</label>
-                                <input ng-model="display.usb"  class="form-control input-lg" required>
-                            </div>
+                            <div class="form-group col-md-5 mb-2">
+                                <label>オフィス</label> 
+                                <select ng-model="pc.office_id" class="form-control input-lg">
+                                    <?php
+                                    include_once('../sql/office_sql.php');
+                                    foreach ($office_tbl as $row ) {
+                                        print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
+                                    }
+                                    ?>
+                                </select>
+                            </div>    
                             <div class="form-group col-md-4 mb-2">
                                 <label>状態</label> 
-                                <select ng-model="display.jyotai" class="form-control input-lg">
+                                <select ng-model="pc.jyotai" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/jyotai_sql.php');
                                     foreach ($jyotai_tbl as $row ) {
@@ -303,7 +284,7 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用場所</label> 
-                                <select ng-model="display.room_id" class="form-control input-lg">
+                                <select ng-model="pc.room_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/room_sql.php');
                                     foreach ($room_tbl as $row ) {
@@ -314,7 +295,7 @@ try {
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用者</label> 
-                                <select ng-model="display.user_id" class="form-control input-lg">
+                                <select ng-model="pc.user_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/shain_sql.php');
                                     foreach ($shain_tbl as $row ) {
@@ -328,31 +309,31 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>購入日<small>　例：2019-03-13</small></label>
-                                <input ng-model="display.konyubi" class="form-control input-lg" required>
+                                <input ng-model="pc.konyubi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>価格</label>
-                                <input ng-model="display.kakaku" class="form-control input-lg" required>
+                                <input ng-model="pc.kakaku" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>運用期間</label>
-                                <input ng-model="display.unyo_kikan" class="form-control input-lg" required>
+                                <input ng-model="pc.unyo_kikan" class="form-control input-lg" required>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>備考</label>
-                                <textarea ng-model="display.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea ng-model="pc.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>シリアルNO.</label>
-                                <textarea ng-model="display.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea ng-model="pc.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="location.href = 'display.php'" class="btn btn-default">キャンセル</button>
+                        <button onclick="location.href = 'pc.php'" class="btn btn-default">キャンセル</button>
                         <button ng-click="update()" class="btn btn-success">更新</button>
                     </div>
                 </form>
@@ -363,26 +344,25 @@ try {
 
     <!-- Add Modal HTML ※追加ボタンを押すとでてくる画面 -->
     <div id="addEmployeeModal" class="modal fade">
-        <div class="container  bg-white">
+    <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ追加</h2>
+                <h2 class="modal-title">データ編集</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
-            
             <div class="col-md-8 col-md-offset-2">
                 <form class="needs-validation" novalidate>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="form-group col-md-6 mb-2">
+                        <div class="form-group col-md-6 mb-2">
                                 <label>ID</label>
-                                <input ng-model="new_display.newid" class="form-control input-lg" required>
+                                <input ng-model="new_pc.newid" class="form-control input-lg" required>
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>メーカー</label> 
-                                <select ng-model="new_display.maker_id" class="form-control input-lg">
+                                <select ng-model="new_pc.maker_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/maker_sql.php');
                                     foreach ($maker_tbl as $row ) {
@@ -394,10 +374,10 @@ try {
 
                             <div class="form-group col-md-6 mb-2">
                                 <label>モデル</label> 
-                                <select ng-model="new_display.model_id" class="form-control input-lg">
+                                <select ng-model="new_pc.model_id" class="form-control input-lg">
                                     <?php
-                                    include_once('../sql/display_model_sql.php');
-                                    foreach ($display_model_tbl as $row ) {
+                                    include_once('../sql/model_sql.php');
+                                    foreach ($model_tbl as $row ) {
                                     print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
                                     }
                                     ?>
@@ -407,15 +387,24 @@ try {
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
-                                <label>インチ</label>
-                                <input ng-model="new_display.inch" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-6 mb-2">
-                                <label>解像度</label> 
-                                <select ng-model="new_display.kaizoudo_id" class="form-control input-lg">
+                                <label>OS</label>
+                                <select ng-model="new_pc.os_id" class="form-control input-lg">
                                     <?php
-                                    include_once('../sql/kaizoudo_sql.php');
-                                    foreach ($kaizoudo_tbl as $row ) {
+                                    include_once('../sql/os_sql.php');
+                                    foreach ($os_tbl as $row ) {
+                                    print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
+                                    }
+                                    ?>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group col-md-6 mb-2">
+                                <label>プロセッサ</label> 
+                                <select ng-model="new_pc.processor_id" class="form-control input-lg">
+                                    <?php
+                                    include_once('../sql/processor_sql.php');
+                                    foreach ($processor_tbl as $row ) {
                                         print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
                                     }
                                     ?>
@@ -425,42 +414,23 @@ try {
                         
                         <div class="row row-top">
                             <div class="form-group col-md-3 mb-2">
-                            <label>vga</label>
-                                <input ng-model="new_display.vga" class="form-control input-lg" required>
+                            <label>メモリ</label>
+                                <input ng-model="new_pc.memori" class="form-control input-lg" required>
                             </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>dvi</label>
-                                <input ng-model="new_display.dvi" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>hdmi</label>
-                                <input ng-model="new_display.hdmi" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-3 mb-2">
-                                <label>displayport</label>
-                                <input ng-model="new_display.displayport" class="form-control input-lg" required>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-top">
-                            <div class="form-group col-md-12 mb-2">
-                                <label>その他</label>
-                                <textarea ng-model="new_display.other" cols="50" rows="2" class="form-control input-lg"required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row row-top">
-                            <div class="form-group col-md-4 mb-2">
-                                <label>スピーカー</label>
-                                <input ng-model="new_display.speaker" class="form-control input-lg" required>
-                            </div>
-                            <div class="form-group col-md-4 mb-2">
-                                <label>usb</label>
-                                <input ng-model="new_display.usb"  class="form-control input-lg" required>
-                            </div>
+                            <div class="form-group col-md-5 mb-2">
+                                <label>オフィス</label> 
+                                <select ng-model="new_pc.office_id" class="form-control input-lg">
+                                    <?php
+                                    include_once('../sql/office_sql.php');
+                                    foreach ($office_tbl as $row ) {
+                                        print("<option value='$row[id]'>" . $row['id'] . "."  . $row['name'] . "</option>");
+                                    }
+                                    ?>
+                                </select>
+                            </div>    
                             <div class="form-group col-md-4 mb-2">
                                 <label>状態</label> 
-                                <select ng-model="new_display.jyotai" class="form-control input-lg">
+                                <select ng-model="new_pc.jyotai" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/jyotai_sql.php');
                                     foreach ($jyotai_tbl as $row ) {
@@ -474,7 +444,7 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用場所</label> 
-                                <select ng-model="new_display.room_id" class="form-control input-lg">
+                                <select ng-model="new_pc.room_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/room_sql.php');
                                     foreach ($room_tbl as $row ) {
@@ -485,7 +455,7 @@ try {
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用者</label> 
-                                <select ng-model="new_display.user_id" class="form-control input-lg">
+                                <select ng-model="new_pc.user_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/shain_sql.php');
                                     foreach ($shain_tbl as $row ) {
@@ -499,31 +469,31 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>購入日<small>　例：2019-03-13</small></label>
-                                <input ng-model="new_display.konyubi" class="form-control input-lg" required>
+                                <input ng-model="new_pc.konyubi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>価格</label>
-                                <input ng-model="new_display.kakaku" class="form-control input-lg" required>
+                                <input ng-model="new_pc.kakaku" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>運用期間</label>
-                                <input ng-model="new_display.unyo_kikan" class="form-control input-lg" required>
+                                <input ng-model="new_pc.unyo_kikan" class="form-control input-lg" required>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>備考</label>
-                                <textarea ng-model="new_display.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea ng-model="new_pc.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>シリアルNO.</label>
-                                <textarea ng-model="new_display.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea ng-model="new_pc.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button onclick="location.href = 'display.php'" class="btn btn-default">キャンセル</button>
+                        <button onclick="location.href = 'pc.php'" class="btn btn-default">キャンセル</button>
                         <button ng-click="add()" class="btn btn-success">追加</button>
                     </div>
                 </form>
@@ -545,7 +515,7 @@ try {
                             <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" onclick="location.href = 'display.php'" class="btn btn-default" value="キャンセル">
+                            <input type="submit" onclick="location.href = 'pc.php'" class="btn btn-default" value="キャンセル">
                             <!--                            <form id="form1" action="processor_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
                                                         </form>-->
@@ -600,7 +570,7 @@ try {
 //            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
             $.ajax({
             type : 'post',
-                    url : 'display_delete.php',
+                    url : 'pc_delete.php',
                     data : {
                     'id' : id
                     },

@@ -333,10 +333,10 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="shain/shain_tbl_view.php" method="get" class="pad-right20">  
+                                            <form action="shain/shain_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
-                                            <form action="shain/shain_tbl.php" method="get">  
+                                            <form action="shain/shain.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
@@ -437,10 +437,10 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
                                             <!-- +takahashi+ -->
-                                            <form action="display_model/display_model_tbl_view.php" method="get" class="pad-right20">  
+                                            <form action="pc_list/pc_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
-                                            <form action="display_model/display_model_tbl.php" method="get">  
+                                            <form action="pc_list/pc.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->
@@ -453,35 +453,9 @@
                             <div class="card mb-4 shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>ＰＣモデル名の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
+                                <title>ＰＣリスト更新情報の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ＰＣモデルテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
-                                </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
-                                            <form action="model/model_tbl_view.php" method="get" class="pad-right20">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
-                                            </form>
-                                            <form action="model/model_tbl.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
-                                            </form>
-                                            <!-- +takahashi -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>ＰＣリスト情報の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ＰＣリスト情報モデル</tspan>
+                                <tspan x="50%" y="40%">ＰＣリスト更新情報</tspan>
                                 <tspan x="50%" y="60%">テーブルメンテナンス</tspan>
                                 </text></svg>
                                 <div class="card-body">
@@ -493,32 +467,6 @@
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="pc_list_koshin/pc_list_koshin.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
-                                            </form>
-                                            <!-- +takahashi -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
-                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>社員の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">社員テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
-                                </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
-                                            <form action="display_kaizoudo/kaizoudo_tbl_view.php" method="get" class="pad-right20">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
-                                            </form>
-                                            <form action="display_kaizoudo/kaizoudo_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
                                             <!-- +takahashi -->

@@ -12,7 +12,7 @@
      $page = $_GET['page'];
  }
 
- $sql = 'SELECT COUNT(*) from processor_tbl';
+ $sql = 'SELECT COUNT(*) from office_tbl';
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>ProcessorTable View</title>
+<title>オフィステーブル</title>
 
 <script>
 /**
@@ -105,18 +105,18 @@ $('[data-toggle="tooltip"]').tooltip();
 
 <?php
     include_once('../../lib/db_main.php');
-
+                            
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "prt.id AS id ";
-    $query = $query . ",prt.ryaku AS ryaku ";
-    $query = $query . ",prt.seishiki AS seishiki ";
-    $query = $query . " FROM processor_tbl prt";
-    $query = $query . " ORDER BY prt.id";
+    $query = $query . "oft.id AS id ";
+    $query = $query . ",oft.name AS name ";
+    $query = $query . ",oft.product_key AS product_key ";
+    $query = $query . " FROM office_tbl oft";
+    $query = $query . " ORDER BY oft.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
-    $processor_tbl = $db->get_all($query);
+    $office_tbl = $db->get_all($query);
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
@@ -126,7 +126,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">Processor</span>Table</h3>
+                    <h3 class="font-24"><span class="font-varela">オフィス</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -140,18 +140,18 @@ $('[data-toggle="tooltip"]').tooltip();
                     <thead>
                         <tr>
                             <th class="col-md-2 text-center">id</th>
-                            <th class="col-md-2">略称</th>
-                            <th class="col-md-4">正式名称</th>
+                            <th class="col-md-2">バージョン</th>
+                            <th class="col-md-4">プロダクトキー</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($processor_tbl as $row ) {
+                    foreach ($office_tbl as $row ) {
                         // var_dump($row);
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td>" . $row['ryaku'] . "</td>");
-                        print("<td>" . $row['seishiki'] . "</td>");
+                        print("<td>" . $row['name'] . "</td>");
+                        print("<td>" . $row['product_key'] . "</td>");
                         print("</tr>");
                     }
                     ?>

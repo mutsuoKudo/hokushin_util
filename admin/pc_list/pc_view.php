@@ -12,7 +12,7 @@
      $page = $_GET['page'];
  }
 
- $sql = 'SELECT COUNT(*) from pc_list_koshin';
+ $sql = 'SELECT COUNT(*) from pc_list';
  $stmt = $dbh->query($sql);
  
  $st = $stmt->fetchColumn();
@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>PCリスト更新情報テーブル</title>
+<title>PCリストテーブル</title>
 
 <script>
 /**
@@ -88,7 +88,7 @@ $(function(){
 // attach table filter plugin to inputs
 $('[data-action="filter"]').filterTable();
 
-$('.container').on('click', '.panel-heading span.filter', function(e){
+$('.custom-container').on('click', '.panel-heading span.filter', function(e){
     var $this = $(this), 
         $panel = $this.parents('.panel');
     
@@ -109,24 +109,55 @@ $('[data-toggle="tooltip"]').tooltip();
     //全案件取得
     $db = new db;
     $query = "SELECT ";
-    $query = $query . "plk.id AS id ";
-    $query = $query . ",plk.kousinbi AS kousinbi ";
-    $query = $query . ",plk.naiyou AS naiyou ";
-    $query = $query . " FROM pc_list_koshin plk";
-    $query = $query . " ORDER BY plk.id";
+    $query = $query . "pl.id AS id ";
+    $query = $query . ",pl.maker_id AS maker_id ";
+    $query = $query . ",pl.model_id AS model_id ";
+    $query = $query . ",pl.os_id AS os_id ";
+    $query = $query . ",pl.processor_id AS processor_id ";
+    $query = $query . ",pl.memori AS memori ";
+    $query = $query . ",pl.office_id AS office_id ";
+    $query = $query . ",pl.jyotai AS jyotai ";
+    $query = $query . ",pl.room_id AS room_id ";
+    $query = $query . ",pl.user_id AS user_id ";
+    $query = $query . ",pl.konyubi AS konyubi ";
+    $query = $query . ",pl.kakaku AS kakaku ";
+    $query = $query . ",pl.unyo_kikan AS unyo_kikan ";
+    $query = $query . ",pl.biko AS biko ";
+    $query = $query . ",pl.serial_no AS serial_no ";
+
+    // $query = $query . ",mkt.name AS maker_name ";
+    // $query = $query . ",mdt.name AS model_name ";
+    // $query = $query . ",ost.name AS os_name ";
+    // $query = $query . ",prt.ryaku AS processor_name ";
+    // $query = $query . ",oft.name AS office_name ";
+    // $query = $query . ",jtt.name AS jyotai_name ";
+    // $query = $query . ",rmt.name AS room_name ";
+    // $query = $query . ",sh.shain_mei AS shain_name ";
+
+    
+    $query = $query . " FROM pc_list pl";
+    // $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON pl.maker_id = mkt.id";
+    // $query = $query . " LEFT OUTER JOIN model_tbl mdt ON pl.model_id = mdt.id";
+    // $query = $query . " LEFT OUTER JOIN os_tbl ost ON pl.os_id = ost.id";
+    // $query = $query . " LEFT OUTER JOIN processor_tbl prt ON pl.processor_id = prt.id";
+    // $query = $query . " LEFT OUTER JOIN office_tbl oft ON pl.office_id = oft.id";
+    // $query = $query . " LEFT OUTER JOIN jyotai_tbl jtt ON pl.jyotai = jtt.id";
+    // $query = $query . " LEFT OUTER JOIN room_tbl rmt ON pl.room_id = rmt.id";
+    // $query = $query . " LEFT OUTER JOIN shain sh ON pl.user_id = sh.shain_cd";
+    // $query = $query . " ORDER BY pl.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
-    $pc_list_koshin = $db->get_all($query);
+    $pc_list = $db->get_all($query);
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
-<div class="container bottom13">
+<div class="custom-container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
-    <div class="row height500">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel border-color-white">
+    <div class="row height700">
+        <div class="col-md-12">
+            <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">PCリスト更新情報</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">PCリスト</span>テーブル</h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -137,21 +168,45 @@ $('[data-toggle="tooltip"]').tooltip();
                     <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Search Filter" />
                 </div>
                 <table class="table table-hover" id="dev-table">
-                    <thead>
+                    <thead >
                         <tr>
-                            <th class="col-md-2 text-center">id</th>
-                            <th class="col-md-2 text-center">日付</th>
-                            <th class="col-md-2">ニュース</th>
+                            <th class="text-center" style="width:80px">id</th>
+                            <th class="text-center" style="width:45px"> ﾒｰｶｰ</th>
+                            <th class="text-center" style="width:45px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:45px">OS</th>
+                            <th class="text-center" style="width:45px">ﾌﾟﾛｾｯｻ</th>
+                            <th class="text-center" style="width:45px">ﾒﾓﾘ</th>
+                            <th class="text-center" style="width:45px">ｵﾌｨｽ</th>
+                            <th class="text-center" style="width:45px">状態</th>
+                            <th class="text-center" style="width:45px">使用場所</th>
+                            <th class="text-center" style="width:100px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:80px">購入日</th>
+                            <th class="text-center" style="width:75px">価格</th>
+                            <th class="text-center" style="width:90px">運用期間</th>
+                            <th class="text-center" style="width:100px">備考</th>
+                            <th class="text-center">ｼﾘｱﾙNO.</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($pc_list_koshin as $row ) {
+                    foreach ($pc_list as $row ) {
                         // var_dump($row);
                         print("<tr>");
-                        print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td class='text-center'>" . $row['kousinbi'] . "</td>");
-                        print("<td>" . $row['naiyou'] . "</td>");
+                        print("<td class='text-center' style='word-break:break-all'>" . $row['id'] . "</td>");
+                        print("<td class='text-center'>" . $row['maker_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['model_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['os_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['processor_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['memori'] . "</td>");
+                        print("<td class='text-center'>" . $row['office_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['jyotai'] . "</td>");
+                        print("<td class='text-center'>" . $row['room_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['user_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['konyubi'] . "</td>");
+                        print("<td class='text-center'>" . $row['kakaku'] . "</td>");
+                        print("<td class='text-center'>" . $row['unyo_kikan'] . "</td>");
+                        print("<td style='word-break:break-all'>" . $row['biko'] . "</td>");
+                        print("<td style='word-break:break-all'>" . $row['serial_no'] . "</td>");
                         print("</tr>");
                     }
                     ?>
@@ -163,7 +218,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page > 1) {
                         ?>
-                        <li class="page-item"><a href="pc_list_koshin_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+                        <li class="page-item"><a href="pc_view.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
                         <?php
                     } else {
                         ?>
@@ -175,7 +230,7 @@ $('[data-toggle="tooltip"]').tooltip();
                     <?php
                     if ($page < $maxPage) {
                         ?>　　
-                        <li class="page-item"><a href="pc_list_koshin_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+                        <li class="page-item"><a href="pc_view.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
                         <?php
                     } else {
                         ?>
