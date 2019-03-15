@@ -102,7 +102,7 @@ try {
                             <td >{{maker.id}}</td>
                             <td ><input ng-model="maker.name" size="20" required></td>
                             <td>
-                                <button ng-click="update()" class="edit">
+                                <button ng-click="update()" class="edit-icon">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
                                 <button ng-click="delete()" class="delete">
                                     <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>

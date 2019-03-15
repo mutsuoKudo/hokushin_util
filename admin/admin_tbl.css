@@ -88,8 +88,8 @@ table.table td a {
 table.table td a:hover {
     color: #2196F3;
 }
-.edit {
-    color: #FFC107;
+.edit-icon {
+    color: #FFC107 !important;
 }
 .delete {
     color: #F44336;

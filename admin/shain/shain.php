@@ -111,7 +111,7 @@ try {
                             </td> 
 
                             <td class="text-center shain_cd">{{shain.shain_cd}}</td>
-                            <td class="text-center">{{shain.shain_mei}}</td>
+                            <td class="text-center shain_mei">{{shain.shain_mei}}</td>
                             <td class="text-center">{{shain.shain_mei_kana}}</td>
                             <td class="text-center" style="word-break:break-all">{{shain.shaion_mei_romaji}}</td>
                             <td class="text-center" style="word-break:break-all">{{shain.shain_mail}}</td>
@@ -123,14 +123,15 @@ try {
                             <td class="text-center">{{shain.department}}</td>
                             <td class="text-center">{{shain.pic}}</td>
                             <td class="text-center" style="word-break:break-all">{{shain.remarks}}</td>
-                            <td class="text-center">
-                                <!-- <button ng-click="update()" class="edit"> -->
-                                <button a href="#editEmployeeModal" data-toggle="modal" class="edit">
-                                    <i class="material-icons edit" data-toggle="tooltip" title="編集">&#xE254;</i></button>
-                                <button ng-click="delete()" class="delete">
-                                    <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
-                               
-                            </td>
+                            
+                            <td class="text-center edit-button">
+                               <!-- <button ng-click="update()" class="edit"> -->
+                               <button a href="#editEmployeeModal" data-toggle="modal" class="edit-icon">
+                                   <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
+                               <button ng-click="delete()" class="delete">
+                                   <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
+
+                           </td>
                         </tr>
                     </tbody>		
                 </table>
@@ -167,6 +168,7 @@ try {
             </div>
         </div>
 
+        <!-- フッター -->
         <footer class="text-white bg-yellow footer width-max">
         <div class="container">
             <p class="float-right" class="text-white">
@@ -180,7 +182,7 @@ try {
 
 
     <!-- Edit Modal HTML ※編集ボタンを押すとでてくる画面 -->
-    <div id="editEmployeeModal" class="modal fade" ng-controller="DetailCtrl">
+    <div id="editEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
                 <h2 class="modal-title">データ編集</h2>
@@ -192,41 +194,45 @@ try {
                         <div class="row">
                             <div class="form-group col-md-6 mb-2">
                                 <label>ID</label>
-                                <input id="id1" ng-model="shain.shain_cd" class="form-control input-lg" required >
-
+                                <input id="id1" ng-model="shain.shain_cd" class="form-control input-lg" required>
+                                
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>名前</label>
-                                <input ng-model="shain.shain_mei" class="form-control input-lg" required>
+                                <input id="id2" ng-model="shain.shain_mei" class="form-control input-lg" data-code="{{shain.shain_mei}}" required>
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>フリガナ</label>
-                                <input ng-model="sh.shain_mei_kana" class="form-control input-lg" required>
+                                <input id="id3" ng-model="sh.shain_mei_kana" class="form-control input-lg" required>
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-8 mb-2">
                                 <label>ローマ字</label>
-                                <input ng-model="shain.shaion_mei_romaji" class="form-control input-lg" required>
+                                <input id="id4" ng-model="shain.shaion_mei_romaji" class="form-control input-lg" required>
                             </div>                         
                             <div class="form-group col-md-4 mb-2">
                                 <label>性別</label>
-                                <input ng-model="shain.gender" class="form-control input-lg" required>
+                                <select id="id5" ng-model="shain.gender" class="form-control input-lg">
+                                    <option value='男'>男</option>
+                                    <option value='女'>女</option>
+                                    <option value='その他'>その他</option>
+                                </select>
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-8 mb-2">
                                 <label>メール</label>
-                                <textarea ng-model="shain.shain_mail" cols="30" rows="1" class="form-control input-lg" required></textarea>
+                                <textarea  id="id6" ng-model="shain.shain_mail" cols="30" rows="1" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>誕生日</label>
-                                <input ng-model="shain.shain_birthday" class="form-control input-lg" required>
+                                <input id="id7" ng-model="shain.shain_birthday" class="form-control input-lg" required>
                             </div>
                             
                         </div>
@@ -234,22 +240,22 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>入社日</label>
-                                <input ng-model="shain.nyushabi" class="form-control input-lg" required>
+                                <input id="id8" ng-model="shain.nyushabi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>転籍日</label>
-                                <input ng-model="shain.tensekibi" class="form-control input-lg" required>
+                                <input id="id9" ng-model="shain.tensekibi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>退職日</label>
-                                <input ng-model="shain.taishokubi" class="form-control input-lg" required>
+                                <input id="id10" ng-model="shain.taishokubi" class="form-control input-lg" required>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>部門</label> 
-                                <select ng-model="shain.department" class="form-control input-lg">
+                                <select id="id11" ng-model="shain.department" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/bumon_mei_sql.php');
                                     foreach ($bumon_mei as $row ) {
@@ -260,20 +266,22 @@ try {
                             </div>
                             <div class="form-group col-md-8 mb-2">
                                 <label>Pic</label>
-                                <input ng-model="shain.pic" class="form-control input-lg" required>
+                                <input id="id12" ng-model="shain.pic" class="form-control input-lg" required>
                             </div>
                         </div>
                             
                         <div class="row row-top">
                             <div class="form-group col-md-12 mb-2">
                                 <label>備考</label>
-                                <textarea ng-model="shain.remarks" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea id="id13" ng-model="shain.remarks" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                         </div>
 
                         <div class="modal-footer">
                             <button onclick="location.href = 'shain.php'" class="btn btn-default">キャンセル</button>
-                            <button ng-click="update()" class="btn btn-success edit">更新</button>
+                            <button ng-click="update()" class="btn btn-success update">更新</button>
+                            
+                            <!-- <button id="add" class="btn btn-success update">更新</button> -->
                         </div>
                     </div>
                 </form>
@@ -317,7 +325,11 @@ try {
                             </div>                         
                             <div class="form-group col-md-4 mb-2">
                                 <label>性別</label>
-                                <input ng-model="new_shain.gender" class="form-control input-lg" required>
+                                <select ng-model="shain.gender" class="form-control input-lg">
+                                    <option value='男'>男</option>
+                                    <option value='女'>女</option>
+                                    <option value='その他'>その他</option>
+                                </select>
                             </div>
                         </div>
                         
@@ -374,8 +386,8 @@ try {
 
                         <div class="modal-footer">
                             <button onclick="location.href = 'shain.php'" class="btn btn-default">キャンセル</button>
-                            <!-- <button ng-click="add()" class="btn btn-success">追加</button> -->
-                            <button class="btn btn-success">追加</button>
+                            <button ng-click="add()" class="btn btn-success">追加</button>
+                            <!-- <button class="btn btn-success">追加</button> -->
                         </div>
                     </div>
                 </form>
@@ -383,31 +395,33 @@ try {
         </div>
     </div>
 
-        <!-- Delete Modal HTML -->
-        <div id="deleteEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">						
-                            <h4 class="modal-title">データの削除</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <p>レコードを削除してもよろしいですか？</p>
-                            <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" onclick="location.href = 'shain.php'" class="btn btn-default" value="キャンセル">
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+         <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">						
+                        <h4 class="modal-title">データの削除</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">					
+                        <p>レコードを削除してもよろしいですか？</p>
+                        <p class="text-warning"><small>この操作を元に戻すことはできません。</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" onclick="location.href = 'shain.php'" class="btn btn-default" value="キャンセル">
                             <!--                            <form id="form1" action="processor_tbl.php" method="POST">
                                                             <input type="submit" value="削除" name="selectDelete" class="btn btn-danger">
-                                                        </form>-->
-<!--                            <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
-                            <button id='kanan' class="btn btn-danger">削除</button> 
-                        </div>
-                    </form>
-                </div>
+                                                            </form>-->
+                            <!-- <button onclick="location.href = 'processor_tbl.php?selectDelete=ok'" class="btn btn-danger">削除</button> -->
+                        <button id='kanan' class="btn btn-danger">削除</button> 
+                    </div>
+                </form>
             </div>
-        </div>	
+        </div>
+    </div>
+
+
         <script type="text/javascript">
             $(document).ready(function(){
             // 個別の更新・削除のツールチップ
@@ -429,6 +443,7 @@ try {
             $("#selectAll").prop("checked", false);
             }
             });
+
 //モーダル画面上の削除確認ボタン押下事の動き
             $('#kanan').click(function () {
                 //変数idに、最初に左かっこを設定
@@ -479,17 +494,91 @@ try {
             alert('チェックしたレコードを削除しました。');
             });
             });
-            }
 
-            $(function(){
-    $('button.edit').on("click",function(){
-        alert("クリックしたよ");
-        $(#id1).val($this).closest('tr').chiidren("td.shain_cd").text());
-        // $(#モーダルの項目id2).val($this).closest('tr').chiidren("td.クラス名2).text());
-            //   項目数の分だけ書く
-    })
-})
-            
+
+            // 更新モーダルにデータを渡す
+            $(document).on('click', '.edit-button', function () {
+            $('#id1').val($(this).prevAll().eq(12).text());
+            $('#id2').val($(this).prevAll().eq(11).text());
+            $('#id3').val($(this).prevAll().eq(10).text());
+            $('#id4').val($(this).prevAll().eq(9).text());
+            $('#id6').val($(this).prevAll().eq(8).text());
+            $('#id5').val($(this).prevAll().eq(7).text());
+            $('#id7').val($(this).prevAll().eq(6).text());
+            $('#id8').val($(this).prevAll().eq(5).text());
+            $('#id9').val($(this).prevAll().eq(4).text());
+            $('#id10').val($(this).prevAll().eq(3).text());
+            $('#id11').val($(this).prevAll().eq(2).text());
+            $('#id12').val($(this).prevAll().eq(1).text());
+            $('#id13').val($(this).prevAll().eq(0).text());
+        });
+
+        $(function(){
+            $('button.update').on("click",function(){
+                alert("click!");
+            })
+        })
+
+        //モーダル画面上の更新ボタン押下事の動き
+//         $('#add').click(function () {
+
+// var shain_cd = $(this).data('#id1');
+// var shain_mei = ;
+// var shain_mei_kana = ;
+// var shaion_mei_romaji = ;
+// var shain_mail = ;
+// var gender = ;
+// var shain_birthday = ;
+// var nyushabi = ;
+// var tensekibi = ;
+// var taishokubi = ;
+// var department = ;
+// var pic = ;
+// var remarks = ;
+
+
+// //            ajaxでテーブル更新用phpを呼び出し、引数に項目をpostで渡す
+// $.ajax({
+// type : 'post',
+//         url : 'shain_update.php',
+//         data : {
+//         'shain_cd' : shain_cd
+//         'shain_mei' : shain_mei
+//         'shain_mei_kana' : shain_mei_kana
+//         'shaion_mei_romaji' : shaion_mei_romaji
+//         'shain_mail' : shain_mail
+//         'gender' : gender
+//         'shain_birthday' : shain_birthday
+//         'nyushabi' : nyushabi
+//         'tensekibi' : tensekibi
+//         'taishokubi' : taishokubi
+//         'department' : department
+//         'pic' : pic
+//         'remarks' : remarks
+//         },
+//             })
+//                     // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
+//                     .done(function (response) {
+// //                    alert('成功');
+//                     })
+//                     // ・サーバからステータスコード400以上が返ってきたとき
+//                     // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
+//                     // ・通信に失敗したとき→失敗理由をalert表示
+//                     .fail(function () {
+//                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
+//                     // (PHPのfunc_get_args関数の返り値のようなもの)
+// //                    $('#result').val('失敗');
+// //                    $('#detail').val(errorHandler(arguments));
+//                     alert(errorHandler(arguments));
+//                     });
+//                     //モーダルを閉じて
+//             $('#editEmployeeModal').modal('hide');
+//             //一覧を再表示
+//             location.reload();
+//             //更新完了メッセージ表示
+//             alert('更新しました。');
+//             });
+//             });
         </script>
 
     </body>
