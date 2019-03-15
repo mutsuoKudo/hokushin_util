@@ -138,7 +138,7 @@ try {
                             <td class="text-center" style="word-break:break-all">{{display.serial_no}}</td>
                             <td class="text-center">
                                 <!-- <button ng-click="update()" class="edit"> -->
-                                <button a href="#editEmployeeModal" data-toggle="modal" class="edit">
+                                <button a href="#editEmployeeModal" data-toggle="modal" class="edit-icon">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
                                 <button ng-click="delete()" class="delete">
                                     <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>

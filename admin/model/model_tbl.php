@@ -119,7 +119,7 @@ try {
                             <td ><textarea ng-model="model.model_url" cols="40" rows="2" required></textarea></td>
                             
                             <td>
-                            <button ng-click="update()" class="edit">
+                            <button ng-click="update()" class="edit-icon">
                                 <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
                             <button ng-click="delete()" class="delete">
                                 <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>

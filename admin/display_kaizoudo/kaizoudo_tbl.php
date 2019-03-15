@@ -103,7 +103,7 @@ try {
                             <td ><input ng-model="kaizoudo.kaizoudo" size="15" required></td>
                             <td ><input ng-model="kaizoudo.kaizoudo_shousai" size="30" required></td>
                             <td>
-                                <button ng-click="update()" class="edit">
+                                <button ng-click="update()" class="edit-icon">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
                                 <button ng-click="delete()" class="delete">
                                     <i class="material-icons" data-toggle="tooltip" title="削除">&#xE872;</i></button>
