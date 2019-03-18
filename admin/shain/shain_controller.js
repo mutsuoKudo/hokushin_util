@@ -17,12 +17,12 @@ app.controller('MainCtrl', function($scope, $resource, $window) {
 });
 
 app.controller('DetailCtrl', function($scope, $window) {
-  $scope.update = function() {
-    $scope.shain.$save(function() {
-      alert("更新しました。");
-      $window.location.reload();    
-    });
-  };
+  // $scope.update = function() {
+  //   $scope.shain.$save(function() {
+  //     alert("更新しました。");
+  //     $window.location.reload();    
+  //   });
+  // };
   
   $scope.delete = function() {
     $scope.shain.$delete();

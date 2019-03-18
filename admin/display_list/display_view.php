@@ -1,5 +1,6 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
+<!-- ページャー -->
 <!-- <?php
  include_once('../../lib/db_main.php');
 
@@ -106,7 +107,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <?php
     include_once('../../lib/db_main.php');
 
-    //全案件取得
+    //データ取得
     $db = new db;
     $query = "SELECT ";
     $query = $query . "dl.id AS id ";
@@ -130,21 +131,21 @@ $('[data-toggle="tooltip"]').tooltip();
     $query = $query . ",dl.biko AS biko ";
     $query = $query . ",dl.serial_no AS serial_no ";
 
-    $query = $query . ",mkt.name AS maker_name ";
-    $query = $query . ",mdt.name AS model_name ";
-    $query = $query . ",kzt.kaizoudo AS kaizoudo_name ";
-    $query = $query . ",jtt.name AS jyotai_name ";
-    $query = $query . ",rmt.name AS room_name ";
-    $query = $query . ",sh.shain_mei AS shain_name ";
+    // $query = $query . ",mkt.name AS maker_name ";
+    // $query = $query . ",mdt.name AS model_name ";
+    // $query = $query . ",kzt.kaizoudo AS kaizoudo_name ";
+    // $query = $query . ",jtt.name AS jyotai_name ";
+    // $query = $query . ",rmt.name AS room_name ";
+    // $query = $query . ",sh.shain_mei AS shain_name ";
 
     
     $query = $query . " FROM display_list dl";
-    $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON dl.maker_id = mkt.id";
-    $query = $query . " LEFT OUTER JOIN model_tbl mdt ON dl.model_id = mdt.id";
-    $query = $query . " LEFT OUTER JOIN kaizoudo_tbl kzt ON dl.kaizoudo_id = kzt.id";
-    $query = $query . " LEFT OUTER JOIN jyotai_tbl jtt ON dl.jyotai = jtt.id";
-    $query = $query . " LEFT OUTER JOIN room_tbl rmt ON dl.room_id = rmt.id";
-    $query = $query . " LEFT OUTER JOIN shain sh ON dl.user_id = sh.shain_cd";
+    // $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON dl.maker_id = mkt.id";
+    // $query = $query . " LEFT OUTER JOIN model_tbl mdt ON dl.model_id = mdt.id";
+    // $query = $query . " LEFT OUTER JOIN kaizoudo_tbl kzt ON dl.kaizoudo_id = kzt.id";
+    // $query = $query . " LEFT OUTER JOIN jyotai_tbl jtt ON dl.jyotai = jtt.id";
+    // $query = $query . " LEFT OUTER JOIN room_tbl rmt ON dl.room_id = rmt.id";
+    // $query = $query . " LEFT OUTER JOIN shain sh ON dl.user_id = sh.shain_cd";
     $query = $query . " ORDER BY dl.id";
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
@@ -153,10 +154,9 @@ $('[data-toggle="tooltip"]').tooltip();
     
 ?>  
 <div class="custom-container bottom13">
-    <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
     <div class="row height700">
-        <div class="col-md-12">
-            <div class="panel border-color-white width1500">
+        <div class="padding-left50">
+            <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
                     <h3 class="font-24"><span class="font-varela">ディスプレイリスト</span>テーブル</h3>
                     <div class="pull-right">
@@ -171,26 +171,26 @@ $('[data-toggle="tooltip"]').tooltip();
                 <table class="table table-hover" id="dev-table">
                     <thead >
                         <tr>
-                            <th class="text-center">id</th>
-                            <th class="text-center">ﾒｰｶｰ</th>
-                            <th class="text-center">ﾓﾃﾞﾙ</th>
-                            <th class="text-center">ｲﾝﾁ</th>
-                            <th class="text-center">解像度</th>
-                            <th class="text-center">vga</th>
-                            <th class="text-center">dvi</th>
-                            <th class="text-center">hdmi</th>
-                            <th class="text-center">Dp</th>
-                            <th class="text-center">その他</th>
-                            <th class="text-center">ｽﾋﾟｰｶｰ</th>
-                            <th class="text-center">USB</th>
-                            <th class="text-center">状態</th>
-                            <th class="text-center">使用場所</th>
-                            <th class="text-center">ﾕｰｻﾞｰ</th>
-                            <th class="text-center">購入日</th>
-                            <th class="text-center">価格</th>
-                            <th class="text-center">運用期間</th>
-                            <th class="text-center">備考</th>
-                            <th class="text-center">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:85px">id</th>
+                            <th class="text-center" style="width:35px">ﾒｰ<br>ｶｰ</th>
+                            <th class="text-center" style="width:35px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:35px">ｲﾝﾁ</th>
+                            <th class="text-center" style="width:35px">解像度</th>
+                            <th class="text-center" style="width:35px">vga</th>
+                            <th class="text-center" style="width:35px">dvi</th>
+                            <th class="text-center" style="width:35px">hd<br>mi</th>
+                            <th class="text-center" style="width:35px">Dp</th>
+                            <th class="text-center" style="width:50px">その他</th>
+                            <th class="text-center" style="width:35px">ｽﾋﾟｰｶｰ</th>
+                            <th class="text-center" style="width:35px">USB</th>
+                            <th class="text-center" style="width:35px">状態</th>
+                            <th class="text-center" style="width:35px">使用場所</th>
+                            <th class="text-center" style="width:65px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:70px">購入日</th>
+                            <th class="text-center" style="width:80px">価格</th>
+                            <th class="text-center" style="width:70px">運用期間</th>
+                            <th class="text-center" style="width:80px">備考</th>
+                            <th class="text-center" style="width:90px">ｼﾘｱﾙNO.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -199,10 +199,10 @@ $('[data-toggle="tooltip"]').tooltip();
                         // var_dump($row);
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
-                        print("<td class='text-center'>" . $row['maker_id'] . "." . $row['maker_name'] . "</td>");
-                        print("<td class='text-center'>" . $row['model_id'] . "." . $row['model_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['maker_id'] . "</td>");
+                        print("<td class='text-center'>" . $row['model_id'] . "</td>");
                         print("<td class='text-center'>" . $row['inch'] . "</td>");
-                        print("<td class='text-center'>" . $row['kaizoudo_id'] . "." . $row['kaizoudo_name'] . "</td>");
+                        print("<td class='text-center'>" . $row['kaizoudo_id'] . "</td>");
                         print("<td class='text-center'>" . $row['vga'] . "</td>");
                         print("<td class='text-center'>" . $row['dvi'] . "</td>");
                         print("<td class='text-center'>" . $row['hdmi'] . "</td>");
@@ -210,14 +210,14 @@ $('[data-toggle="tooltip"]').tooltip();
                         print("<td>" . $row['other'] . "</td>");
                         print("<td class='text-center'>" . $row['speaker'] . "</td>");
                         print("<td class='text-center'>" . $row['usb'] . "</td>");
-                        print("<td>" . $row['jyotai'] . "." . $row['jyotai_name'] . "</td>");
-                        print("<td>" . $row['room_id'] . "." . $row['room_name'] . "</td>");
-                        print("<td class='text-center'>" . $row['user_id'] . "<br>" . $row['shain_name'] . "</td>");
+                        print("<td>" . $row['jyotai'] . "</td>");
+                        print("<td>" . $row['room_id'] . "</td>");
+                        print("<td class='text-center' style='word-break:break-all'>" . $row['user_id'] . "</td>");
                         print("<td class='text-center'>" . $row['konyubi'] . "</td>");
-                        print("<td class='text-center'>￥" . $row['kakaku'] . "</td>");
+                        print("<td class='text-center'>" . $row['kakaku'] . "</td>");
                         print("<td>" . $row['unyo_kikan'] . "</td>");
                         print("<td>" . $row['biko'] . "</td>");
-                        print("<td>" . $row['serial_no'] . "</td>");
+                        print("<td style='word-break:break-all'>" . $row['serial_no'] . "</td>");
                         print("</tr>");
                     }
                     ?>
@@ -256,6 +256,7 @@ $('[data-toggle="tooltip"]').tooltip();
         </div>
     </div>
 </div>
+<!-- フッター -->
 <footer class="text-white bg-yellow footer">
     <div class="container">
         <p class="float-right" class="text-white">

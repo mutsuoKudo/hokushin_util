@@ -1,5 +1,6 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
+<!-- ページャー -->
 <?php
 include_once('../../lib/db_config.php');
 try {

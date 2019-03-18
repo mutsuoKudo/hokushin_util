@@ -262,7 +262,7 @@ table.table .avatar {
     padding-top:2rem;
     padding-bottom:3rem;
     font-size: 18px;
-    font-weight: 600; 
+    font-weight: 600;
 }
 .bottom13{
     padding-bottom:13px;
@@ -310,9 +310,9 @@ table.table .avatar {
 .width1200{
     width: 1200px;
 }
-.width-mx{
-    width: 100%;
-}
 .row-top{
     margin-top: 10px !important;
+}
+.padding-left50{
+    padding-left: 50px;
 }

@@ -125,7 +125,6 @@ try {
                             <td class="text-center" style="word-break:break-all">{{shain.remarks}}</td>
                             
                             <td class="text-center edit-button">
-                               <!-- <button ng-click="update()" class="edit"> -->
                                <button a href="#editEmployeeModal" data-toggle="modal" class="edit-icon">
                                    <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
                                <button ng-click="delete()" class="delete">
@@ -169,7 +168,7 @@ try {
         </div>
 
         <!-- フッター -->
-        <footer class="text-white bg-yellow footer width-max">
+        <footer class="text-white bg-yellow footer">
         <div class="container">
             <p class="float-right" class="text-white">
                 <a href="#" class="text-white">Back to top</a>
@@ -279,9 +278,7 @@ try {
 
                         <div class="modal-footer">
                             <button onclick="location.href = 'shain.php'" class="btn btn-default">キャンセル</button>
-                            <button ng-click="update()" class="btn btn-success update">更新</button>
-                            
-                            <!-- <button id="add" class="btn btn-success update">更新</button> -->
+                            <button id='edit' class="btn btn-success">編集完了</button> 
                         </div>
                     </div>
                 </form>
@@ -424,80 +421,81 @@ try {
 
         <script type="text/javascript">
             $(document).ready(function(){
-            // 個別の更新・削除のツールチップ
-            $('[data-toggle="tooltip"]').tooltip();
-            // チェックボックス（すべて選択）の判断
-            var checkbox = $('table tbody input[type="checkbox"]');
-            $("#selectAll").click(function(){
+                // 個別の更新・削除のツールチップ
+                $('[data-toggle="tooltip"]').tooltip();
+                // チェックボックス（すべて選択）の判断
+                var checkbox = $('table tbody input[type="checkbox"]');
+                $("#selectAll").click(function(){
 
-            if (this.checked){
-            // alert("チェックきいてる");
-            $(".selectCheckbox").prop("checked", true);
-            } else{
-            // alert("チェックなし");
-            $(".selectCheckbox").prop("checked", false);
-            }
+                if (this.checked){
+                    // alert("チェックきいてる");
+                    $(".selectCheckbox").prop("checked", true);
+                } else{
+                    // alert("チェックなし");
+                    $(".selectCheckbox").prop("checked", false);
+                }
             });
+
             checkbox.click(function(){
-            if (!this.checked){
-            $("#selectAll").prop("checked", false);
-            }
+                if (!this.checked){
+                    $("#selectAll").prop("checked", false);
+                }
             });
 
 //モーダル画面上の削除確認ボタン押下事の動き
             $('#kanan').click(function () {
                 //変数idに、最初に左かっこを設定
-            var shain_cd = "('";
-            var count = 0;
-            //明細行（ヘダー行のチェックボックスは対象外）のチェックボックスを全部見て、チェックされていたら、前にカンマをつけてチェックボックスに設定された値をidに文字列連結する、ただし、最初だけは前のカンマをつけない
-            $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
-            //チェックされたチェックボックスの値を取得
-            var val = $(this).val();
-            //in句に使えるよう整形
-            if (count == 0){
-            shain_cd = shain_cd + val;
-            } else{
-            shain_cd = shain_cd  + "'" + "," + "'" + val;
-            }
-            count = count + 1;
-            })
-            //最後に変数idに右かっこを文字列連結する
-            shain_cd = shain_cd + "')";
-            console.log(shain_cd);
-//            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
-            $.ajax({
-            type : 'post',
+                var shain_cd = "('";
+                var count = 0;
+                //明細行（ヘダー行のチェックボックスは対象外）のチェックボックスを全部見て、チェックされていたら、前にカンマをつけてチェックボックスに設定された値をidに文字列連結する、ただし、最初だけは前のカンマをつけない
+                $("input[type='checkbox']").filter(":checked").not("[name=selectAll]").each(function() {
+                    //チェックされたチェックボックスの値を取得
+                    var val = $(this).val();
+                    //in句に使えるよう整形
+                    if (count == 0){
+                        shain_cd = shain_cd + val;
+                    } else{
+                        shain_cd = shain_cd  + "'" + "," + "'" + val;
+                    }
+                    count = count + 1;
+                })
+                //最後に変数idに右かっこを文字列連結する
+                shain_cd = shain_cd + "')";
+                console.log(shain_cd);
+//              ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
+                $.ajax({
+                    type : 'post',
                     url : 'shain_delete.php',
                     data : {
-                    'shain_cd' : shain_cd
+                        'shain_cd' : shain_cd
                     },
-            })
-                    // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
-                    .done(function (response) {
-//                    alert('成功');
-                    })
-                    // ・サーバからステータスコード400以上が返ってきたとき
-                    // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
-                    // ・通信に失敗したとき→失敗理由をalert表示
-                    .fail(function () {
+                })
+                // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
+                .done(function (response) {
+//                   alert('成功');
+                })
+                // ・サーバからステータスコード400以上が返ってきたとき
+                // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
+                // ・通信に失敗したとき→失敗理由をalert表示
+                .fail(function () {
                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
                     // (PHPのfunc_get_args関数の返り値のようなもの)
-//                    $('#result').val('失敗');
-//                    $('#detail').val(errorHandler(arguments));
+//                  $('#result').val('失敗');
+//                  $('#detail').val(errorHandler(arguments));
                     alert(errorHandler(arguments));
-                    });
-                    //モーダルを閉じて
-            $('#deleteEmployeeModal').modal('hide');
-            //一覧を再表示
-            location.reload();
-            //削除完了メッセージ表示
-            alert('チェックしたレコードを削除しました。');
+                });
+                //モーダルを閉じて
+                $('#deleteEmployeeModal').modal('hide');
+                //一覧を再表示
+                location.reload();
+                //削除完了メッセージ表示
+                alert('チェックしたレコードを削除しました。');
             });
-            });
+        });
 
 
-            // 更新モーダルにデータを渡す
-            $(document).on('click', '.edit-button', function () {
+        // 編集モーダルにデータを渡す
+        $(document).on('click', '.edit-button', function () {
             $('#id1').val($(this).prevAll().eq(12).text());
             $('#id2').val($(this).prevAll().eq(11).text());
             $('#id3').val($(this).prevAll().eq(10).text());
@@ -513,72 +511,78 @@ try {
             $('#id13').val($(this).prevAll().eq(0).text());
         });
 
-        $(function(){
-            $('button.update').on("click",function(){
-                alert("click!");
+        // クリック動作確認
+        // $(function(){
+        //     $('button#edit').on("click",function(){
+        //         alert("click!");
+        //     })
+        // })
+
+//         モーダル画面上の編集ボタン押下事の動き
+        $('#edit').click(function () {
+
+            var shain_cd = $('#id1').val();
+            var shain_mei = $('#id2').val();
+            var shain_mei_kana = $('#id3').val();
+            var shaion_mei_romaji = $('#id4').val();
+            var gender = $('#id6').val();
+            var shain_mail = $('#id5').val();
+            var shain_birthday =  $('#id7').val();
+            var nyushabi = $('#id8').val();
+            var tensekibi = $('#id9').val();
+            var taishokubi =  $('#id10').val();
+            var department = $('#id11').val();
+            var pic =  $('#id12').val();
+            var remarks =$('#id13').val();
+
+            console.log(shain_cd,shain_mei,shain_mei_kana,shaion_mei_romaji,gender,
+            shain_mail,shain_birthday,nyushabi,tensekibi,taishokubi,department,pic,remarks);
+
+
+        //    ajaxでテーブル編集用phpを呼び出し、引数に項目をpostで渡す
+            $.ajax({
+                type : 'post',
+                url : 'shain_update.php',
+                data : {
+                    'shain_cd' : shain_cd,
+                    'shain_mei' : shain_mei,
+                    'shain_mei_kana' : shain_mei_kana,
+                    'shaion_mei_romaji' : shaion_mei_romaji,
+                    'shain_mail' : shain_mail,
+                    'gender' : gender,
+                    'shain_birthday' : shain_birthday,
+                    'nyushabi' : nyushabi,
+                    'tensekibi' : tensekibi,
+                    'taishokubi' : taishokubi,
+                    'department' : department,
+                    'pic' : pic,
+                    'remarks' : remarks
+                },
             })
-        })
-
-        //モーダル画面上の更新ボタン押下事の動き
-//         $('#add').click(function () {
-
-// var shain_cd = $(this).data('#id1');
-// var shain_mei = ;
-// var shain_mei_kana = ;
-// var shaion_mei_romaji = ;
-// var shain_mail = ;
-// var gender = ;
-// var shain_birthday = ;
-// var nyushabi = ;
-// var tensekibi = ;
-// var taishokubi = ;
-// var department = ;
-// var pic = ;
-// var remarks = ;
-
-
-// //            ajaxでテーブル更新用phpを呼び出し、引数に項目をpostで渡す
-// $.ajax({
-// type : 'post',
-//         url : 'shain_update.php',
-//         data : {
-//         'shain_cd' : shain_cd
-//         'shain_mei' : shain_mei
-//         'shain_mei_kana' : shain_mei_kana
-//         'shaion_mei_romaji' : shaion_mei_romaji
-//         'shain_mail' : shain_mail
-//         'gender' : gender
-//         'shain_birthday' : shain_birthday
-//         'nyushabi' : nyushabi
-//         'tensekibi' : tensekibi
-//         'taishokubi' : taishokubi
-//         'department' : department
-//         'pic' : pic
-//         'remarks' : remarks
-//         },
-//             })
-//                     // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
-//                     .done(function (response) {
-// //                    alert('成功');
-//                     })
-//                     // ・サーバからステータスコード400以上が返ってきたとき
-//                     // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
-//                     // ・通信に失敗したとき→失敗理由をalert表示
-//                     .fail(function () {
-//                     // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
-//                     // (PHPのfunc_get_args関数の返り値のようなもの)
-// //                    $('#result').val('失敗');
-// //                    $('#detail').val(errorHandler(arguments));
-//                     alert(errorHandler(arguments));
-//                     });
-//                     //モーダルを閉じて
-//             $('#editEmployeeModal').modal('hide');
-//             //一覧を再表示
-//             location.reload();
-//             //更新完了メッセージ表示
-//             alert('更新しました。');
-//             });
-//             });
+            
+            // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
+            .done(function (response) {
+            //  alert('成功');
+            //  alert(shain_mei);
+            })
+            // ・サーバからステータスコード400以上が返ってきたとき
+            // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
+            // ・通信に失敗したとき→失敗理由をalert表示
+            .fail(function () {
+                // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
+                // (PHPのfunc_get_args関数の返り値のようなもの)
+                $('#result').val('失敗');
+                $('#detail').val(errorHandler(arguments));
+                alert(errorHandler(arguments));
+            });
+            //モーダルを閉じて
+            $('#editEmployeeModal').modal('hide');
+            //一覧を再表示
+            location.reload();
+            //更新完了メッセージ表示
+            alert('更新しました。');
+    // });
+});
         </script>
 
     </body>

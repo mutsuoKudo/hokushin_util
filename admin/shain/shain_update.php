@@ -4,9 +4,10 @@ try {
     $dbh = new PDO(DB_HOST, DB_USER,DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    $id = $_POST['shain_cd'];
     $name = $_POST['shain_mei'];
     $kana = $_POST['shain_mei_kana'];
-    $romaji = $_POST['shain_mei_romaji'];
+    $romaji = $_POST['shaion_mei_romaji'];
     $mail = $_POST['shain_mail'];
     $gender = $_POST['gender'];
     $birthday = $_POST['shain_birthday'];
@@ -17,18 +18,24 @@ try {
     $pic = $_POST['pic'];
     $remarks = $_POST['remarks'];
 
-    $sql = 'UPDATE shain SET 
-    shain_mei=:%s,shain_mei_kana=%s,shaion_mei_romaji=:%s,
-    shain_mail=:%s,gender=:%s,shain_birthday=:%s,nyushabi=:%s,
-    tensekibi=:%s,taishokubi=:%s,department=:%s,pic=:%s,remarks=:%s,
-
+    // $sql = 'UPDATE shain SET shain_mei = "edit" WHERE shain_cd = "0001"';
+    $sql = sprintf('UPDATE shain SET 
+    shain_mei = \'%s\',shain_mei_kana = \'%s\',shaion_mei_romaji = \'%s\',
+    gender = \'%s\',shain_mail = \'%s\',shain_birthday = \'%s\',nyushabi = \'%s\',
+    tensekibi = \'%s\',taishokubi = \'%s\',department = \'%s\',pic =\'%s\',remarks = \'%s\' WHERE shain_cd = \'%s\'',
     $name,$kana,$romaji,$mail,$gender,$birthday,$nyushabi,
-    $tensekibi,$taishokubi,$department,$pic,$remarks WHERE shain_cd = '
-    
-    $param =  $_POST['shain_cd'];
+    $tensekibi,$taishokubi,$department,$pic,$remarks,$id);
 
-    $sql = $sql . $param;
+    // $sql = $sql . $param;
     var_dump($sql);
+    $file = 'C:\Users\user\Desktop\SQL_CHECK.txt';
+// ファイルをオープンして既存のコンテンツを取得します
+$current = file_get_contents($file);
+// 新しい人物をファイルに追加します
+$current .= $sql;
+// 結果をファイルに書き出します
+file_put_contents($file, $current);
+
     $st = $dbh->prepare($sql);
     $st->execute();
     

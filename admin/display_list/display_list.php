@@ -20,14 +20,14 @@ try {
     break;
     
     case 'POST':
-    $in = json_decode(file_get_contents('php://input'), true); 
-    if (isset($in['id'])) {
-      $st = $pdo->prepare("UPDATE display_list SET 
-      maker_id=:maker_id,model_id=:model_id,inch=:inch,kaizoudo_id=:kaizoudo_id,vga=:vga,dvi=:dvi,hdmi=:hdmi,
-      displayport=:displayport,other=:other,speaker=:speaker,usb=:usb,jyotai=:jyotai,room_id=:room_id,user_id=:user_id,
-      konyubi=:konyubi,kakaku=:kakaku,unyo_kikan=:unyo_kikan,biko=:biko,serial_no=:serial_no
-      WHERE id=:id");
-    } else {
+    // $in = json_decode(file_get_contents('php://input'), true); 
+    // if (isset($in['id'])) {
+    //   $st = $pdo->prepare("UPDATE display_list SET 
+    //   maker_id=:maker_id,model_id=:model_id,inch=:inch,kaizoudo_id=:kaizoudo_id,vga=:vga,dvi=:dvi,hdmi=:hdmi,
+    //   displayport=:displayport,other=:other,speaker=:speaker,usb=:usb,jyotai=:jyotai,room_id=:room_id,user_id=:user_id,
+    //   konyubi=:konyubi,kakaku=:kakaku,unyo_kikan=:unyo_kikan,biko=:biko,serial_no=:serial_no
+    //   WHERE id=:id");
+    // } else {
       $st = $pdo->prepare("INSERT INTO display_list(
       id,maker_id,model_id,inch,kaizoudo_id,vga,dvi,hdmi,
       displayport,other,speaker,usb,jyotai,room_id,user_id,
@@ -35,7 +35,7 @@ try {
       VALUES(:newid,:maker_id,:model_id,:inch,:kaizoudo_id,:vga,:dvi,:hdmi,
       :displayport,:other,:speaker,:usb,:jyotai,:room_id,:user_id,
       :konyubi,:kakaku,:unyo_kikan,:biko,:serial_no)");
-    }
+    // }
     $st->execute($in);
     break;
     

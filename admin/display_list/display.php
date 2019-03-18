@@ -1,5 +1,6 @@
+<!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
-
+<!-- ページャー -->
 <?php
 include_once('../../lib/db_config.php');
 try {
@@ -96,12 +97,12 @@ try {
                             <th class="text-center" style="width:35px">USB</th>
                             <th class="text-center" style="width:35px">状態</th>
                             <th class="text-center" style="width:35px">使用場所</th>
-                            <th class="text-center" style="width:100px">ﾕｰｻﾞｰ</th>
-                            <th class="text-center" style="width:100px">購入日</th>
-                            <th class="text-center" style="width:75px">価格</th>
-                            <th class="text-center" style="width:100px">運用期間</th>
-                            <th class="text-center" style="width:100px !important">備考</th>
-                            <th class="text-center" style="width:100px !important">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:55px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:45px">購入日</th>
+                            <th class="text-center" style="width:50px">価格</th>
+                            <th class="text-center" style="width:40px">運用期間</th>
+                            <th class="text-center" style="width:50px !important">備考</th>
+                            <th class="text-center" style="width:80px !important">ｼﾘｱﾙNO.</th>
                             <th class="text-center" width="150px">操作</th>
                         </tr>
                     </thead>
@@ -136,7 +137,7 @@ try {
                             <td class="text-center" style="word-break:break-all">{{display.unyo_kikan}}</td>
                             <td class="text-center" style="word-break:break-all">{{display.biko}}</td>
                             <td class="text-center" style="word-break:break-all">{{display.serial_no}}</td>
-                            <td class="text-center">
+                            <td class="text-center edit-button">
                                 <!-- <button ng-click="update()" class="edit"> -->
                                 <button a href="#editEmployeeModal" data-toggle="modal" class="edit-icon">
                                     <i class="material-icons" data-toggle="tooltip" title="編集">&#xE254;</i></button>
@@ -179,7 +180,8 @@ try {
             </div>
         </div>
 
-        <footer class="text-white bg-yellow footer width-max">
+        <!-- フッター -->
+        <footer class="text-white bg-yellow footer width1500">
         <div class="container">
             <p class="float-right" class="text-white">
                 <a href="#" class="text-white">Back to top</a>
@@ -191,7 +193,7 @@ try {
 
 
 
-    <!-- Edit Modal HTML ※追加ボタンを押すとでてくる画面 -->
+    <!-- Edit Modal HTML ※編集ボタンを押すとでてくる画面 -->
     <div id="editEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
@@ -204,14 +206,14 @@ try {
                         <div class="row">
                         <div class="form-group col-md-6 mb-2">
                                 <label>ID</label>
-                                <input ng-model="display.id" class="form-control input-lg" required>
+                                <input id="id1" ng-model="display.id" class="form-control input-lg" required>
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>メーカー</label> 
-                                <select ng-model="display.maker_id" class="form-control input-lg">
+                                <select id="id2" ng-model="display.maker_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/maker_sql.php');
                                     foreach ($maker_tbl as $row ) {
@@ -223,7 +225,7 @@ try {
 
                             <div class="form-group col-md-6 mb-2">
                                 <label>モデル</label> 
-                                <select ng-model="display.model_id" class="form-control input-lg">
+                                <select id="id3" ng-model="display.model_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/display_model_sql.php');
                                     foreach ($display_model_tbl as $row ) {
@@ -237,11 +239,11 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>インチ</label>
-                                <input ng-model="display.inch" class="form-control input-lg" required>
+                                <input id="id4" ng-model="display.inch" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>解像度</label> 
-                                <select ng-model="new_display.kaizoudo_id" class="form-control input-lg">
+                                <select id="id5" ng-model="new_display.kaizoudo_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/kaizoudo_sql.php');
                                     foreach ($kaizoudo_tbl as $row ) {
@@ -255,41 +257,41 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-3 mb-2">
                             <label>vga</label>
-                                <input ng-model="display.vga" class="form-control input-lg" required>
+                                <input id="id6" ng-model="display.vga" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-3 mb-2">
                                 <label>dvi</label>
-                                <input ng-model="display.dvi" class="form-control input-lg" required>
+                                <input id="id7" ng-model="display.dvi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-3 mb-2">
                                 <label>hdmi</label>
-                                <input ng-model="display.hdmi" class="form-control input-lg" required>
+                                <input id="id8" ng-model="display.hdmi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-3 mb-2">
                                 <label>displayport</label>
-                                <input ng-model="display.displayport" class="form-control input-lg" required>
+                                <input id="id9" ng-model="display.displayport" class="form-control input-lg" required>
                             </div>
                         </div>
                         
                         <div class="row row-top">
                             <div class="form-group col-md-12 mb-2">
                                 <label>その他</label>
-                                <textarea ng-model="display.other" cols="50" rows="2" class="form-control input-lg"required></textarea>
+                                <textarea id="id10" ng-model="display.other" cols="50" rows="2" class="form-control input-lg"required></textarea>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>スピーカー</label>
-                                <input ng-model="display.speaker" class="form-control input-lg" required>
+                                <input id="id11" ng-model="display.speaker" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>usb</label>
-                                <input ng-model="display.usb"  class="form-control input-lg" required>
+                                <input id="id12" ng-model="display.usb"  class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>状態</label> 
-                                <select ng-model="display.jyotai" class="form-control input-lg">
+                                <select id="id13" ng-model="display.jyotai" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/jyotai_sql.php');
                                     foreach ($jyotai_tbl as $row ) {
@@ -303,7 +305,7 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用場所</label> 
-                                <select ng-model="display.room_id" class="form-control input-lg">
+                                <select id="id14" ng-model="display.room_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/room_sql.php');
                                     foreach ($room_tbl as $row ) {
@@ -314,7 +316,7 @@ try {
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>使用者</label> 
-                                <select ng-model="display.user_id" class="form-control input-lg">
+                                <select id="id15" ng-model="display.user_id" class="form-control input-lg">
                                     <?php
                                     include_once('../sql/shain_sql.php');
                                     foreach ($shain_tbl as $row ) {
@@ -328,32 +330,32 @@ try {
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
                                 <label>購入日<small>　例：2019-03-13</small></label>
-                                <input ng-model="display.konyubi" class="form-control input-lg" required>
+                                <input id="id16" ng-model="display.konyubi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>価格</label>
-                                <input ng-model="display.kakaku" class="form-control input-lg" required>
+                                <input id="id17" ng-model="display.kakaku" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
                                 <label>運用期間</label>
-                                <input ng-model="display.unyo_kikan" class="form-control input-lg" required>
+                                <input id="id18" ng-model="display.unyo_kikan" class="form-control input-lg" required>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-6 mb-2">
                                 <label>備考</label>
-                                <textarea ng-model="display.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea id="id19" ng-model="display.biko" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-6 mb-2">
                                 <label>シリアルNO.</label>
-                                <textarea ng-model="display.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
+                                <textarea id="id20" ng-model="display.serial_no" cols="30" rows="2" class="form-control input-lg" required></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button onclick="location.href = 'display.php'" class="btn btn-default">キャンセル</button>
-                        <button ng-click="update()" class="btn btn-success">更新</button>
+                        <button id='edit' class="btn btn-success">編集完了</button> 
                     </div>
                 </form>
             </div>
@@ -531,7 +533,7 @@ try {
         </div>
     </div>
 
-        <!-- Delete Modal HTML -->
+        <!-- Delete Modal HTML ※選択削除ボタンを押すとでてくる画面-->
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -555,7 +557,9 @@ try {
                     </form>
                 </div>
             </div>
-        </div>	
+        </div>
+        
+        <!-- チェックボックス判定 -->
         <script type="text/javascript">
             $(document).ready(function(){
             // 個別の更新・削除のツールチップ
@@ -627,6 +631,114 @@ try {
             alert('チェックしたレコードを削除しました。');
             });
             });
+
+// 編集モーダルにデータを渡す
+        $(document).on('click', '.edit-button', function () {
+            $('#id1').val($(this).prevAll().eq(19).text());
+            $('#id2').val($(this).prevAll().eq(18).text());
+            $('#id3').val($(this).prevAll().eq(17).text());
+            $('#id4').val($(this).prevAll().eq(16).text());
+            $('#id6').val($(this).prevAll().eq(15).text());
+            $('#id5').val($(this).prevAll().eq(14).text());
+            $('#id7').val($(this).prevAll().eq(13).text());
+            $('#id8').val($(this).prevAll().eq(12).text());
+            $('#id9').val($(this).prevAll().eq(11).text());
+            $('#id10').val($(this).prevAll().eq(10).text());
+            $('#id11').val($(this).prevAll().eq(9).text());
+            $('#id12').val($(this).prevAll().eq(8).text());
+            $('#id13').val($(this).prevAll().eq(7).text());
+            $('#id14').val($(this).prevAll().eq(6).text());
+            $('#id15').val($(this).prevAll().eq(5).text());
+            $('#id16').val($(this).prevAll().eq(4).text());
+            $('#id17').val($(this).prevAll().eq(3).text());
+            $('#id18').val($(this).prevAll().eq(2).text());
+            $('#id19').val($(this).prevAll().eq(1).text());
+            $('#id20').val($(this).prevAll().eq(0).text());
+        });
+
+// クリック動作確認
+        $(function(){
+            $('button#edit').on("click",function(){
+                alert("click!");
+            })
+        })
+
+//モーダル画面上の編集ボタン押下事の動き
+        $('#edit').click(function () {
+
+            var id = $('#id1').val();
+            var maker_id = $('#id2').val();
+            var model_id = $('#id3').val();
+            var inch = $('#id4').val();
+            var kaizoudo_id = $('#id5').val();
+            var vga = $('#id6').val();
+            var dvi = $('#id7').val();
+            var hdmi = $('#id8').val();
+            var displayport = $('#id9').val();
+            var other = $('#id10').val();
+            var speaker = $('#id11').val();
+            var usb = $('#id12').val();
+            var jyotai = $('#id13').val();
+            var room_id = $('#id14').val();
+            var user_id = $('#id15').val();
+            var konyubi = $('#id16').val();
+            var kakaku = $('#id17').val();
+            var unyo_kikan = $('#id18').val();
+            var biko = $('#id19').val();
+            var serial_no = $('#id20').val();
+
+            console.log(id,maker_id,model_id,inch,kaizoudo_id,vga,dvi,hdmi,displayport,
+            other,speaker,usb,jyotai,room_id,user_id,konyubi,kakaku,unyo_kikan,biko,serial_no);         
+            
+            $.ajax({
+                type : 'post',
+                url : 'display_update.php',
+                data : {
+                    'id' : id,
+                    'maker_id' : maker_id,
+                    'model_id' : model_id,
+                    'inch' : inch,
+                    'kaizoudo_id' : kaizoudo_id,
+                    'vga' : vga,
+                    'dvi' : dvi,
+                    'hdmi' : hdmi,
+                    'displayport' : displayport,
+                    'other' : other,
+                    'speaker' : speaker,
+                    'usb' : usb,
+                    'jyotai' : jyotai,
+                    'room_id' : room_id,
+                    'user_id' : user_id,
+                    'konyubi' : konyubi,
+                    'kakaku' : kakaku,
+                    'unyo_kikan' : unyo_kikan,
+                    'biko' : biko,
+                    'serial_no' : serial_no
+                },
+            })
+            // ・ステータスコードは正常で、dataTypeで定義したようにパース出来たとき→今回は特に何もしないテーブルの削除対象レコードが削除されて終わり
+            .done(function (response) {
+             alert('成功');
+            //  alert(user_id);
+            })
+            // ・サーバからステータスコード400以上が返ってきたとき
+            // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
+            // ・通信に失敗したとき→失敗理由をalert表示
+            .fail(function () {
+                // jqXHR, textStatus, errorThrown と書くのは長いので、argumentsでまとめて渡す
+                // (PHPのfunc_get_args関数の返り値のようなもの)
+                $('#result').val('失敗');
+                $('#detail').val(errorHandler(arguments));
+                alert(errorHandler(arguments));
+            });
+            //モーダルを閉じて
+            $('#editEmployeeModal').modal('hide');
+            //一覧を再表示
+            location.reload();
+            //更新完了メッセージ表示
+            alert('更新しました。');
+    // });
+});
         </script>
 
     </body>
