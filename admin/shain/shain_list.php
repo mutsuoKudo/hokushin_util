@@ -14,20 +14,20 @@ try {
     
     case 'POST':
     $in = json_decode(file_get_contents('php://input'), true); 
-    if (isset($in['shain_cd'])) {
-      $st = $pdo->prepare("UPDATE shain SET 
-      shain_mei=:shain_mei,shain_mei_kana=:shain_mei_kana,shaion_mei_romaji=:shaion_mei_romaji,
-      shain_mail=:shain_mail,gender=:gender,shain_birthday=:shain_birthday,nyushabi=:nyushabi,
-      tensekibi=:tensekibi,taishokubi=:taishokubi,department=:department,pic=:pic,remarks=:remarks
-      WHERE shain_cd=:shain_cd");
-    } else {
+    // if (isset($in['shain_cd'])) {
+    //   $st = $pdo->prepare("UPDATE shain SET 
+    //   shain_mei=:shain_mei,shain_mei_kana=:shain_mei_kana,shaion_mei_romaji=:shaion_mei_romaji,
+    //   shain_mail=:shain_mail,gender=:gender,shain_birthday=:shain_birthday,nyushabi=:nyushabi,
+    //   tensekibi=:tensekibi,taishokubi=:taishokubi,department=:department,pic=:pic,remarks=:remarks
+    //   WHERE shain_cd=:shain_cd");
+    // } else {
       $st = $pdo->prepare("INSERT INTO shain(
       shain_cd,shain_mei,shain_mei_kana,shaion_mei_romaji,shain_mail,gender,
       shain_birthday,nyushabi,tensekibi,taishokubi,department,pic,remarks) 
       VALUES(
         :newshain_cd,:shain_mei,:shain_mei_kana,:shaion_mei_romaji,:shain_mail,:gender,
         :shain_birthday,:nyushabi,:tensekibi,:taishokubi,:department,:pic,:remarks)");
-    }
+    // }
     $st->execute($in);
     break;
     

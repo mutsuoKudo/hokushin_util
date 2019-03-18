@@ -1,5 +1,6 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
+<!-- ページャー -->
 <!-- <?php
  include_once('../../lib/db_main.php');
 
@@ -106,7 +107,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <?php
     include_once('../../lib/db_main.php');
 
-    //全案件取得
+    //データ取得
     $db = new db;
     $query = "SELECT ";
     $query = $query . "kzt.id AS id ";
@@ -190,6 +191,7 @@ $('[data-toggle="tooltip"]').tooltip();
         </div>
     </div>
 </div>
+<!-- フッター -->
 <footer class="text-white bg-yellow footer">
     <div class="container">
         <p class="float-right" class="text-white">

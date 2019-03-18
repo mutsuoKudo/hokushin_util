@@ -113,10 +113,14 @@ $('[data-toggle="tooltip"]').tooltip();
     $query = $query . ",dmt.name AS name ";
     $query = $query . ",dmt.maker_id AS maker_id ";
     $query = $query . ",dmt.model_url AS model_url ";
-    $query = $query . ",mkt.name AS maker_name ";
+    
+    // $query = $query . ",mkt.name AS maker_name ";
+
     $query = $query . " FROM display_model_tbl dmt";
-    $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON dmt.maker_id = mkt.id";
+
+    // $query = $query . " LEFT OUTER JOIN maker_tbl mkt ON dmt.maker_id = mkt.id";
     $query = $query . " ORDER BY dmt.id";
+
     $query = $query . " LIMIT " . $start . ",8" ;
     // var_dump($query);
     $display_model_tbl = $db->get_all($query);
@@ -155,7 +159,7 @@ $('[data-toggle="tooltip"]').tooltip();
                         print("<tr>");
                         print("<td class='text-center'>" . $row['id'] . "</td>");
                         print("<td>" . $row['name'] . "</td>");
-                        print("<td class='text-center'>" . $row['maker_id'] . "." . $row['maker_name'] . "</td>");            
+                        print("<td class='text-center'>" . $row['maker_id'] . "</td>");            
                         print("<td>" . $row['model_url'] . "</td>");
         
                         print("</tr>");

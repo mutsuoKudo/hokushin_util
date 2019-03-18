@@ -4,7 +4,6 @@
 var app = angular.module('app', ['ngResource']);
 
 app.controller('MainCtrl', function($scope, $resource, $window) {
-  // var Student = $resource('students.php', {page: '@page'});
   var Bumon = $resource('bumon_list.php', {id: '@id'});
   $scope.bumons = Bumon.query();
   

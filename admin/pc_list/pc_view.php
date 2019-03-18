@@ -154,7 +154,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <div class="custom-container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
     <div class="row height700">
-        <div class="col-md-12">
+        <div class="padding-left50">
             <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
                     <h3 class="font-24"><span class="font-varela">PCリスト</span>テーブル</h3>

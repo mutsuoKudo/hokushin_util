@@ -106,7 +106,7 @@ $('[data-toggle="tooltip"]').tooltip();
 <?php
     include_once('../../lib/db_main.php');
 
-    //全案件取得
+    //データ取得
     $db = new db;
     $query = "SELECT ";
     $query = $query . "sh.shain_cd AS id ";
@@ -130,9 +130,8 @@ $('[data-toggle="tooltip"]').tooltip();
     
 ?>  
 <div class="custom-container bottom13">
-    <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
     <div class="row height700">
-        <div class="col-md-12">
+        <div class="padding-left50">
             <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
                     <h3 class="font-24"><span class="font-varela">社員</span>テーブル</h3>
@@ -219,6 +218,8 @@ $('[data-toggle="tooltip"]').tooltip();
         </div>
     </div>
 </div>
+
+<!-- フッター -->
 <footer class="text-white bg-yellow footer">
     <div class="container">
         <p class="float-right" class="text-white">

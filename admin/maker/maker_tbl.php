@@ -1,5 +1,6 @@
 <!-- bootstrapCSS3　※index.phpは4なのでCSS注意 -->
 
+<!-- ページャー -->
 <?php
 include_once('../../lib/db_config.php');
 try {
@@ -143,6 +144,7 @@ try {
             </div>
         </div>
 
+        <!-- フッター -->
         <footer class="text-white bg-yellow footer">
         <div class="container">
             <p class="float-right" class="text-white">
@@ -182,7 +184,7 @@ try {
         </div>
 
 
-        <!-- Delete Modal HTML -->
+        <!-- Delete Modal HTML ※選択削除ボタンを押すとでてくる画面-->
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
