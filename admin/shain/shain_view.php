@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>社員テーブル</title>
+<title>社員情報</title>
 
 <script>
 /**
@@ -130,11 +130,11 @@ $('[data-toggle="tooltip"]').tooltip();
     
 ?>  
 <div class="custom-container bottom13">
-    <div class="row height700">
+    <div class="custom-row-big height600">
         <div class="padding-left50">
             <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">社員</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">社員情報</span></h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -147,19 +147,19 @@ $('[data-toggle="tooltip"]').tooltip();
                 <table class="table table-hover" id="dev-table">
                     <thead >
                         <tr>
-                            <th class="text-center" style="width:100px">id</th>
-                            <th class="text-center" style="width:80px">名前</th>
-                            <th class="text-center" style="width:150px">ｶﾅ</th>
-                            <th class="text-center" style="width:45px">ﾛｰﾏ字</th>
-                            <th class="text-center" style="width:100px">ﾒｰﾙ</th>
-                            <th class="text-center" style="width:45px">性別</th>
-                            <th class="text-center" style="width:45px">生年月日</th>
-                            <th class="text-center" style="width:45px">入社日</th>
-                            <th class="text-center" style="width:45px">転籍日</th>
-                            <th class="text-center" style="width:45px">退職日</th>
-                            <th class="text-center" style="width:80px">部門</th>
+                            <th class="text-center" style="width:110px">id</th>
+                            <th class="text-center" style="width:100px">名前</th>
+                            <th class="text-center" style="width:160px">ｶﾅ</th>
+                            <th class="text-center" style="width:150px">ﾛｰﾏ字</th>
+                            <th class="text-center" style="width:120px">ﾒｰﾙ</th>
+                            <th class="text-center" style="width:50px">性別</th>
+                            <th class="text-center" style="width:70px">生年<br>月日</th>
+                            <th class="text-center" style="width:70px">入社日</th>
+                            <th class="text-center" style="width:70px">転籍日</th>
+                            <th class="text-center" style="width:70px">退職日</th>
+                            <th class="text-center" style="width:50px">部門</th>
                             <th class="text-center" style="width:75px">写真</th>
-                            <th class="text-center" style="width:100px">備考</th>
+                            <th class="text-center" style="width:105px">備考</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>解像度テーブル</title>
+        <title>ディスプレイ解像度</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,12 +47,12 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height650">
+        <div class="container height560 padding-top30">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> 解像度</b> テーブル</h2>
+                            <h2><b> ディスプレイ解像度</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -165,7 +165,8 @@ try {
                         </div>
                         <div class="modal-body">										
                             <div class="form-group">
-                                <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 <input ng-model="new_kaizoudo.newid" size="15" required>
                             </div>
                             <div class="form-group">

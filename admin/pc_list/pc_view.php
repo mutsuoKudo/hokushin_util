@@ -38,7 +38,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>PCリストテーブル</title>
+<title>PCリスト</title>
 
 <script>
 /**
@@ -153,11 +153,11 @@ $('[data-toggle="tooltip"]').tooltip();
 ?>  
 <div class="custom-container bottom13">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
-    <div class="row height700">
+    <div class="custom-row-big height600">
         <div class="padding-left50">
             <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">PCリスト</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">PCリスト</span></h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -170,21 +170,21 @@ $('[data-toggle="tooltip"]').tooltip();
                 <table class="table table-hover" id="dev-table">
                     <thead >
                         <tr>
-                            <th class="text-center" style="width:80px">id</th>
-                            <th class="text-center" style="width:45px"> ﾒｰｶｰ</th>
-                            <th class="text-center" style="width:45px">ﾓﾃﾞﾙ</th>
-                            <th class="text-center" style="width:45px">OS</th>
-                            <th class="text-center" style="width:45px">ﾌﾟﾛｾｯｻ</th>
-                            <th class="text-center" style="width:45px">ﾒﾓﾘ</th>
-                            <th class="text-center" style="width:45px">ｵﾌｨｽ</th>
-                            <th class="text-center" style="width:45px">状態</th>
-                            <th class="text-center" style="width:45px">使用場所</th>
-                            <th class="text-center" style="width:100px">ﾕｰｻﾞｰ</th>
-                            <th class="text-center" style="width:80px">購入日</th>
-                            <th class="text-center" style="width:75px">価格</th>
-                            <th class="text-center" style="width:90px">運用期間</th>
-                            <th class="text-center" style="width:100px">備考</th>
-                            <th class="text-center">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:90px">id</th>
+                            <th class="text-center" style="width:50px"> ﾒｰｶｰ</th>
+                            <th class="text-center" style="width:50px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:50px">OS</th>
+                            <th class="text-center" style="width:60px">ﾌﾟﾛｾｯｻ</th>
+                            <th class="text-center" style="width:50px">ﾒﾓﾘ</th>
+                            <th class="text-center" style="width:50px">ｵﾌｨｽ</th>
+                            <th class="text-center" style="width:50px">状態</th>
+                            <th class="text-center" style="width:50px">使用場所</th>
+                            <th class="text-center" style="width:105px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:100px">購入日</th>
+                            <th class="text-center" style="width:80px">価格</th>
+                            <th class="text-center" style="width:100px">運用期間</th>
+                            <th class="text-center" style="width:175px">備考</th>
+                            <th class="text-center" style="width:140px">ｼﾘｱﾙNO.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -201,7 +201,7 @@ $('[data-toggle="tooltip"]').tooltip();
                         print("<td class='text-center'>" . $row['office_id'] . "</td>");
                         print("<td class='text-center'>" . $row['jyotai'] . "</td>");
                         print("<td class='text-center'>" . $row['room_id'] . "</td>");
-                        print("<td class='text-center'>" . $row['user_id'] . "</td>");
+                        print("<td class='text-center' style='word-break:break-all'>" . $row['user_id'] . "</td>");
                         print("<td class='text-center'>" . $row['konyubi'] . "</td>");
                         print("<td class='text-center'>" . $row['kakaku'] . "</td>");
                         print("<td class='text-center'>" . $row['unyo_kikan'] . "</td>");

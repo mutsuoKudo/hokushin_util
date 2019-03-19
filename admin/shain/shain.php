@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>社員テーブル</title>
+        <title>社員情報</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,12 +48,12 @@ try {
     
     
     <body ng-controller="MainCtrl">
-        <div class="container height750 width1200">
+        <div class="container height600 width1200">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> 社員</b> テーブル</h2>
+                            <h2><b> 社員情報</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -184,7 +184,7 @@ try {
     <div id="editEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ編集</h2>
+                <h2 class="modal-title">データの編集</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="col-md-8 col-md-offset-2">
@@ -192,7 +192,7 @@ try {
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-6 mb-2">
-                                <label>ID</label>
+                                <label>ID<small>　※IDの変更はできません</small></label>
                                 <input id="id1" ng-model="shain.shain_cd" class="form-control input-lg" required>
                                 
                             </div>
@@ -230,7 +230,7 @@ try {
                                 <textarea  id="id6" ng-model="shain.shain_mail" cols="30" rows="1" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>誕生日</label>
+                                <label>誕生日<small>　例：2019-03-13</small></label>
                                 <input id="id7" ng-model="shain.shain_birthday" class="form-control input-lg" required>
                             </div>
                             
@@ -238,15 +238,15 @@ try {
                         
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
-                                <label>入社日</label>
+                                <label>入社日<small>　例：2019-03-13</small></label>
                                 <input id="id8" ng-model="shain.nyushabi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>転籍日</label>
+                                <label>転籍日<small>　例：2019-03-13</small></label>
                                 <input id="id9" ng-model="shain.tensekibi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>退職日</label>
+                                <label>退職日<small>　例：2019-03-13</small></label>
                                 <input id="id10" ng-model="shain.taishokubi" class="form-control input-lg" required>
                             </div>
                         </div>
@@ -291,7 +291,7 @@ try {
     <div id="addEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ追加</h2>
+                <h2 class="modal-title">データの追加</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="col-md-8 col-md-offset-2">
@@ -322,7 +322,7 @@ try {
                             </div>                         
                             <div class="form-group col-md-4 mb-2">
                                 <label>性別</label>
-                                <select ng-model="shain.gender" class="form-control input-lg">
+                                <select ng-model="new_shain.gender" class="form-control input-lg">
                                     <option value='男'>男</option>
                                     <option value='女'>女</option>
                                     <option value='その他'>その他</option>
@@ -336,22 +336,22 @@ try {
                                 <textarea ng-model="new_shain.shain_mail" cols="30" rows="1" class="form-control input-lg" required></textarea>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>誕生日</label>
+                                <label>誕生日<small>　例：2019-03-13</small></label>
                                  <input ng-model="new_shain.shain_birthday" class="form-control input-lg" required>
                             </div>
                         </div>
 
                         <div class="row row-top">
                             <div class="form-group col-md-4 mb-2">
-                                <label>入社日</label>
+                                <label>入社日<small>　例：2019-03-13</small></label>
                                 <input ng-model="new_shain.nyushabi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>転籍日</label>
+                                <label>転籍日<small>　例：2019-03-13</small></label>
                                 <input ng-model="new_shain.tensekibi" class="form-control input-lg" required>
                             </div>
                             <div class="form-group col-md-4 mb-2">
-                                <label>退職日</label>
+                                <label>退職日<small>　例：2019-03-13</small></label>
                                 <input ng-model="new_shain.taishokubi" class="form-control input-lg" required>
                             </div>
                         </div>

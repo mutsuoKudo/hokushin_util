@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>プロセッサテーブル</title>
+        <title>CPU名</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,12 +47,12 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height650">
+        <div class="container height560 padding-top30">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> プロセッサ</b> テーブル</h2>
+                            <h2><b> CPU名</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -252,6 +252,7 @@ try {
             })
             //最後に変数idに右かっこを文字列連結する
                     id = id + ')';
+                    console.log(id);
 //            ajaxでテーブル削除用phpを呼び出し、引数にidをpostで渡す
             $.ajax({
             type : 'post',
