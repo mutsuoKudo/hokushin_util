@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PCリストテーブル</title>
+        <title>PCリスト</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,12 +48,12 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height750 width1200">
+        <div class="container height560 width1200">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> PCリスト</b> テーブル</h2>
+                            <h2><b> PCリスト</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -92,7 +92,7 @@ try {
                             <th class="text-center" style="width:45px">ｵﾌｨｽ</th>
                             <th class="text-center" style="width:45px">状態</th>
                             <th class="text-center" style="width:45px">使用場所</th>
-                            <th class="text-center" style="width:90px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:85px">ﾕｰｻﾞｰ</th>
                             <th class="text-center" style="width:80px">購入日</th>
                             <th class="text-center" style="width:70px">価格</th>
                             <th class="text-center" style="width:70px">運用期間</th>
@@ -186,7 +186,7 @@ try {
     <div id="editEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ編集</h2>
+                <h2 class="modal-title">データの編集</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="col-md-8 col-md-offset-2">
@@ -346,7 +346,7 @@ try {
     <div id="addEmployeeModal" class="modal fade">
     <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ編集</h2>
+                <h2 class="modal-title">データの追加</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="col-md-8 col-md-offset-2">
@@ -619,11 +619,11 @@ try {
         });
 
         // クリック動作確認
-        $(function(){
-            $('button#edit').on("click",function(){
-                alert("click!");
-            })
-        })
+        // $(function(){
+        //     $('button#edit').on("click",function(){
+        //         alert("click!");
+        //     })
+        // })
 
 //         モーダル画面上の編集ボタン押下事の動き
         $('#edit').click(function () {

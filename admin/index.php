@@ -1,4 +1,4 @@
-<!-- bootstrapCSS4　※processor_tbl.php/processor_tblview.phpは3なのでCSS注意 -->
+<!-- bootstrapCSS4　※processor_tbl.php/processor_tblview.phpなどの遷移先は3なのでCSS注意 -->
 
 <!doctype html>
 <html lang="ja">
@@ -18,7 +18,7 @@
 
         <style>
             .bd-placeholder-img {
-                font-size: 1.125rem;
+                font-size: 1.0rem;
                 text-anchor: middle;
                 -webkit-user-select: none;
                 -moz-user-select: none;
@@ -30,9 +30,9 @@
                 background-color:#F39E15;
             }
 
-            .jumbotron-3rem{
+            .jumbotron-2rem{
                 padding-top:2rem;
-                padding-bottom:3rem;
+                padding-bottom:2rem;
             }
             .top-image{
                 background-image: url("topImage.jpg")
@@ -46,6 +46,10 @@
             .btn-size{
                 width:80px;
                 height:35px;
+            }
+            .custom-card-body{
+                flex: 1 1 auto;
+                padding: 1.0rem;
             }
             @media (min-width: 768px) {
                 .bd-placeholder-img-lg {
@@ -70,7 +74,6 @@
                             <ul class="list-unstyled">
                                 <li><a href="http://hokusys.jp/company" class="text-white">ホクシンシステム　HP</a></li>
                                 <li><a href="../index.php" class="text-white">ホクシンシステム　ユーティリティ</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -91,10 +94,9 @@
 
         <main role="main">
 
-            <section class="jumbotron-3rem text-center top-image">
+            <section class="jumbotron-2rem text-center top-image">
                 <div class="container">
                     <h1 class="jumbotron-heading text-muted">ホクシンシステム便利ツール<br>マスタメンテナンス</h1>
-                    <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
                     <p>
                         <a href="../index.php" class="btn page-link d-inline-block text-muted">Hokushin Util</a>
                         <a href="#" class="btn page-link d-inline-block text-muted">Break Time</a>
@@ -108,26 +110,23 @@
                     <div class="row mx-auto" style="width: 50rem;">
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>部門名の追加/修正/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef " dy=".3em">
-                                <tspan x="50%" y="40%">部門テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">部門名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
 
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="bumon/bumon_mei_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="bumon/bumon_mei.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -135,25 +134,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>状態名の追加/修正/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">状態テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">状態名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="jyotai/jyotai_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="jyotai/jyotai_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -161,25 +157,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>メーカー名の追加/修正/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">メーカーテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">メーカー名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="maker/maker_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="maker/maker_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -188,25 +181,22 @@
 
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>モデル名/詳細スペック参照先の追加/修正/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">モデルテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">モデル名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="model/model_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="model/model_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -214,53 +204,45 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>使用場所名称の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">使用場所テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">使用場所名称</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="room/room_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="room/room_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- プロセッサテーブル -->
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ＣＰＵ名の追加/変更/削除r</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">プロセッサテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ＣＰＵ名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="processor/processor_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="processor/processor_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -269,25 +251,22 @@
 
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ＯＳ名の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ＯＳテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ＯＳ名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="os/os_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="os/os_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -295,25 +274,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Microsoft Officeの種類の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">オフィステーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">Microsoft Officeの種類</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="office/office_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="office/office_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -321,25 +297,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>社員情報の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">社員テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">社員情報</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="shain/shain_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="shain/shain.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -347,25 +320,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ディスプレイの種類の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ディスプレイテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ディスプレイの種類</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="display_list/display_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="display_list/display.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -373,25 +343,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ディスプレイモデル名の追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ディスプレイモデル</tspan>
-                                <tspan x="50%" y="60%">テーブルメンテナンス</tspan>
+                                <tspan x="50%" y="35%">ディスプレイモデル名</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="display_model/display_model_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="display_model/display_model_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -399,25 +366,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ディスプレイ解像度の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">解像度テーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ディスプレイ解像度</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="display_kaizoudo/kaizoudo_tbl_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="display_kaizoudo/kaizoudo_tbl.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -425,25 +389,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>PCリストの追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ＰＣリストテーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ＰＣリスト</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="pc_list/pc_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="pc_list/pc.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -451,25 +412,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ＰＣリスト更新情報の追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ＰＣリスト更新情報</tspan>
-                                <tspan x="50%" y="60%">テーブルメンテナンス</tspan>
+                                <tspan x="50%" y="35%">ＰＣリスト更新情報</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="pc_list_koshin/pc_list_koshin_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="pc_list_koshin/pc_list_koshin.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -477,25 +435,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" 
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
                                      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>ニュースの追加/変更/削除</title><rect width="100%" height="100%" fill="#435d7d"/>
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="40%">ニューステーブル</tspan>
-                                <tspan x="50%" y="60%">メンテナンス</tspan>
+                                <tspan x="50%" y="35%">ニュース</tspan>
+                                <tspan x="50%" y="70%">メンテナンス</tspan>
                                 </text></svg>
-                                <div class="card-body">
-                                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                <div class="custom-card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group mx-auto">
-                                            <!-- +takahashi+ -->
                                             <form action="news/index_news_view.php" method="get" class="pad-right20">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
                                             </form>
                                             <form action="news/index_news.php" method="get">  
                                                 <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
                                             </form>
-                                            <!-- +takahashi -->
                                         </div>
                                     </div>
                                 </div>
@@ -508,11 +463,15 @@
 
         </main>
 
+        <!-- フッター -->
         <footer class="text-white bg-yellow">
             <div class="container">
                 <p class="float-right font-weight-bold font-size18">
                     <a href="#" class="text-white">Back to top</a>
             </div>
+            <!-- <address class="text-center">
+            Copyright (C) 2019 hokushin_util All Rights Reserved.
+            </address> -->
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

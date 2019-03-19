@@ -26,15 +26,15 @@ try {
     $name,$kana,$romaji,$mail,$gender,$birthday,$nyushabi,
     $tensekibi,$taishokubi,$department,$pic,$remarks,$id);
 
-    // $sql = $sql . $param;
-    var_dump($sql);
-    $file = 'C:\Users\user\Desktop\SQL_CHECK.txt';
-// ファイルをオープンして既存のコンテンツを取得します
-$current = file_get_contents($file);
-// 新しい人物をファイルに追加します
-$current .= $sql;
-// 結果をファイルに書き出します
-file_put_contents($file, $current);
+//     // $sql = $sql . $param;
+//     var_dump($sql);
+//     $file = 'C:\Users\user\Desktop\SQL_CHECK.txt';
+// // ファイルをオープンして既存のコンテンツを取得します
+// $current = file_get_contents($file);
+// // 新しい人物をファイルに追加します
+// $current .= $sql;
+// // 結果をファイルに書き出します
+// file_put_contents($file, $current);
 
     $st = $dbh->prepare($sql);
     $st->execute();

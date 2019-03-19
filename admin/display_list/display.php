@@ -32,7 +32,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ディスプレイリストテーブル</title>
+        <title>ディスプレイの種類</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,12 +48,12 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height750 width1500">
+        <div class="container height700 width1400">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> ディスプレイリスト</b> テーブル</h2>
+                            <h2><b> ディスプレイの種類</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -83,26 +83,26 @@ try {
                                     <label for="selectAll"></label>
                                 </form>
                             </th>
-                            <th class="text-center" style="width:80px">id</th>
-                            <th class="text-center" style="width:35px">ﾒｰｶｰ</th>
-                            <th class="text-center" style="width:35px">ﾓﾃﾞﾙ</th>
-                            <th class="text-center" style="width:35px">ｲﾝﾁ</th>
-                            <th class="text-center" style="width:35px">解像度</th>
-                            <th class="text-center" style="width:35px">vga</th>
-                            <th class="text-center" style="width:35px">dvi</th>
-                            <th class="text-center" style="width:35px">hd<br>mi</th>
-                            <th class="text-center" style="width:27px">Dp</th>
+                            <th class="text-center" style="width:100px">id</th>
+                            <th class="text-center" style="width:40px">ﾒｰｶｰ</th>
+                            <th class="text-center" style="width:40px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:40px">ｲﾝﾁ</th>
+                            <th class="text-center" style="width:40px">解像度</th>
+                            <th class="text-center" style="width:40px">vga</th>
+                            <th class="text-center" style="width:40px">dvi</th>
+                            <th class="text-center" style="width:40px">hd<br>mi</th>
+                            <th class="text-center" style="width:40px">Dp</th>
                             <th class="text-center" style="width:50px">その他</th>
-                            <th class="text-center" style="width:35px">ｽﾋﾟｰｶｰ</th>
-                            <th class="text-center" style="width:35px">USB</th>
-                            <th class="text-center" style="width:35px">状態</th>
-                            <th class="text-center" style="width:35px">使用場所</th>
-                            <th class="text-center" style="width:55px">ﾕｰｻﾞｰ</th>
-                            <th class="text-center" style="width:45px">購入日</th>
-                            <th class="text-center" style="width:50px">価格</th>
-                            <th class="text-center" style="width:40px">運用期間</th>
-                            <th class="text-center" style="width:50px !important">備考</th>
-                            <th class="text-center" style="width:80px !important">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:40px">ｽﾋﾟｰｶｰ</th>
+                            <th class="text-center" style="width:40px">USB</th>
+                            <th class="text-center" style="width:40px">状態</th>
+                            <th class="text-center" style="width:40px">使用場所</th>
+                            <th class="text-center" style="width:70px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:60px">購入日</th>
+                            <th class="text-center" style="width:65px">価格</th>
+                            <th class="text-center" style="width:95px">運用期間</th>
+                            <th class="text-center" style="width:90px">備考</th>
+                            <th class="text-center" style="width:140px">ｼﾘｱﾙNO.</th>
                             <th class="text-center" width="150px">操作</th>
                         </tr>
                     </thead>
@@ -126,17 +126,17 @@ try {
                             <td class="text-center">{{display.dvi}}</td>
                             <td class="text-center">{{display.hdmi}}</td>
                             <td class="text-center">{{display.displayport}}</td>
-                            <td class="text-center">{{display.other}}</td>
+                            <td class="text-center" style="word-break:break-all">{{display.other}}</td>
                             <td class="text-center">{{display.speaker}}</td>
                             <td class="text-center">{{display.usb}}</td>
                             <td class="text-center">{{display.jyotai}}</td>
                             <td class="text-center">{{display.room_id}}</td>
                             <td class="text-center" style="word-break:break-all">{{display.user_id}}</td>
-                            <td class="text-center">{{display.konyubi}}</td>
+                            <td class="text-center" style="word-break:break-all">{{display.konyubi}}</td>
                             <td class="text-center">{{display.kakaku}}</td>
                             <td class="text-center" style="word-break:break-all">{{display.unyo_kikan}}</td>
                             <td class="text-center" style="word-break:break-all">{{display.biko}}</td>
-                            <td class="text-center" style="word-break:break-all">{{display.serial_no}}</td>
+                            <td style="word-break:break-all">{{display.serial_no}}</td>
                             <td class="text-center edit-button">
                                 <!-- <button ng-click="update()" class="edit"> -->
                                 <button a href="#editEmployeeModal" data-toggle="modal" class="edit-icon">
@@ -197,7 +197,7 @@ try {
     <div id="editEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ編集</h2>
+                <h2 class="modal-title">データの編集</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="col-md-8 col-md-offset-2">
@@ -205,7 +205,7 @@ try {
                     <div class="modal-body">
                         <div class="row">
                         <div class="form-group col-md-6 mb-2">
-                                <label>ID</label>
+                                <label>ID<small>　※IDの変更はできません</small></label>
                                 <input id="id1" ng-model="display.id" class="form-control input-lg" required>
                             </div>
                         </div>
@@ -367,7 +367,7 @@ try {
     <div id="addEmployeeModal" class="modal fade">
         <div class="container  bg-white">
             <div class="modal-header py-5 text-center">
-                <h2 class="modal-title">データ追加</h2>
+                <h2 class="modal-title">データの追加</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             

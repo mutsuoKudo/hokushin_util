@@ -39,7 +39,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>部門テーブル</title>
+<title>部門名</title>
 
 <script>
 /**
@@ -119,11 +119,11 @@ $('[data-toggle="tooltip"]').tooltip();
 
 ?>  
 <div class="container bottom13">
-    <div class="row height500">
+    <div class="custom-row height450">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel border-color-white">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">部門</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">部門名</span></h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -186,7 +186,7 @@ $('[data-toggle="tooltip"]').tooltip();
     </div>
 </div>
 <!-- フッター -->
-<footer class="text-white bg-yellow footer">
+<footer class="text-white bg-yellow footer-big">
     <div class="container">
         <p class="float-right" class="text-white">
             <a href="#" class="text-white">Back to top</a>

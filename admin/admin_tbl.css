@@ -225,14 +225,9 @@ table.table .avatar {
 
 
 /* ○○○.view用のCSS */
-.row{
-    margin-top:40px;
-    padding: 0 10px;
-}
 .clickable{
     cursor: pointer;   
 }
-
 .panel-heading div {
     margin-top: -18px;
     font-size: 15px;
@@ -246,6 +241,14 @@ table.table .avatar {
 
 
 /* takahashi */
+.custom-row{
+    margin-top:70px;
+    padding: 0 10px;
+}
+.custom-row-big{
+    margin-top:30px;
+    padding: 0 10px;
+}
 .text-white{
     color:white !important;
 }
@@ -261,6 +264,12 @@ table.table .avatar {
 .footer{
     padding-top:2rem;
     padding-bottom:3rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+.footer-big{
+    padding-top:3rem;
+    padding-bottom:4rem;
     font-size: 18px;
     font-weight: 600;
 }
@@ -285,8 +294,12 @@ table.table .avatar {
     font-size: 24px !important;
     color:inherit;    
 }
-.height500{
-    height: 500px;
+.height450{
+    height: 450px;
+}
+
+.height560{
+    height: 560px;
 }
 .height650{
     height: 650px;
@@ -294,9 +307,7 @@ table.table .avatar {
 .height700{
     height: 700px; 
 }
-.height750{
-    height: 750px; 
-}
+
 .custom-container{
     margin-right: auto;
     margin-left: 30px;
@@ -304,11 +315,11 @@ table.table .avatar {
 .width1500{
     width: 1500px;
 }
-.width1000{
-    width: 1000px;
-}
 .width1200{
     width: 1200px;
+}
+.width1400{
+    width: 1400px;
 }
 .row-top{
     margin-top: 10px !important;
@@ -316,3 +327,7 @@ table.table .avatar {
 .padding-left50{
     padding-left: 50px;
 }
+.padding-top30{
+    padding-top: 30px;
+}
+

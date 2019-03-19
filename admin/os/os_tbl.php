@@ -31,7 +31,7 @@ try {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>OSテーブル</title>
+        <title>OS名</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,12 +47,12 @@ try {
 
 
     <body ng-controller="MainCtrl">
-        <div class="container height650">
+        <div class="container height560 padding-top30">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2><b> OS</b> テーブル</h2>
+                            <h2><b> OS名</b></h2>
                         </div>
                         <!--追加・削除ボタン-->
                         <div class="col-sm-6">
@@ -83,7 +83,7 @@ try {
                                 </form>
                             </th>
                             <th width="80px">ID</th>
-                            <th width="150px">名前</th>
+                            <th width="200px">名前</th>
                             <th width="150px">操作</th>
                         </tr>
                     </thead>
@@ -167,7 +167,7 @@ try {
                                 <input ng-model="new_os.newid" size="15" required>
                             </div>
                             <div class="form-group">
-                                <label>略称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label>名前&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 <input ng-model="new_os.name" size="15" required>
                             </div>			
                         </div>

@@ -39,7 +39,7 @@ var_dump($st);
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<title>ディスプレイリストテーブル</title>
+<title>ディスプレイの種類</title>
 
 <script>
 /**
@@ -154,11 +154,11 @@ $('[data-toggle="tooltip"]').tooltip();
     
 ?>  
 <div class="custom-container bottom13">
-    <div class="row height700">
+    <div class="custom-row-big height600">
         <div class="padding-left50">
             <div class="panel border-color-white width1200">
                 <div class="panel-heading bg-green text-white">
-                    <h3 class="font-24"><span class="font-varela">ディスプレイリスト</span>テーブル</h3>
+                    <h3 class="font-24"><span class="font-varela">ディスプレイの種類</span></h3>
                     <div class="pull-right">
                         <span class="clickable filter" data-toggle="tooltip" title="Search Filter" data-container="body">
                             <i class="glyphicon glyphicon-filter" class="text-white"></i>
@@ -171,26 +171,26 @@ $('[data-toggle="tooltip"]').tooltip();
                 <table class="table table-hover" id="dev-table">
                     <thead >
                         <tr>
-                            <th class="text-center" style="width:85px">id</th>
-                            <th class="text-center" style="width:35px">ﾒｰ<br>ｶｰ</th>
-                            <th class="text-center" style="width:35px">ﾓﾃﾞﾙ</th>
-                            <th class="text-center" style="width:35px">ｲﾝﾁ</th>
-                            <th class="text-center" style="width:35px">解像度</th>
-                            <th class="text-center" style="width:35px">vga</th>
-                            <th class="text-center" style="width:35px">dvi</th>
-                            <th class="text-center" style="width:35px">hd<br>mi</th>
-                            <th class="text-center" style="width:35px">Dp</th>
+                            <th class="text-center" style="width:90px">id</th>
+                            <th class="text-center" style="width:40px">ﾒｰ<br>ｶｰ</th>
+                            <th class="text-center" style="width:40px">ﾓﾃﾞﾙ</th>
+                            <th class="text-center" style="width:45px">ｲﾝﾁ</th>
+                            <th class="text-center" style="width:40px">解像度</th>
+                            <th class="text-center" style="width:40px">vga</th>
+                            <th class="text-center" style="width:40px">dvi</th>
+                            <th class="text-center" style="width:40px">hd<br>mi</th>
+                            <th class="text-center" style="width:40px">Dp</th>
                             <th class="text-center" style="width:50px">その他</th>
-                            <th class="text-center" style="width:35px">ｽﾋﾟｰｶｰ</th>
-                            <th class="text-center" style="width:35px">USB</th>
-                            <th class="text-center" style="width:35px">状態</th>
-                            <th class="text-center" style="width:35px">使用場所</th>
-                            <th class="text-center" style="width:65px">ﾕｰｻﾞｰ</th>
-                            <th class="text-center" style="width:70px">購入日</th>
-                            <th class="text-center" style="width:80px">価格</th>
-                            <th class="text-center" style="width:70px">運用期間</th>
+                            <th class="text-center" style="width:40px">ｽﾋﾟｰｶｰ</th>
+                            <th class="text-center" style="width:40px">USB</th>
+                            <th class="text-center" style="width:40px">状態</th>
+                            <th class="text-center" style="width:40px">使用場所</th>
+                            <th class="text-center" style="width:105px">ﾕｰｻﾞｰ</th>
+                            <th class="text-center" style="width:100px">購入日</th>
+                            <th class="text-center" style="width:65px">価格</th>
+                            <th class="text-center" style="width:95px">運用期間</th>
                             <th class="text-center" style="width:80px">備考</th>
-                            <th class="text-center" style="width:90px">ｼﾘｱﾙNO.</th>
+                            <th class="text-center" style="width:130px">ｼﾘｱﾙNO.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -210,7 +210,7 @@ $('[data-toggle="tooltip"]').tooltip();
                         print("<td>" . $row['other'] . "</td>");
                         print("<td class='text-center'>" . $row['speaker'] . "</td>");
                         print("<td class='text-center'>" . $row['usb'] . "</td>");
-                        print("<td>" . $row['jyotai'] . "</td>");
+                        print("<td class='text-center'>" . $row['jyotai'] . "</td>");
                         print("<td>" . $row['room_id'] . "</td>");
                         print("<td class='text-center' style='word-break:break-all'>" . $row['user_id'] . "</td>");
                         print("<td class='text-center'>" . $row['konyubi'] . "</td>");

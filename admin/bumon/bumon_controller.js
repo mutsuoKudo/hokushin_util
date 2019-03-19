@@ -1,4 +1,4 @@
-// DBデータ（students.php）の呼び出し・追加・更新・削除
+// DBデータ（bumon_list.php）の呼び出し・追加・更新・削除
 
 
 var app = angular.module('app', ['ngResource']);
