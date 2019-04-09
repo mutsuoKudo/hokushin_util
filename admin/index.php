@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Jekyll v3.8.5">
-        <title>ホクシンシステム便利サイト　マスタメンテナンス</title>
+        <title>マスタメンテナンス</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/.3/examples/album/">
 
@@ -99,7 +99,7 @@
                     <h1 class="jumbotron-heading text-muted">ホクシンシステム便利ツール<br>マスタメンテナンス</h1>
                     <p>
                         <a href="../index.php" class="btn page-link d-inline-block text-muted">Hokushin Util</a>
-                        <a href="#" class="btn page-link d-inline-block text-muted">Break Time</a>
+                        <a href="https://search.yahoo.co.jp/image/search?ei=UTF-8&p=%E7%8C%AB&fr=mcafeess1" target="_blank" class="btn page-link d-inline-block text-muted">Break Time</a>
                     </p>
                 </div>
             </section>
