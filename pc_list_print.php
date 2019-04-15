@@ -13,6 +13,7 @@
         <script src="js/html5.js"></script>
         <script src="js/css3-mediaqueries.js"></script>
         <![endif]-->
+
     
     </head>
     <body link="#99CCFF" alink="#9900FF" vlink="#FF9900">
@@ -69,46 +70,46 @@
         print('<th colspan="7" class="top_cell_color3">所在情報等</th>');
 
         print('</tr>');
-        print('<tr class="middle_cell_color">');
-        print('<th width="100x">NO.</th>');
+        print('<tr align="center" class="middle_cell_color">');
+        print('<th width="120x">NO.</th>');
         print('<th width="80px">ﾒｰｶｰ</th>');
         print('<th width="70px">型番</th>');
-        print('<th width="65px">CPU</th>');
-        print('<th width="40px">ﾒﾓﾘ</th>');
+        print('<th width="70px">CPU</th>');
+        print('<th width="48px">ﾒﾓﾘ</th>');
         print('<th width="75px">OS</th>');
         print('<th width="80px">ｵﾌｨｽ</th>');
         print('<th width="50px">状態</th>');
         print('<th width="75px">使用場所</th>');
         print('<th width="100px">使用者</th>');
         print('<th width="70px">購入日</th>');
-        print('<th width="px">価格</th>');
-        print('<th width="95px">運用期間</th>');
-        print('<th width="65px">備考</th> ');
+        print('<th width="70px">価格</th>');
+        print('<th width="90px">運用期間</th>');
+        print('<th width="200px">備考</th> ');
         print('</tr>');
         foreach ($pc_list as $row) {
 //                        var_dump($row);
             $i = $i + 1;
             if ($i > 10) {
                 $i = 1;
-                print('<tr class="middle_cell_color">');
-                print('<th width="100px">NO.</th>');
+                print('<tr align="center" class="middle_cell_color">');
+                print('<th width="120px">NO.</th>');
                 print('<th width="80px">ﾒｰｶｰ</th>');
                 print('<th width="70px">型番</th>');
-                print('<th width="60px">CPU</th>');
-                print('<th width="40px">ﾒﾓﾘ</th>');
+                print('<th width="70px">CPU</th>');
+                print('<th width="48px">ﾒﾓﾘ</th>');
                 print('<th width="75px">OS</th>');
                 print('<th width="80px">ｵﾌｨｽ</th>');
                 print('<th width="50px">状態</th>');
                 print('<th width="75px">使用場所</th>');
                 print('<th width="100px">使用者</th>');
                 print('<th width="70px">購入日</th>');
-                print('<th width="px">価格</th>');
+                print('<th width="70px">価格</th>');
                 print('<th width="90px">運用期間</th>');
-                print('<th width="65px">備考</th> ');
+                print('<th width="200px">備考</th> ');
                 print('</tr>');
             }
 
-            print('<tr>');
+            print('<tr align="center">');
             print('<td onclick="alert(\'serial no.=' . $row['serial_no'] . '\')">' . $row['id'] . '</td>');
 
             print("<td >" . $row['maker_name'] . "</td>");
@@ -125,6 +126,8 @@
                 print("<td class='wait_bgcolor'>" . $row['jt_name'] . "</td>");
             } else if ($row['jt_name'] == "故障") {
                 print("<td class='broken_bgcolor'>" . $row['jt_name'] . "</td>");
+            } else if ($row['jt_name'] == "貸出") {
+                print("<td class='rental_bgcolor'>" . $row['jt_name'] . "</td>");
             } else {
                 print("<td>" . $row['jt_name'] . "</td>");
             }
@@ -134,8 +137,8 @@
             print("<td>" . $row['b_ymd'] . "</td>");
             print("<td>" . $row['price'] . "</td>");
             print("<td>" . $row['term'] . "</td>");
-            if (strlen($row['biko']) > 18) {
-                $biko_comment = substr($row['biko'], 0, 18) . "･･･";
+            if (strlen($row['biko']) > 32) {
+                $biko_comment = substr($row['biko'], 0, 32) . "･･･";
             } else {
                 $biko_comment = $row['biko'];
             }

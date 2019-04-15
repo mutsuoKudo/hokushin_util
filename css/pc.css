@@ -412,7 +412,7 @@ span.tel {
 .pc_table{
   border: 1px solid green;
   border-collapse: collapse;
-  text-align:center;
+  /* text-align:center; */
   width: 1198px;
   margin: 5px 0 0 0;
 }
@@ -450,6 +450,9 @@ span.tel {
 
 .broken_bgcolor{
   background-color: lightpink !important;
+}
+.rental_bgcolor{
+  background-color: palegoldenrod !important;
 }
 
 

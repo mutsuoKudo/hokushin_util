@@ -604,8 +604,8 @@ try {
             $('#id2').val($(this).prevAll().eq(13).text());
             $('#id3').val($(this).prevAll().eq(12).text());
             $('#id4').val($(this).prevAll().eq(11).text());
-            $('#id6').val($(this).prevAll().eq(10).text());
-            $('#id5').val($(this).prevAll().eq(9).text());
+            $('#id5').val($(this).prevAll().eq(10).text());
+            $('#id6').val($(this).prevAll().eq(9).text());
             $('#id7').val($(this).prevAll().eq(8).text());
             $('#id8').val($(this).prevAll().eq(7).text());
             $('#id9').val($(this).prevAll().eq(6).text());

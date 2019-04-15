@@ -68,14 +68,14 @@
                     $i = 0;
                     print('<div align="center">');
                     print('<table class="pc_table">');
-                    print('<tr>');
+                    print('<tr align="center">');
                     print('<th colspan="3" class="top_cell_color1">識別情報</th>');
                     print('<th colspan="9" class="top_cell_color2">ＨＷ/ＳＷ情報</th>');
 
                     print('<th colspan="7" class="top_cell_color3">所在情報等</th>');
 
                     print('</tr>');
-                    print('<tr class="middle_cell_color">');
+                    print('<tr align="center" class="middle_cell_color">');
                     print('<th width="100px">NO.</th>');
                     print('<th width="70px">ﾒｰｶｰ</th>');
                     print('<th width="70px">型番</th>');
@@ -101,7 +101,7 @@
                         $i = $i + 1;
                         if ($i > 10) {
                             $i = 1;
-                            print('<tr class="middle_cell_color">');
+                            print('<tr align="center" class="middle_cell_color">');
                     print('<th width="100px">NO.</th>');
                     print('<th width="70px">ﾒｰｶｰ</th>');
                     print('<th width="70px">型番</th>');
@@ -124,7 +124,7 @@
                     print('</tr>');
                         }
 
-                        print('<tr>');
+                        print('<tr align="center">');
                         print('<td onclick="alert(\'serial no.=' . $row['serial_no'] . '\')">' . $row['id'] . '</td>');
 
                         print("<td >" . $row['maker_name'] . "</td>");
