@@ -30,7 +30,7 @@
       // var_dump($_GET['shiteimonth']);
         require('../../lib/jQueryadd.php');
         ?>
-        <script><!--
+        <script>
             function chgpic_apear(pic_name) {
                     $('#phot1').css("visibility", "visible");
                     $('#r_photo').attr("src", pic_name);
@@ -38,8 +38,7 @@
             function pic_hidden() {
                 $('#phot1').css("visibility", "hidden");
                 }
-                /-->
-       >
+
                         function win_open_add() {
                             window.open("report_list_ajax.php","",""); 
                         }
@@ -51,11 +50,11 @@
                 
                 </script>	
             <style>
-                        <!-- 
+                        
                         form{
                             display:inline;
                         }
-                        -->
+                        
                         td a{
                             display:block;
                             width:100%;

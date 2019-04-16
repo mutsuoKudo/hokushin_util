@@ -7,8 +7,8 @@
         <meta name="viewport" content="width=device-width">
         <meta name="keywords" content="キーワード">
         <meta name="description" content="紹介文">
-        <link rel="stylesheet" href="css/sp.css">
-        <link rel="stylesheet" href="css/pc.css">
+        <link rel="stylesheet" href="./css/sp.css">
+        <link rel="stylesheet" href="./css/pc.css">
         <!--[if lt IE 9]>
         <script src="js/html5.js"></script>
         <script src="js/css3-mediaqueries.js"></script>
@@ -18,7 +18,7 @@
         require('lib/jQueryadd.php');
         ?>
 
-            <script><!--
+            <script>
             jQuery(document).ready(function ($) {
                     // ここでは、$はjQueryとして使えます。
 
@@ -61,7 +61,7 @@
             </script>
 
     <style>
-                    <!-- 
+                     
                     #ajax1_1{
                         color:goldenrod;
                     }
@@ -69,7 +69,7 @@
                     }	
                     #ajax3{
                     }			
-                    -->	         
+                             
                 </style>
               
       </head>
