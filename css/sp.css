@@ -87,7 +87,7 @@ body {
 #header #header_inner {
   margin: 0;
   padding: 2px;  /*-- 余白 --*/
-  background-image: url(../img/back.png);  /*-- 背景色 --*/
+  /* background-image: url(../../img/back.png);  -- 背景色 -- */
 }
 
 
