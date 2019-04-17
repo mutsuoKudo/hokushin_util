@@ -14,6 +14,15 @@
         <script src="js/css3-mediaqueries.js"></script>
         <![endif]-->
 
+        <style>
+        .biko {
+                max-width: 105px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                }
+        </style>
+
     
     </head>
     <body link="#99CCFF" alink="#9900FF" vlink="#FF9900">
@@ -137,12 +146,13 @@
             print("<td>" . $row['b_ymd'] . "</td>");
             print("<td>" . $row['price'] . "</td>");
             print("<td>" . $row['term'] . "</td>");
-            if (strlen($row['biko']) > 32) {
-                $biko_comment = substr($row['biko'], 0, 32) . "･･･";
-            } else {
-                $biko_comment = $row['biko'];
-            }
-            print('<td onclick="alert(\'' . $row['biko'] . '\')">' . $biko_comment . '</td>');
+            // if (strlen($row['biko']) > 32) {
+            //     $biko_comment = substr($row['biko'], 0, 32) . "･･･";
+            // } else {
+            //     $biko_comment = $row['biko'];
+            // }
+            // print('<td onclick="alert(\'' . $row['biko'] . '\')">' . $biko_comment . '</td>');
+            print('<td class="biko" onclick="alert(\'' . $row['biko'] . '\')">' . $row['biko'] . '</td>');
 //print('<td onclick="alert(\'serial no.=' . $row['serial_no'] . '\')">' . $row['id'] . '</td>');
             print("</tr>\n");
         }
