@@ -39,6 +39,12 @@
             .text-center{
                 text-align: center;
             }
+            .biko {
+                max-width: 105px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                }
         </style>
     </head>
 
@@ -163,12 +169,14 @@
             print("<td class='text-center'>" . $row['b_ymd'] . "</td>");
             print("<td class='text-center'>" . $row['price'] . "</td>");
             print("<td class='text-center'>" . $row['term'] . "</td>");
-            if (strlen($row['biko']) >= 13) {
-                $biko_comment = substr($row['biko'], 0, 13) . "･･･";
-            } else {
-                $biko_comment = $row['biko'];
-            }
-            print('<td class="text-center" style=" word-break: break-all;" onclick="alert(\'' . $row['biko'] . '\')">' . $biko_comment . '</td>');
+            // if (strlen($row['biko']) >= 13) {
+            //     $biko_comment = substr($row['biko'], 0, 13) . "･･･";
+            // } else {
+            //     $biko_comment = $row['biko'];
+            // }
+            // print('<div class="bikobiko">');
+            print('<td class="text-center biko" style=" word-break: break-all;" onclick="alert(\'' . $row['biko'] . '\')">' . $row['biko'] . '</td>');
+            // print('</div>');
             print("</tr>\n");
         }
         print("</table>");
