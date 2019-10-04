@@ -13,5 +13,6 @@
     <li><a href="/hokushin_util/profile.php">営業案件管理<br /><span class="sub">opportunity</span></a></li>
     <li><a href="/hokushin_util/faq.php">求人情報管理<br /><span class="sub">information</span></a></li>
     <li><a href="/hokushin_util/contact.php">SES・派遣先管理<br /><span class="sub">ses</span></a></li>
+    <li><a href="/hokushin_util/HokushinHPdoc/hokushinHPDoc.php">自社HP説明書<br /><span class="sub">HokushinHPDocs</span></a></li>
    </ul>
 </nav>
