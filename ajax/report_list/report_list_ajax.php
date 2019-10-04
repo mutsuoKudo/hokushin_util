@@ -109,7 +109,7 @@ $query = $query . "si.shain_mei AS name ";
 $query = $query . ",si.shain_cd AS shain_cd ";
 $query = $query . " FROM shain si";
 $query = $query . " WHERE si.department = 4
-                    AND taishokubi IS NULL";
+                    AND taishokubi IS NULL OR taishokubi = 0000-00-00";
 $query = $query . " ORDER BY si.shain_cd";
 
 //var_dump($query);
