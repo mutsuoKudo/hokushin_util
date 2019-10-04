@@ -21,6 +21,7 @@ try {
       $st = $pdo->prepare("INSERT INTO room_tbl(id,name,short_name) VALUES(:newid,:name,:short_name)");
       var_dump($st);
     }
+
     $st->execute($in);
     break;
     
