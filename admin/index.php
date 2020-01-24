@@ -456,29 +456,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="http://www.w3.org/2000/svg" 
-                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>扶養家族リストの追加/変更/削除</title><rect width="100%" height="100%" fill="olivedrab"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <tspan x="50%" y="35%">扶養家族リスト</tspan>
-                                <tspan x="50%" y="70%">メンテナンス</tspan>
-                                </text></svg>
-                                <div class="custom-card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group mx-auto">
-                                            <form action="dependent_info/dependent_info_view.php" method="get" class="pad-right20">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">View</button>
-                                            </form>
-                                            <form action="dependent_info/dependent_info.php" method="get">  
-                                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-size">Edit</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>

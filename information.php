@@ -118,8 +118,8 @@
                     　<option value="2016">2016年</option>
                       <option value="2017">2017年</option>
                       <option value="2018">2018年</option>
-                      <option value="2019" selected>2019年</option>
-                      <option value="2020">2020年</option>
+                      <option value="2019">2019年</option>
+                      <option value="2020" selected>2020年</option>
                     </select>
 
 
