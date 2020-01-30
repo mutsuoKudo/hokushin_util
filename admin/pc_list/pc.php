@@ -95,7 +95,7 @@ try {
                             <th class="text-center" style="width:85px">ﾕｰｻﾞｰ</th>
                             <th class="text-center" style="width:80px">購入日</th>
                             <th class="text-center" style="width:70px">価格</th>
-                            <th class="text-center" style="width:70px">運用期間</th>
+                            <th class="text-center" style="width:70px">運用<br>期間</th>
                             <th class="text-center" style="width:200px">備考</th>
                             <th class="text-center" style="width:110px">ｼﾘｱﾙNO.</th>
                             <th class="text-center" style="width:180px">操作</th>
@@ -175,7 +175,7 @@ try {
             <p class="float-right" class="text-white">
                 <a href="#" class="text-white">Back to top</a>
                 <br>
-                <a href="../index.php" class="text-white">Back to home</a>
+                <a href="../index.php" class="text-white">HOMEにもどる</a>
             </p>
         </div>
     </footer>

@@ -151,7 +151,7 @@ $('[data-toggle="tooltip"]').tooltip();
     //var_dump($processor_tbl[0]['id']);
     
 ?>  
-<div class="custom-container bottom13">
+<div class="custom-container bottom13" style="margin:0 auto">
     <!-- <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> -->
     <div class="custom-row-big height600">
         <div class="padding-left50">
@@ -248,9 +248,9 @@ $('[data-toggle="tooltip"]').tooltip();
 <footer class="text-white bg-yellow footer">
     <div class="container">
         <p class="float-right" class="text-white">
-            <a href="#" class="text-white">Back to top</a>
+            <a href="#" class="text-white">ページ上部へ</a>
             <br>
-            <a href="../index.php" class="text-white">Back to home</a>
+            <a href="../index.php" class="text-white">HOMEにもどる</a>
         </p>
     </div>
 </footer>

@@ -457,6 +457,7 @@
                             </div>
                         </div>
 
+
                     </div>
                 </div>
             </div>
@@ -467,7 +468,7 @@
         <footer class="text-white bg-yellow">
             <div class="container">
                 <p class="float-right font-weight-bold font-size18">
-                    <a href="#" class="text-white">Back to top</a>
+                    <a href="#" class="text-white">ページ上部へ</a>
             </div>
             <!-- <address class="text-center">
             Copyright (C) 2019 hokushin_util All Rights Reserved.
